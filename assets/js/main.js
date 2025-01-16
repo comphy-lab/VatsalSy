@@ -45,9 +45,20 @@
     const closeBtn = document.querySelector('.s-header__nav-close-btn');
     const menuLinks = document.querySelectorAll('.s-header__nav-list a');
 
+    // Handle click outside
+    document.addEventListener('click', function(e) {
+        if (nav && nav.classList.contains('is-active')) {
+            // Check if click is outside nav and not on menu toggle
+            if (!nav.contains(e.target) && !menuToggle.contains(e.target)) {
+                nav.classList.remove('is-active');
+            }
+        }
+    });
+
     if (menuToggle) {
         menuToggle.addEventListener('click', function(e) {
             e.preventDefault();
+            e.stopPropagation(); // Prevent document click from immediately closing
             nav.classList.add('is-active');
         });
     }
@@ -85,11 +96,22 @@
 
     if (goTop) {
         window.addEventListener('scroll', function() {
-            if (window.pageYOffset > 800) {
+            const scrollY = window.pageYOffset || document.documentElement.scrollTop;
+            
+            if (scrollY > 200) {  // Show after scrolling 200px
                 goTop.classList.add('link-is-visible');
             } else {
                 goTop.classList.remove('link-is-visible');
             }
+        });
+
+        // Smooth scroll to top when clicked
+        goTop.addEventListener('click', function(e) {
+            e.preventDefault();
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
         });
     }
 
