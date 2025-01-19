@@ -521,14 +521,19 @@ body {
 }
 
 .footer-logo {
-  height: 40px;
+  height: 60px;
   width: auto;
   transition: transform 0.3s ease;
   filter: brightness(0) invert(1);
+  margin: 0 10px;
 }
 
 .pof-logo {
-  height: 45px;
+  height: 75px;
+}
+
+.comphy-logo {
+  height: 80px;
 }
 
 .copyright-text {
@@ -653,6 +658,10 @@ body {
     height: 40px;
   }
 
+  .comphy-logo {
+    height: 50px;
+  }
+
   .footer-right {
     padding-right: 0;
     justify-content: center;
@@ -710,6 +719,10 @@ body {
 
   .pof-logo {
     height: 35px;
+  }
+
+  .comphy-logo {
+    height: 40px;
   }
 
   .footer-right i {
