@@ -1,6 +1,6 @@
 # Vatsal Sanjay's personal Website
 
-[![Website Status](https://img.shields.io/website?url=https%3A%2F%2Fvatsalsanjay.com&style=flat-square&logo=github&label=Website)](https://vatsalsanjay.com)
+[![Website Status](https://img.shields.io/website?url=https%3A%2F%2Fvatsal.comphy-lab.org&style=flat-square&logo=github&label=Website)](https://vatsal.comphy-lab.org)
 [![Pages Build](https://img.shields.io/github/actions/workflow/status/VatsalSy/VatsalSy.github.io/pages/pages-build-deployment?style=flat-square&logo=github&label=Pages)](https://github.com/VatsalSy/VatsalSy.github.io/actions/workflows/pages/pages-build-deployment)
 [![Issues](https://img.shields.io/github/issues/VatsalSy/VatsalSy.github.io?style=flat-square&logo=github)](https://github.com/VatsalSy/VatsalSy.github.io/issues)
 [![PRs](https://img.shields.io/github/issues-pr/VatsalSy/VatsalSy.github.io?style=flat-square&logo=github)](https://github.com/VatsalSy/VatsalSy.github.io/pulls)
@@ -8,7 +8,7 @@
 [![Last Commit](https://img.shields.io/github/last-commit/VatsalSy/VatsalSy.github.io?style=flat-square&logo=github)](https://github.com/VatsalSy/VatsalSy.github.io/commits/main)
 [![Jekyll](https://img.shields.io/badge/Jekyll-4.3.2-%23CC0000?style=flat-square&logo=jekyll)](https://jekyllrb.com/)
 
-The personal website for Vatsal Sanjay, built with Jekyll. If you are looking for the website of the Computational Multiphase Physics Lab, check out [comphy-lab.org](https://comphy-lab.org) or [github](https://github.com/comphy-lab).
+The personal website for Vatsal Sanjay, hosted at [vatsal.comphy-lab.org](https://vatsal.comphy-lab.org), built with Jekyll. If you are looking for the website of the Computational Multiphase Physics Lab, check out [comphy-lab.org](https://comphy-lab.org) or [github](https://github.com/comphy-lab).
 
 ## Directory Structure
 
