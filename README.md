@@ -28,6 +28,8 @@ The personal website for Vatsal Sanjay, hosted at [vatsal.comphy-lab.org](https:
 │   └── logos             # Logo files
 ├── about.md               # About page content
 ├── index.html             # Homepage
+├── research-interests.md  # Research interests page (not in navigation)
+├── research-interest.md   # Redirect to comphy-lab.org/research
 ├── Gemfile               # Ruby dependencies
 └── _site                 # Generated site (not tracked in git)
 ```
@@ -63,6 +65,9 @@ The personal website for Vatsal Sanjay, hosted at [vatsal.comphy-lab.org](https:
 - Standard markdown elements (headers, lists, links) are supported
 - Edits automatically appear once the site is rebuilt
 
+#### Research Pages
+- `research-interests.md`: A standalone page with research interests info (not in navigation)
+- `research-interest.md`: Redirects to comphy-lab.org/research
 
 #### Adding or Editing Team 
 
