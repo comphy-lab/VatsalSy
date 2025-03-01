@@ -48,9 +48,9 @@ Hi, I am Vatsal Sanjay. I am a Fluid Dynamicist working in the field of multipha
   </picture>
 </a>
 
-<a href="https://www.youtube.com/@VatsalSanjay" target="_blank">
+<a href="https://www.youtube.com/@CoMPhyLab" target="_blank">
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="https://cust-youtube-stats-card.vercel.app/api?channelid=UC-eTdHrAM_eQrWOtNLoT19w&theme=solarized_light&hide_border=true" width="auto" height="150px">
-    <img alt="Vatsal's YouTube stats" src="https://cust-youtube-stats-card.vercel.app/api?channelid=UC-eTdHrAM_eQrWOtNLoT19w&theme=vision-friendly-dark" width="auto" height="150px">
+    <img alt="CoMPhy Lab YouTube stats" src="https://cust-youtube-stats-card.vercel.app/api?channelid=UC-eTdHrAM_eQrWOtNLoT19w&theme=vision-friendly-dark" width="auto" height="150px">
   </picture>
 </a>
