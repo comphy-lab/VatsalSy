@@ -28,7 +28,9 @@ The personal website for Vatsal Sanjay, hosted at [vatsal.comphy-lab.org](https:
 │   └── logos             # Logo files
 ├── about.md               # About page (redirects to /#about)
 ├── aboutVatsal.md         # Content for the About section (loaded via JavaScript)
+├── contact.md             # Contact page (redirects to comphy-lab.org/join)
 ├── index.html             # Homepage
+├── phd-thesis.md          # PhD Thesis page (redirects to comphy-lab.org/research#thesis)
 ├── research-interests.md  # Research interests page (redirects to comphy-lab.org/research)
 ├── research-interest.md   # Redirect to comphy-lab.org/research
 ├── Gemfile               # Ruby dependencies
@@ -69,6 +71,10 @@ The personal website for Vatsal Sanjay, hosted at [vatsal.comphy-lab.org](https:
 #### Research Pages
 - `research-interests.md`: Redirects to comphy-lab.org/research
 - `research-interest.md`: Redirects to comphy-lab.org/research
+- `phd-thesis.md`: Redirects to comphy-lab.org/research#thesis
+
+#### Contact Page
+- `contact.md`: Redirects to comphy-lab.org/join
 
 #### Adding or Editing Team 
 
