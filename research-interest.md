@@ -5,10 +5,11 @@ permalink: /research-interest/
 ---
 
 <script>
-  // Redirect immediately to comphy-lab.org/research
-  window.location.href = "https://comphy-lab.org/research";
+  // Immediately redirect to comphy-lab.org/research without adding to browser history
+  window.location.replace("https://comphy-lab.org/research");
 </script>
 
+<!-- Fallback content in case JavaScript is disabled -->
 <section id="intro" class="s-intro target-section">
   <div class="s-intro__bg rellax" data-rellax-speed="-5"></div>
   <div class="row s-intro__content">

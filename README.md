@@ -26,9 +26,10 @@ The personal website for Vatsal Sanjay, hosted at [vatsal.comphy-lab.org](https:
 │   ├── images            # Image files
 │   ├── js                # JavaScript files
 │   └── logos             # Logo files
-├── about.md               # About page content
+├── about.md               # About page (redirects to /#about)
+├── aboutVatsal.md         # Content for the About section (loaded via JavaScript)
 ├── index.html             # Homepage
-├── research-interests.md  # Research interests page (not in navigation)
+├── research-interests.md  # Research interests page (redirects to comphy-lab.org/research)
 ├── research-interest.md   # Redirect to comphy-lab.org/research
 ├── Gemfile               # Ruby dependencies
 └── _site                 # Generated site (not tracked in git)
@@ -60,13 +61,13 @@ The personal website for Vatsal Sanjay, hosted at [vatsal.comphy-lab.org](https:
 
 ### Content Management
 
-#### About Page
-- `about.md`: Contains the About section in markdown
-- Standard markdown elements (headers, lists, links) are supported
-- Edits automatically appear once the site is rebuilt
+#### About Page & Content
+- `about.md`: Redirects to the About section on the homepage (/#about)
+- `aboutVatsal.md`: Contains the About section content loaded via JavaScript on the homepage
+- The main.js file fetches and renders aboutVatsal.md in the #about-content element
 
 #### Research Pages
-- `research-interests.md`: A standalone page with research interests info (not in navigation)
+- `research-interests.md`: Redirects to comphy-lab.org/research
 - `research-interest.md`: Redirects to comphy-lab.org/research
 
 #### Adding or Editing Team 
