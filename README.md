@@ -33,6 +33,7 @@ The personal website for Vatsal Sanjay, hosted at [vatsal.comphy-lab.org](https:
 ├── phd-thesis.md          # PhD Thesis page (redirects to comphy-lab.org/research#thesis)
 ├── research-interests.md  # Research interests page (redirects to comphy-lab.org/research)
 ├── research-interest.md   # Redirect to comphy-lab.org/research
+├── talks.md               # Talks page (redirects to comphy-lab.org/research)
 ├── Gemfile               # Ruby dependencies
 └── _site                 # Generated site (not tracked in git)
 ```
@@ -72,6 +73,7 @@ The personal website for Vatsal Sanjay, hosted at [vatsal.comphy-lab.org](https:
 - `research-interests.md`: Redirects to comphy-lab.org/research
 - `research-interest.md`: Redirects to comphy-lab.org/research
 - `phd-thesis.md`: Redirects to comphy-lab.org/research#thesis
+- `talks.md`: Redirects to comphy-lab.org/research
 
 #### Contact Page
 - `contact.md`: Redirects to comphy-lab.org/join
