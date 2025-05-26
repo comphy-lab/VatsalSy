@@ -25,7 +25,7 @@
       window.location.pathname === "/index.html"
     ) {
       try {
-        const response = await fetch("/aboutCoMPhy.md");
+        const response = await fetch("/aboutVatsal.md");
         const text = await response.text();
         const aboutContent = document.getElementById("about-content");
         if (aboutContent) {

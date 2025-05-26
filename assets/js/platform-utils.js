@@ -6,7 +6,14 @@
  * @returns {boolean} True if the current platform is macOS; otherwise, false.
  */
 function isMacPlatform() {
-  return navigator.platform.toUpperCase().indexOf("MAC") >= 0;
+  // First try modern User-Agent Client Hints API
+  if (navigator.userAgentData && navigator.userAgentData.platform) {
+    return navigator.userAgentData.platform.toLowerCase() === "macos";
+  }
+  
+  // Fallback to parsing userAgent string
+  const userAgent = navigator.userAgent.toLowerCase();
+  return userAgent.includes("mac") && !userAgent.includes("iemac") && !userAgent.includes("windows");
 }
 
 /**

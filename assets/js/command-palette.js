@@ -120,20 +120,25 @@ function renderSections(sections, container) {
       const cmdEl = document.createElement("div");
       cmdEl.className = "command-palette-command";
 
-      let cmdContent = `
-        <div class="command-palette-icon">${cmd.icon || ""}</div>
-        <div class="command-palette-title">${cmd.title}</div>
-      `;
+      const iconEl   = document.createElement("div");
+      iconEl.className = "command-palette-icon";
+      iconEl.innerHTML = cmd.icon || "";          // icons are trusted SVG/FontAwesome
+
+      const titleEl  = document.createElement("div");
+      titleEl.className = "command-palette-title";
+      titleEl.textContent = cmd.title;            // safe: using textContent
+
+      cmdEl.appendChild(iconEl);
+      cmdEl.appendChild(titleEl);
 
       // Add excerpt for search results if available
       if (cmd.excerpt) {
-        cmdContent += `<div class="command-palette-excerpt">${cmd.excerpt.substring(
-          0,
-          120
-        )}${cmd.excerpt.length > 120 ? "..." : ""}</div>`;
+        const excerptEl = document.createElement("div");
+        excerptEl.className = "command-palette-excerpt";
+        const truncatedExcerpt = cmd.excerpt.substring(0, 120);
+        excerptEl.textContent = truncatedExcerpt + (cmd.excerpt.length > 120 ? "..." : "");
+        cmdEl.appendChild(excerptEl);
       }
-
-      cmdEl.innerHTML = cmdContent;
 
       cmdEl.addEventListener("click", function () {
         if (typeof cmd.handler === "function") {

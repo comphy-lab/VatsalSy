@@ -1,4 +1,22 @@
 /* Custom Command Palette styling */
+
+/* Command Palette Theme Variables */
+:root {
+  /* Command Palette Colors */
+  --command-palette-bg: #2d1e30;
+  --command-palette-text: #fff;
+  --command-palette-input-bg: #3a2a3d;
+  --command-palette-input-text: #fff;
+  --command-palette-section-title: #d4a5db;
+  --command-palette-icon: #d4a5db;
+  --command-palette-excerpt: #ccc;
+  --command-palette-border: rgba(104, 35, 109, 0.3);
+  --command-palette-hover-bg: rgba(104, 35, 109, 0.3);
+  --command-palette-selected-bg: rgba(104, 35, 109, 0.25);
+  --command-palette-kbd-bg: rgba(104, 35, 109, 0.25);
+  --command-palette-kbd-border: rgba(104, 35, 109, 0.4);
+}
+
 .simple-command-palette {
   position: fixed;
   top: 0;
@@ -26,12 +44,12 @@
   transform: translateX(-50%);
   width: 640px;
   max-width: 90vw;
-  background-color: #2d1e30; /* Always use dark purple background */
-  color: #fff; /* Always use white text */
+  background-color: var(--command-palette-bg);
+  color: var(--command-palette-text);
   border-radius: 12px;
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
   overflow: hidden;
-  border: 1px solid rgba(104, 35, 109, 0.3);
+  border: 1px solid var(--command-palette-border);
   transition: all 0.3s ease;
 }
 
@@ -39,25 +57,25 @@
   width: 100%;
   padding: 16px 18px;
   border: none;
-  border-bottom: 2px solid rgba(104, 35, 109, 0.5);
+  border-bottom: 2px solid var(--command-palette-border);
   font-size: 16px;
   outline: none;
-  background-color: #3a2a3d; /* Always use dark purple input */
+  background-color: var(--command-palette-input-bg);
   transition: all 0.3s ease;
-  color: #fff; /* Always use white text */
+  color: var(--command-palette-input-text);
   font-weight: 500;
 }
 
 #command-palette-input:focus {
-  border-bottom-color: rgba(104, 35, 109, 0.8);
-  background-color: #3a2a3d; /* Keep dark background on focus */
+  border-bottom-color: var(--command-palette-border);
+  background-color: var(--command-palette-input-bg);
 }
 
 .command-palette-results {
   max-height: 60vh;
   overflow-y: auto;
   padding: 0 4px;
-  background-color: #2d1e30; /* Always use dark purple background */
+  background-color: var(--command-palette-bg);
 }
 
 .command-palette-section {
@@ -68,7 +86,7 @@
   padding: 6px 16px;
   font-size: 12px;
   font-weight: bold;
-  color: #d4a5db; /* Always use light purple for section titles */
+  color: var(--command-palette-section-title);
   text-transform: uppercase;
   letter-spacing: 0.5px;
 }
@@ -86,23 +104,23 @@
   border-radius: 8px;
   transition: all 0.2s ease;
   margin: 2px 4px;
-  color: #f0f0f0; /* Always use white text */
+  color: var(--command-palette-text);
 }
 
 .command-palette-command:hover, .command-palette-command.selected {
-  background-color: rgba(104, 35, 109, 0.3); /* Darker hover state */
+  background-color: var(--command-palette-hover-bg);
 }
 
 .command-palette-command.selected {
-  outline: 2px solid rgba(104, 35, 109, 0.3);
+  outline: 2px solid var(--command-palette-border);
   position: relative;
-  background-color: rgba(104, 35, 109, 0.25); /* Darker selected state */
+  background-color: var(--command-palette-selected-bg);
 }
 
 .command-palette-icon {
   flex: 0 0 24px;
   margin-right: 14px;
-  color: #d4a5db; /* Always use light purple for icons */
+  color: var(--command-palette-icon);
 }
 
 .command-palette-title {
@@ -111,16 +129,16 @@
   overflow: hidden;
   text-overflow: ellipsis;
   font-weight: 500;
-  color: #f0f0f0; /* Always use white text */
+  color: var(--command-palette-text);
 }
 
 .command-palette-shortcut {
   flex: 0 0 auto;
   padding: 3px 8px;
   border-radius: 4px;
-  background-color: rgba(104, 35, 109, 0.3); /* Darker background */
+  background-color: var(--command-palette-kbd-bg);
   font-size: 12px;
-  color: #f0f0f0; /* Always use white text */
+  color: var(--command-palette-text);
   font-weight: 600;
 }
 
@@ -129,7 +147,7 @@
   margin-top: 6px;
   margin-left: 38px;
   font-size: 13px;
-  color: #ccc; /* Always use light gray for excerpts */
+  color: var(--command-palette-excerpt);
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -147,7 +165,7 @@
 .command-palette-no-results {
   padding: 20px;
   text-align: center;
-  color: #ccc; /* Always use light gray for no results */
+  color: var(--command-palette-excerpt);
   font-style: italic;
 }
 
@@ -275,7 +293,7 @@
   max-height: 80vh;
   overflow: auto;
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
-  border: 1px solid rgba(104, 35, 109, 0.3);
+  border: 1px solid var(--command-palette-border);
   color: #333;
 }
 
@@ -304,7 +322,7 @@
   line-height: 1.4;
   color: #68236D;
   background-color: rgba(104, 35, 109, 0.15);
-  border: 1px solid rgba(104, 35, 109, 0.3);
+  border: 1px solid var(--command-palette-border);
   border-radius: 4px;
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
   margin: 0 2px;
@@ -338,7 +356,7 @@
 @media (prefers-color-scheme: dark) {
   .shortcut-help-content {
     background-color: #2d1e30;
-    color: #f0f0f0;
+    color: var(--command-palette-text);
     border-color: rgba(104, 35, 109, 0.3);
   }
   
@@ -352,7 +370,7 @@
   }
   
   .shortcut-help-content kbd {
-    color: #f0f0f0;
+    color: var(--command-palette-text);
     background-color: rgba(104, 35, 109, 0.25);
     border-color: rgba(104, 35, 109, 0.4);
   }
@@ -367,8 +385,8 @@
   justify-content: center;
   align-items: center;
   padding: 12px;
-  background-color: rgba(104, 35, 109, 0.1);
-  border-top: 1px solid rgba(104, 35, 109, 0.3);
+  background-color: var(--command-palette-hover-bg);
+  border-top: 1px solid var(--command-palette-border);
   gap: 16px;
   flex-wrap: wrap;
 }
@@ -387,10 +405,10 @@
   min-width: 22px;
   height: 22px;
   padding: 0 5px;
-  background-color: rgba(104, 35, 109, 0.25);
-  border: 1px solid rgba(104, 35, 109, 0.4);
+  background-color: var(--command-palette-kbd-bg);
+  border: 1px solid var(--command-palette-kbd-border);
   border-radius: 4px;
-  color: #f0f0f0;
+  color: var(--command-palette-text);
   margin: 0 3px;
   font-size: 12px;
   line-height: 1;
