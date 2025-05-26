@@ -40,70 +40,11 @@
     }
   };
 
-  /* Load News Content - Only on main page
-   * -------------------------------------------------- */
-  const loadNewsContent = async () => {
-    // Only load News.md if we"re on the main page
-    if (
-      window.location.pathname === "/" ||
-      window.location.pathname === "/index.html"
-    ) {
-      try {
-        const response = await fetch("/News.md");
-        const text = await response.text();
-        const newsContent = document.getElementById("news-content");
-        if (newsContent) {
-          // Parse the markdown content and sanitize before inserting into DOM
-          const parsedHtml = marked.parse(text);
-          const sanitizedHtml = DOMPurify.sanitize(parsedHtml);
-          newsContent.innerHTML = sanitizedHtml;
-
-          // Fix line breaks in list items after parsing
-          const listItemParagraphs = newsContent.querySelectorAll("li p");
-          listItemParagraphs.forEach((paragraph) => {
-            paragraph.style.display = "inline";
-            paragraph.style.margin = "0";
-          });
-        }
-        // Add History button after all news items if newsContent exists
-        const historyBtn = document.createElement("a");
-        historyBtn.href = "/history";
-        historyBtn.className = "s-news__history-btn";
-        historyBtn.innerHTML =
-          '<i class="fa-solid fa-arrow-right" style="margin-right: 8px; font-size: 1.2em;"></i>Archive';
-        historyBtn.setAttribute("role", "button");
-        historyBtn.setAttribute("tabindex", "0");
-        historyBtn.setAttribute("aria-label", "View archive of all news items");
-
-        // Add keyboard event handler for accessibility
-        historyBtn.addEventListener("keydown", function (event) {
-          // Check for Enter (13) or Space (32) key
-          if (
-            event.key === "Enter" ||
-            event.key === " " ||
-            event.keyCode === 13 ||
-            event.keyCode === 32
-          ) {
-            event.preventDefault();
-            window.location.href = this.href;
-          }
-        });
-
-        if (newsContent) {
-          newsContent.appendChild(historyBtn);
-        }
-      } catch (error) {
-        console.error("Error loading news content:", error);
-      }
-    }
-  };
 
   // No need for a resize event handler as the CSS will handle everything
 
   // Load about content when page loads
   window.addEventListener("load", loadAboutContent);
-  // Load news content when page loads
-  window.addEventListener("load", loadNewsContent);
 
   /* Mobile Menu
    * -------------------------------------------------- */
