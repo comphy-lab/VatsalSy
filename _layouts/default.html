@@ -61,6 +61,21 @@
         // Dispatch a custom event when theme changes
         const event = new CustomEvent('themeChange', { detail: { theme: theme } });
         document.dispatchEvent(event);
+        
+        // Update logo based on theme
+        updateLogo(theme);
+      };
+      
+      // Function to update logo based on theme
+      const updateLogo = (theme) => {
+        const logoImg = document.querySelector('.s-header__logo img');
+        if (logoImg) {
+          if (theme === 'dark') {
+            logoImg.src = '/assets/logos/Logo_Vatsal_Vector-white.png';
+          } else {
+            logoImg.src = '/assets/logos/Logo_Vatsal_Vector.png';
+          }
+        }
       };
       
       // Apply theme when page loads

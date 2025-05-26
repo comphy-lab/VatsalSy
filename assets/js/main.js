@@ -70,7 +70,7 @@
         historyBtn.href = "/history";
         historyBtn.className = "s-news__history-btn";
         historyBtn.innerHTML =
-          "<i class=\"fa-solid fa-arrow-right\" style=\"margin-right: 8px; font-size: 1.2em;\"></i>Archive";
+          '<i class="fa-solid fa-arrow-right" style="margin-right: 8px; font-size: 1.2em;"></i>Archive';
         historyBtn.setAttribute("role", "button");
         historyBtn.setAttribute("tabindex", "0");
         historyBtn.setAttribute("aria-label", "View archive of all news items");
@@ -104,164 +104,6 @@
   window.addEventListener("load", loadAboutContent);
   // Load news content when page loads
   window.addEventListener("load", loadNewsContent);
-
-  /* Load Featured Papers - Only on main page
-   * -------------------------------------------------- */
-  const loadFeaturedPapers = async () => {
-    // Only load featured papers if we"re on the main page
-    if (
-      window.location.pathname === "/" ||
-      window.location.pathname === "/index.html"
-    ) {
-      try {
-        const response = await fetch("/research/");
-        if (!response.ok) {
-          throw new Error(
-            `Failed to fetch research content: ${response.status} ${response.statusText}`
-          );
-        }
-
-        const text = await response.text();
-
-        // Create a temporary div to parse the HTML
-        const tempDiv = document.createElement("div");
-        tempDiv.innerHTML = text;
-
-        // Find all paper sections
-        const paperSections = tempDiv.querySelectorAll("h3");
-        let featuredSections = Array.from(paperSections).filter((section) => {
-          // Find the next tags element
-          let nextEl = section.nextElementSibling;
-          while (nextEl && !nextEl.matches("tags")) {
-            nextEl = nextEl.nextElementSibling;
-          }
-          return nextEl && nextEl.textContent.includes("Featured");
-        });
-
-        /** Only show up to two featured papers */
-        featuredSections = featuredSections.slice(0, 2);
-
-        // Get the featured container
-        const featuredContainer = document.querySelector(
-          ".featured-item__image"
-        );
-        if (featuredContainer) {
-          // Clear existing content
-          featuredContainer.innerHTML = "";
-
-          // Create a wrapper for featured papers
-          const wrapper = document.createElement("div");
-          wrapper.className = "featured-papers";
-
-          // Add each featured paper
-          featuredSections.forEach((section) => {
-            const paperDiv = document.createElement("div");
-            paperDiv.className = "featured-paper";
-            paperDiv.style.cursor = "pointer";
-
-            // Get all content until the next h3 or end
-            let content = [section.cloneNode(true)];
-            let nextEl = section.nextElementSibling;
-
-            while (nextEl && !nextEl.matches("h3")) {
-              // Skip the Highlights section and its list
-              if (
-                nextEl.textContent.trim() === "Highlights" ||
-                (nextEl.matches("ul") &&
-                  nextEl.previousElementSibling &&
-                  nextEl.previousElementSibling.textContent.trim() ===
-                    "Highlights")
-              ) {
-                nextEl = nextEl.nextElementSibling;
-                continue;
-              }
-
-              // Include everything else (tags, images, iframes)
-              const clone = nextEl.cloneNode(true);
-
-              // If it"s a tags element, make spans clickable
-              if (clone.matches("tags")) {
-                Array.from(clone.children).forEach((span) => {
-                  span.style.cursor = "pointer";
-                  span.addEventListener("click", (e) => {
-                    e.stopPropagation(); // Prevent container click
-                    window.location.href = `/research/?tag=${span.textContent.trim()}`;
-                  });
-                });
-              }
-
-              content.push(clone);
-              nextEl = nextEl.nextElementSibling;
-            }
-
-            // Get the paper title for creating the anchor
-            const title = content[0];
-            const originalTitle = title.textContent;
-            title.textContent = title.textContent.replace(/^\[\d+\]\s*/, "");
-
-            content.forEach((el) => paperDiv.appendChild(el));
-
-            // Make the entire container clickable
-            paperDiv.addEventListener("click", (e) => {
-              // Don"t navigate if clicking on a link, tag, or iframe
-              if (
-                e.target.closest("a") ||
-                e.target.closest("tags") ||
-                e.target.closest("iframe")
-              ) {
-                return;
-              }
-
-              // Extract paper number and navigate
-              const paperNumber = originalTitle.match(/^\[(\d+)\]/)?.[1];
-              if (paperNumber) {
-                // Navigate to research page with the paper ID
-                window.location.href = `/research/#${paperNumber}`;
-              } else {
-                window.location.href = "/research/";
-              }
-            });
-
-            // Prevent iframe clicks from triggering container click
-            const iframes = paperDiv.querySelectorAll("iframe");
-            iframes.forEach((iframe) => {
-              iframe.addEventListener("click", (e) => {
-                e.stopPropagation();
-              });
-            });
-
-            // Prevent link clicks from triggering container click
-            const links = paperDiv.querySelectorAll("a");
-            links.forEach((link) => {
-              link.addEventListener("click", (e) => {
-                e.stopPropagation();
-              });
-            });
-
-            wrapper.appendChild(paperDiv);
-          });
-
-          featuredContainer.appendChild(wrapper);
-        }
-      } catch (error) {
-        console.error("Error loading featured papers:", error);
-        // Add visible error message in the featured section
-        const featuredContainer = document.querySelector(
-          ".featured-item__image"
-        );
-        if (featuredContainer) {
-          featuredContainer.innerHTML = `
-                        <div class="featured-error">
-                            <p>We"re having trouble loading the featured papers. Please try refreshing the page or check back later.</p>
-                        </div>
-                    `;
-        }
-      }
-    }
-  };
-
-  // Load featured papers when page loads
-  window.addEventListener("load", loadFeaturedPapers);
 
   /* Mobile Menu
    * -------------------------------------------------- */
@@ -303,7 +145,7 @@
 
   /* Smooth Scrolling
    * -------------------------------------------------- */
-  document.querySelectorAll("a[href^=\"#\"]").forEach((anchor) => {
+  document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
     anchor.addEventListener("click", function (e) {
       e.preventDefault();
       const target = document.querySelector(this.getAttribute("href"));
@@ -331,7 +173,7 @@
 
   document.addEventListener("DOMContentLoaded", function () {
     const images = document.querySelectorAll(
-      ".member-image img[loading=\"lazy\"]"
+      '.member-image img[loading="lazy"]',
     );
 
     images.forEach((img) => {
