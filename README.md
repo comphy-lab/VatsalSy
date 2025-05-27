@@ -1,4 +1,4 @@
-# Vatsal Sanjay's personal Website
+# Vatsal Sanjay's Personal Website
 
 [![Website Status](https://img.shields.io/website?url=https%3A%2F%2Fvatsal.comphy-lab.org&style=flat-square&logo=github&label=Website)](https://vatsal.comphy-lab.org)
 [![Pages Build](https://img.shields.io/github/actions/workflow/status/VatsalSy/VatsalSy.github.io/pages/pages-build-deployment?style=flat-square&logo=github&label=Pages)](https://github.com/VatsalSy/VatsalSy.github.io/actions/workflows/pages/pages-build-deployment)

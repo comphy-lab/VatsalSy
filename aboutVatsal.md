@@ -28,29 +28,24 @@ Hi, I am Vatsal Sanjay. I am a Fluid Dynamicist working in the field of multipha
 [![X](https://img.shields.io/badge/-@VatsalSanjay-000000?style=flat&logo=x&logoColor=white)](https://twitter.com/VatsalSanjay)
 [![Bluesky](https://img.shields.io/badge/-@comphy--lab.org-0285FF?style=flat&logo=bluesky&logoColor=white)](https://bsky.app/profile/comphy-lab.org)
 
-<a href="https://github.com/VatsalSy" target="_blank">
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://cust-github-readme-stats.vercel.app/api?username=VatsalSy&show_icons=true&theme=solarized-light&hide_border=true&rank_icon=github" width="auto" height="155px">
-    <img alt="Vatsal's GitHub stats" src="https://cust-github-readme-stats.vercel.app/api?username=VatsalSy&show_icons=true&theme=vision-friendly-dark&hide_border=true&rank_icon=github" width="auto" height="155px">
-  </picture>
-</a>
-<a href="https://github.com/VatsalSy" target="_blank">
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://cust-github-readme-stats.vercel.app/api/top-langs/?username=VatsalSy&layout=compact&theme=solarized-light&hide_border=true" width="auto" height="155px">
-    <img alt="Top Langs" src="https://cust-github-readme-stats.vercel.app/api/top-langs/?username=VatsalSy&layout=compact&theme=vision-friendly-dark&hide_border=true" width="auto" height="155px">
-  </picture>
+<div class="stats-grid">
+<a href="https://github.com/VatsalSy" target="_blank" rel="noopener noreferrer" aria-label="Vatsal's GitHub Stats">
+  <img class="card-stats-light" alt="Vatsal's GitHub Stats" src="https://cust-github-readme-stats.vercel.app/api?username=VatsalSy&show_icons=true&theme=default&hide_border=true&rank_icon=github">
+  <img class="card-stats-dark" alt="Vatsal's GitHub Stats" src="https://cust-github-readme-stats.vercel.app/api?username=VatsalSy&show_icons=true&theme=github_dark&hide_border=true&rank_icon=github">
 </a>
 
-<a href="https://github.com/VatsalSy" target="_blank">
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://github-readme-streak-stats-delta-lovat.vercel.app/?user=VatsalSy&theme=solarized_light&hide_border=true" width="auto" height="150px">
-    <img alt="Vatsal's GitHub streak" src="https://github-readme-streak-stats-delta-lovat.vercel.app/?user=VatsalSy&theme=vision-friendly-dark" width="auto" height="150px">
-  </picture>
+<a href="https://github.com/VatsalSy" target="_blank" rel="noopener noreferrer" aria-label="Most Used Languages">
+  <img class="card-stats-light" alt="Most Used Languages" src="https://cust-github-readme-stats.vercel.app/api/top-langs/?username=VatsalSy&layout=compact&theme=default&hide_border=true">
+  <img class="card-stats-dark" alt="Most Used Languages" src="https://cust-github-readme-stats.vercel.app/api/top-langs/?username=VatsalSy&layout=compact&theme=github_dark&hide_border=true">
 </a>
 
-<a href="https://www.youtube.com/@CoMPhyLab" target="_blank">
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://cust-youtube-stats-card.vercel.app/api?channelid=UC-eTdHrAM_eQrWOtNLoT19w&theme=solarized_light&hide_border=true" width="auto" height="150px">
-    <img alt="CoMPhy Lab YouTube stats" src="https://cust-youtube-stats-card.vercel.app/api?channelid=UC-eTdHrAM_eQrWOtNLoT19w&theme=vision-friendly-dark" width="auto" height="150px">
-  </picture>
+<a href="https://github.com/VatsalSy" target="_blank" rel="noopener noreferrer" aria-label="Vatsal's GitHub Streak">
+  <img class="card-stats-light" alt="Vatsal's GitHub Streak" src="https://github-readme-streak-stats-delta-lovat.vercel.app/?user=VatsalSy&theme=default&hide_border=true">
+  <img class="card-stats-dark" alt="Vatsal's GitHub Streak" src="https://github-readme-streak-stats-delta-lovat.vercel.app/?user=VatsalSy&theme=github-dark-blue&hide_border=true">
 </a>
+
+<a href="https://www.youtube.com/@CoMPhyLab" target="_blank" rel="noopener noreferrer" aria-label="CoMPhy Lab YouTube Channel">
+  <img class="card-stats-light" alt="CoMPhy Lab YouTube Stats" src="https://cust-youtube-stats-card.vercel.app/api?channelid=UC-eTdHrAM_eQrWOtNLoT19w&theme=default&hide_border=true">
+  <img class="card-stats-dark" alt="CoMPhy Lab YouTube Stats" src="https://cust-youtube-stats-card.vercel.app/api?channelid=UC-eTdHrAM_eQrWOtNLoT19w&theme=vision_friendly_dark&hide_border=true">
+</a>
+</div>

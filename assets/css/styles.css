@@ -884,6 +884,39 @@ a:hover {
   height: 40px;
 }
 
+/* Navigation icon items */
+.nav-icon-item {
+  background: none !important;
+}
+
+.nav-icon-link {
+  background: none !important;
+  padding: 0 !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+}
+
+.nav-icon {
+  font-size: 1.75em;
+  color: var(--color-black);
+  transition: var(--transition-medium);
+}
+
+[data-theme="dark"] .nav-icon {
+  color: var(--color-white);
+}
+
+.nav-icon.fa-bluesky {
+  color: #0085ff;
+}
+
+[data-theme="dark"] .nav-icon.fa-bluesky {
+  color: #4c8dff;
+}
+
 .s-header__nav-close-btn {
   display: none;
   position: absolute;
@@ -1366,6 +1399,61 @@ a:hover {
 .s-about__desc code {
   font-family: monospace;
   font-size: 1.6rem;
+}
+
+/* GitHub/YouTube Stats Grid Layout */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-auto-rows: 1fr;
+  gap: 0;
+  margin: 2rem 0;
+  width: 100%;
+}
+
+.stats-grid a {
+  display: flex;
+  width: 100%;
+  text-decoration: none;
+  align-items: center;
+  justify-content: center;
+}
+
+.stats-grid img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: contain;
+  max-height: 180px;
+}
+
+/* Hide/show images based on theme */
+.stats-grid img.card-stats-light {
+  display: block !important;
+}
+
+.stats-grid img.card-stats-dark {
+  display: none !important;
+}
+
+[data-theme="dark"] .stats-grid img.card-stats-light {
+  display: none !important;
+}
+
+[data-theme="dark"] .stats-grid img.card-stats-dark {
+  display: block !important;
+}
+
+/* Responsive layout */
+@media screen and (max-width: 768px) {
+  .stats-grid {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+  
+  .stats-grid img {
+    max-height: 160px;
+  }
 }
 
 
@@ -1974,6 +2062,18 @@ section#featured::after,
   margin-right: -15px;
 }
 
+/* Footer social icons */
+.footer-social-icon {
+  font-size: 2.5em;
+  color: var(--color-white);
+  transition: var(--transition-medium);
+}
+
+.footer-social-icon:hover {
+  transform: scale(1.1);
+  opacity: 0.8;
+}
+
 .copyright-text {
   font-size: 1em;
   margin: 0;
@@ -2111,37 +2211,6 @@ section#featured::after,
   margin: 2rem 0;
 }
 
-/*--------------------------------------------------------------
- * 16. YOUTUBE STATS CARD
- *--------------------------------------------------------------*/
-
-.youtube-stats-light {
-  display: block;
-  max-width: 100%;
-  height: auto;
-}
-
-.youtube-stats-dark {
-  display: none;
-  max-width: 100%;
-  height: auto;
-}
-
-[data-theme="dark"] .youtube-stats-light {
-  display: none;
-}
-
-[data-theme="dark"] .youtube-stats-dark {
-  display: block;
-}
-
-/* Make YouTube stats card responsive */
-img.youtube-stats-light,
-img.youtube-stats-dark {
-  max-width: 100%;
-  height: auto;
-  box-sizing: border-box;
-}
 
 /*--------------------------------------------------------------
  * 17. MEDIA QUERIES
@@ -2445,13 +2514,6 @@ img.youtube-stats-dark {
     font-size: 1.6rem;
   }
 
-  /* Mobile image adaptations for YouTube stats */
-  img.youtube-stats-light,
-  img.youtube-stats-dark {
-    max-width: 100%;
-    height: auto !important;
-    width: 100% !important;
-  }
 }
 
 /* Mobile Devices (500px and below) */
