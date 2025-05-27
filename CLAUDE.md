@@ -58,6 +58,8 @@ The following pages redirect to the CoMPhy Lab website:
 - This site primarily serves as a personal landing page with redirects
 - About content is loaded dynamically from aboutVatsal.md
 
+**IMPORTANT**: When updating `aboutVatsal.md`, also update the fallback content in `about.md` (lines 15-37) to keep them synchronized. The fallback is used when JavaScript is disabled.
+
 ### Assets Structure
 
 - CSS files including academicons, fontello icons, and custom styles

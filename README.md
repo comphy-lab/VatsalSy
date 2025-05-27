@@ -69,6 +69,8 @@ The personal website for Vatsal Sanjay, hosted at [vatsal.comphy-lab.org](https:
 - `aboutVatsal.md`: Contains the About section content loaded via JavaScript on the homepage
 - The main.js file fetches and renders aboutVatsal.md in the #about-content element
 
+**IMPORTANT**: When updating `aboutVatsal.md`, you must also update the fallback content in `about.md` (lines 15-37) to keep them synchronized. The fallback content is displayed when JavaScript is disabled.
+
 #### Research Pages
 - `research-interests.md`: Redirects to comphy-lab.org/research
 - `research-interest.md`: Redirects to comphy-lab.org/research
