@@ -29,13 +29,28 @@
     document.documentElement.classList.add('js');
   </script>
     <script>
+      // Function to load stylesheets asynchronously
+      const loadStylesheet = (href) => {
+        const link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.href = href;
+        link.crossOrigin = 'anonymous';
+        document.head.appendChild(link);
+      };
+      
       // Check if we're on localhost
       if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
-        // Use official Font Awesome CDN for local development with version 6.7.2
-        document.write('<link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.7.2/css/all.css" crossorigin="anonymous">');
+        // Use official Font Awesome CDN for local development
+        const FA_VERSION = '6.7.2';
+        loadStylesheet(`https://use.fontawesome.com/releases/v${FA_VERSION}/css/brands.css`);
+        loadStylesheet(`https://use.fontawesome.com/releases/v${FA_VERSION}/css/fontawesome.css`);
+        loadStylesheet(`https://use.fontawesome.com/releases/v${FA_VERSION}/css/solid.css`);
       } else {
         // Use Kit for production
-        document.write('<script src="https://kit.fontawesome.com/b1cfd9ca75.js" crossorigin="anonymous"><\/script>');
+        const script = document.createElement('script');
+        script.src = 'https://kit.fontawesome.com/b1cfd9ca75.js';
+        script.crossOrigin = 'anonymous';
+        document.head.appendChild(script);
       }
     </script>
 
@@ -135,9 +150,9 @@
           </li>
           <li class="nav-icon-item"><a href="https://github.com/vatsalsy" class="nav-icon-link" aria-label="GitHub profile"><i class="fa-brands fa-github nav-icon"></i></a></li>
           <li><a href="#about" class="smoothscroll">About</a></li>
-          <li><a href="https://comphy-lab.org/">CoMPhy Lab <i class="fa-solid fa-arrow-up-right-from-square" style="font-size: 0.8em;"></i></a></li>
-          <li><a href="https://blogs-comphy-lab.org/" target="_blank">Blog <i class="fa-solid fa-arrow-up-right-from-square" style="font-size: 0.8em;"></i></a></li>
-          <li><a href="https://raw.githubusercontent.com/VatsalSy/Vatsal_CV/master/Vatsal_CV.pdf" target="_blank" download>CV <i class="fa-solid fa-download" style="font-size: 0.8em;"></i></a></li>
+          <li><a href="https://comphy-lab.org/">CoMPhy Lab <i class="fa-solid fa-arrow-up-right-from-square nav-external-icon"></i></a></li>
+          <li><a href="https://blogs-comphy-lab.org/" target="_blank">Blog <i class="fa-solid fa-arrow-up-right-from-square nav-external-icon"></i></a></li>
+          <li><a href="https://raw.githubusercontent.com/VatsalSy/Vatsal_CV/master/Vatsal_CV.pdf" target="_blank" download>CV <i class="fa-solid fa-download nav-external-icon"></i></a></li>
           <li class="nav-icon-item"><a href="https://bsky.app/profile/comphy-lab.org" class="nav-icon-link" aria-label="Bluesky profile"><i class="fa-brands fa-bluesky nav-icon"></i></a></li>
         </ul>
       </nav>
