@@ -30,22 +30,22 @@ Hi, I am Vatsal Sanjay. I am a Fluid Dynamicist working in the field of multipha
 
 <div class="stats-grid">
 <a href="https://github.com/VatsalSy" target="_blank" rel="noopener noreferrer" aria-label="Vatsal's GitHub Stats">
-  <img class="card-stats-light" alt="Vatsal's GitHub Stats" src="https://cust-github-readme-stats.vercel.app/api?username=VatsalSy&show_icons=true&theme=default&hide_border=true&rank_icon=github">
-  <img class="card-stats-dark" alt="Vatsal's GitHub Stats" src="https://cust-github-readme-stats.vercel.app/api?username=VatsalSy&show_icons=true&theme=github_dark&hide_border=true&rank_icon=github">
+  <img class="card-stats-light" alt="Vatsal's GitHub Stats" src="https://cust-github-readme-stats.vercel.app/api?username=VatsalSy&show_icons=true&theme=github_light&hide_border=true&rank_icon=github&bg_color=FFFFFF">
+  <img class="card-stats-dark" alt="Vatsal's GitHub Stats" src="https://cust-github-readme-stats.vercel.app/api?username=VatsalSy&show_icons=true&theme=github_dark&hide_border=true&rank_icon=github&bg_color=1A1A1A">
 </a>
 
 <a href="https://github.com/VatsalSy" target="_blank" rel="noopener noreferrer" aria-label="Most Used Languages">
-  <img class="card-stats-light" alt="Most Used Languages" src="https://cust-github-readme-stats.vercel.app/api/top-langs/?username=VatsalSy&layout=compact&theme=default&hide_border=true">
-  <img class="card-stats-dark" alt="Most Used Languages" src="https://cust-github-readme-stats.vercel.app/api/top-langs/?username=VatsalSy&layout=compact&theme=github_dark&hide_border=true">
+  <img class="card-stats-light" alt="Most Used Languages" src="https://cust-github-readme-stats.vercel.app/api/top-langs/?username=VatsalSy&layout=compact&theme=github_light&hide_border=true&bg_color=FFFFFF">
+  <img class="card-stats-dark" alt="Most Used Languages" src="https://cust-github-readme-stats.vercel.app/api/top-langs/?username=VatsalSy&layout=compact&theme=github_dark&hide_border=true&bg_color=1A1A1A">
 </a>
 
 <a href="https://github.com/VatsalSy" target="_blank" rel="noopener noreferrer" aria-label="Vatsal's GitHub Streak">
-  <img class="card-stats-light" alt="Vatsal's GitHub Streak" src="https://github-readme-streak-stats-delta-lovat.vercel.app/?user=VatsalSy&theme=default&hide_border=true">
-  <img class="card-stats-dark" alt="Vatsal's GitHub Streak" src="https://github-readme-streak-stats-delta-lovat.vercel.app/?user=VatsalSy&theme=github-dark-blue&hide_border=true">
+  <img class="card-stats-light" alt="Vatsal's GitHub Streak" src="https://github-readme-streak-stats-delta-lovat.vercel.app/?user=VatsalSy&theme=ayu-light&hide_border=true&background=FFFFFF">
+  <img class="card-stats-dark" alt="Vatsal's GitHub Streak" src="https://github-readme-streak-stats-delta-lovat.vercel.app/?user=VatsalSy&theme=github-dark-blue&hide_border=true&background=1A1A1A">
 </a>
 
 <a href="https://www.youtube.com/@CoMPhyLab" target="_blank" rel="noopener noreferrer" aria-label="CoMPhy Lab YouTube Channel">
-  <img class="card-stats-light" alt="CoMPhy Lab YouTube Stats" src="https://cust-youtube-stats-card.vercel.app/api?channelid=UC-eTdHrAM_eQrWOtNLoT19w&theme=default&hide_border=true">
-  <img class="card-stats-dark" alt="CoMPhy Lab YouTube Stats" src="https://cust-youtube-stats-card.vercel.app/api?channelid=UC-eTdHrAM_eQrWOtNLoT19w&theme=vision_friendly_dark&hide_border=true">
+  <img class="card-stats-light" alt="CoMPhy Lab YouTube Stats" src="https://cust-youtube-stats-card.vercel.app/api?channelid=UC-eTdHrAM_eQrWOtNLoT19w&theme=buefy&hide_border=true&bg_color=FFFFFF">
+  <img class="card-stats-dark" alt="CoMPhy Lab YouTube Stats" src="https://cust-youtube-stats-card.vercel.app/api?channelid=UC-eTdHrAM_eQrWOtNLoT19w&theme=algolia&hide_border=true&bg_color=1A1A1A">
 </a>
 </div>
