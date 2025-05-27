@@ -1261,7 +1261,6 @@ a:hover {
 .s-about__grid {
   display: flex;
   gap: 4rem;
-  align-items: flex-start;
   background: var(--about-grid-bg);
   backdrop-filter: blur(8px);
   border-radius: 15px;
@@ -1296,6 +1295,7 @@ a:hover {
   border-radius: 10px;
   overflow: hidden;
   background-color: var(--about-social-bg);
+  position: relative;
 }
 
 .s-about__social-header {
@@ -1334,6 +1334,39 @@ a:hover {
 
 [data-theme="dark"] .s-about__social-header:has(.fa-newspaper) h3 {
   color: #9a349f !important;
+}
+
+/* Bluesky embed styling */
+bsky-embed {
+  display: block;
+  width: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 0 1rem 1rem 1rem;
+  box-sizing: border-box;
+}
+
+/* Hide scrollbar for cleaner look but keep functionality */
+bsky-embed::-webkit-scrollbar {
+  width: 6px;
+}
+
+bsky-embed::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+bsky-embed::-webkit-scrollbar-thumb {
+  background: var(--color-gray-medium);
+  border-radius: 3px;
+}
+
+bsky-embed::-webkit-scrollbar-thumb:hover {
+  background: var(--color-gray-dark);
+}
+
+/* Make the about grid use flexbox alignment */
+.s-about__grid {
+  align-items: stretch;
 }
 
 
@@ -2416,10 +2449,12 @@ section#featured::after,
 
   .s-about__social {
     height: 500px;
+    max-height: 500px;
   }
 
   .s-about__social bsky-embed {
-    max-height: calc(500px - 60px);
+    height: auto;
+    max-height: calc(100% - 60px);
   }
 
   .footer-right a:last-child {

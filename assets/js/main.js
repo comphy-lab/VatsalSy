@@ -41,10 +41,85 @@
   };
 
 
-  // No need for a resize event handler as the CSS will handle everything
+  /* Match Bluesky embed height to About section
+   * -------------------------------------------------- */
+  const matchBlueSkyHeight = () => {
+    const aboutLeft = document.querySelector('.s-about__left');
+    const aboutSocial = document.querySelector('.s-about__social');
+    const bskyEmbed = document.querySelector('bsky-embed');
+    
+    if (aboutLeft && aboutSocial && bskyEmbed) {
+      // Check if we're on mobile (less than 768px)
+      const isMobile = window.innerWidth < 768;
+      
+      if (isMobile) {
+        // On mobile, use fixed height
+        aboutSocial.style.height = '500px';
+        bskyEmbed.style.maxHeight = 'calc(100% - 60px)';
+      } else {
+        // On desktop, match the about content height
+        const aboutHeight = aboutLeft.offsetHeight;
+        
+        // Set the social container to match
+        aboutSocial.style.height = aboutHeight + 'px';
+        
+        // Calculate available height for bsky-embed (subtract header height)
+        const header = aboutSocial.querySelector('.s-about__social-header');
+        const headerHeight = header ? header.offsetHeight : 0;
+        const availableHeight = aboutHeight - headerHeight - 20; // 20px for padding
+        
+        // Set max-height on bsky-embed for scrolling
+        bskyEmbed.style.maxHeight = availableHeight + 'px';
+      }
+      
+      // Always ensure overflow is set
+      bskyEmbed.style.overflow = 'auto';
+    }
+  };
+
+  // Run height matching after content loads and on resize
+  const setupHeightMatching = () => {
+    // Wait for bsky-embed to load
+    const waitForBskyEmbed = () => {
+      const bskyEmbed = document.querySelector('bsky-embed');
+      if (bskyEmbed && bskyEmbed.shadowRoot) {
+        // Component is loaded, apply height matching
+        matchBlueSkyHeight();
+        
+        // Also run after a delay to ensure content is rendered
+        setTimeout(matchBlueSkyHeight, 500);
+        setTimeout(matchBlueSkyHeight, 1000);
+      } else {
+        // Try again in 100ms
+        setTimeout(waitForBskyEmbed, 100);
+      }
+    };
+    
+    waitForBskyEmbed();
+    
+    // Match on window resize
+    let resizeTimer;
+    window.addEventListener('resize', () => {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(matchBlueSkyHeight, 250);
+    });
+    
+    // Watch for content changes
+    const observer = new MutationObserver(() => {
+      setTimeout(matchBlueSkyHeight, 100);
+    });
+    
+    const aboutContent = document.getElementById('about-content');
+    if (aboutContent) {
+      observer.observe(aboutContent, { childList: true, subtree: true });
+    }
+  };
 
   // Load about content when page loads
-  window.addEventListener("load", loadAboutContent);
+  window.addEventListener("load", () => {
+    loadAboutContent();
+    setupHeightMatching();
+  });
 
   /* Mobile Menu
    * -------------------------------------------------- */
