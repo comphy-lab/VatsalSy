@@ -4,7 +4,7 @@
   {% include theme-init.html %}
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  
+
   <!-- Favicon -->
   <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon-32x32.png">
@@ -37,7 +37,7 @@
         link.crossOrigin = 'anonymous';
         document.head.appendChild(link);
       };
-      
+
       // Check if we're on localhost
       if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
         // Use official Font Awesome CDN for local development
@@ -67,7 +67,7 @@
         // If not, check OS preference
         return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
       };
-      
+
       // Set theme on document
       const setTheme = (theme) => {
         document.documentElement.setAttribute('data-theme', theme);
@@ -76,11 +76,11 @@
         // Dispatch a custom event when theme changes
         const event = new CustomEvent('themeChange', { detail: { theme: theme } });
         document.dispatchEvent(event);
-        
+
         // Update logo based on theme
         updateLogo(theme);
       };
-      
+
       // Function to update logo based on theme
       const updateLogo = (theme) => {
         const logoImg = document.querySelector('.s-header__logo img');
@@ -92,11 +92,11 @@
           }
         }
       };
-      
+
       // Apply theme when page loads
       document.addEventListener('DOMContentLoaded', () => {
         setTheme(getThemePreference());
-        
+
         // Add click event listener to theme toggle
         const themeToggle = document.getElementById('theme-toggle');
         if (themeToggle) {
@@ -121,6 +121,9 @@
       <div class="s-header__logo">
         <a class="logo" href="/">
           <img src="/assets/logos/Logo_Vatsal_Vector.png" alt="VatsalSy">
+        </a>
+        <a class="logo" href="https://comphy-lab.org">
+          <img src="/assets/logos/CoMPhy-Lab-no-name.png" alt="CoMPhy Lab">
         </a>
       </div>
       <a class="s-header__menu-toggle" href="#0">
@@ -152,7 +155,6 @@
           <li style="background: none;"><a href="https://github.com/vatsalsy" style="background: none; padding: 0;" aria-label="GitHub Profile"><i class="fa-brands fa-github" style="font-size: 1.75em"></i></a></li>
           <li><a href="/#about" class="smoothscroll">About</a></li>
           <li><a href="https://comphy-lab.org/research">Research</a></li>
-          <li><a href="https://comphy-lab.org/">CoMPhy Lab</a></li>
           <li><a href="https://raw.githubusercontent.com/VatsalSy/Vatsal_CV/master/Vatsal_CV.pdf" target="_blank" download>CV <i class="fa-solid fa-download nav-external-icon"></i></a></li>
           <li><a href="https://blogs-comphy-lab.org/" target="_blank">Blog</a></li>
           <li style="background: none;"><a href="https://bsky.app/profile/comphy-lab.org" style="background: none; padding: 0;" aria-label="Bluesky Profile"><i class="fa-brands fa-bluesky" style="font-size: 1.75em; color: #0085ff;"></i></a></li>
