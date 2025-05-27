@@ -1,7 +1,8 @@
 # About Me
 
-Hi, I am Vatsal Sanjay. I am a Fluid Dynamicist working in the field of multiphase flows. I am currently a postdoctoral researcher at the Physics of Fluids group, where I lead the [**Computational Multiphase Physics (CoMPhy) Lab**](https://comphy-lab.org).
+Hi, I am Vatsal Sanjay. I am a Fluid Dynamicist working in the field of multiphase flows. I will join the [Durham University](https://durham.ac.uk) as Assistant Professor, where I will lead the [**Computational Multiphase Physics (CoMPhy) Lab**](https://comphy-lab.org).
 
+- Assistant Professor, Department of Physics, Durham Univ. / since 2025
 - [Postdoc, Phys. Fluids - Univ. Twente / 2022-25](https://pof.tnw.utwente.nl/people/profile/1330)
 - [Ph.D., Phys. Fluids - Univ. Twente / 2018-22](https://doi.org/10.3990/1.9789036554077)
 - [B.Tech + M.Tech, Two-Phase Flow & Instability Lab, IIT-Roorkee / 2013-18](http://dx.doi.org/10.13140/RG.2.2.22294.04166)

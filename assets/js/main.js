@@ -49,15 +49,22 @@
     const bskyEmbed = document.querySelector('bsky-embed');
     
     if (aboutLeft && aboutSocial && bskyEmbed) {
-      // Check if we're on mobile (less than 768px)
-      const isMobile = window.innerWidth < 768;
+      // Check window width for responsive behavior
+      const windowWidth = window.innerWidth;
+      const isMobile = windowWidth < 768;
+      const isStacked = windowWidth <= 1400; // When layout switches to column
       
       if (isMobile) {
         // On mobile, use fixed height
         aboutSocial.style.height = '500px';
         bskyEmbed.style.maxHeight = 'calc(100% - 60px)';
+      } else if (isStacked) {
+        // When stacked but not mobile, don't set height - let CSS handle it
+        aboutSocial.style.height = 'auto';
+        aboutSocial.style.minHeight = '400px';
+        bskyEmbed.style.maxHeight = '600px';
       } else {
-        // On desktop, match the about content height
+        // On desktop with side-by-side layout, match the about content height
         const aboutHeight = aboutLeft.offsetHeight;
         
         // Set the social container to match
