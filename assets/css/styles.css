@@ -981,12 +981,23 @@ a:hover {
   box-shadow: var(--nav-item-shadow);
   transition: var(--transition-medium);
   position: relative;
+  border: none;
+  outline: none;
 }
 
 .theme-toggle:hover {
   background: var(--nav-item-hover-bg);
   transform: translateY(-2px);
   box-shadow: var(--nav-item-hover-shadow);
+}
+
+.theme-toggle:focus {
+  outline: 2px solid var(--color-blue);
+  outline-offset: 2px;
+}
+
+.theme-toggle:focus:not(:focus-visible) {
+  outline: none;
 }
 
 .theme-toggle-icon {

@@ -29,12 +29,15 @@
     document.documentElement.classList.add('js');
   </script>
     <script>
-      // Function to load stylesheets asynchronously
-      const loadStylesheet = (href) => {
+      // Function to load stylesheets asynchronously with SRI
+      const loadStylesheet = (href, integrity) => {
         const link = document.createElement('link');
         link.rel = 'stylesheet';
         link.href = href;
         link.crossOrigin = 'anonymous';
+        if (integrity) {
+          link.integrity = integrity;
+        }
         document.head.appendChild(link);
       };
 
@@ -42,9 +45,18 @@
       if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
         // Use official Font Awesome CDN for local development
         const FA_VERSION = '6.7.2';
-        loadStylesheet(`https://use.fontawesome.com/releases/v${FA_VERSION}/css/brands.css`);
-        loadStylesheet(`https://use.fontawesome.com/releases/v${FA_VERSION}/css/fontawesome.css`);
-        loadStylesheet(`https://use.fontawesome.com/releases/v${FA_VERSION}/css/solid.css`);
+        loadStylesheet(
+          `https://use.fontawesome.com/releases/v${FA_VERSION}/css/brands.css`,
+          'sha384-CNhPUG5cpX8UuKLY0BCb+gzedmWkhHPKATz919jTKgOXajXjkEY99Qr51B5V2wOQ'
+        );
+        loadStylesheet(
+          `https://use.fontawesome.com/releases/v${FA_VERSION}/css/fontawesome.css`,
+          'sha384-AGSGRaBRodcsy1n0F2zMm+LfXuZry/ZJ6nfio36UgMuNBs/AOC8ciJ7py4SgkpoY'
+        );
+        loadStylesheet(
+          `https://use.fontawesome.com/releases/v${FA_VERSION}/css/solid.css`,
+          'sha384-H/BU8KfYKZ0VK4RJyclToSd6x8TmMY4/Rym2YtHXnGQOUZAoLIYIaOxkIfyTAuVh'
+        );
       } else {
         // Use Kit for production
         const script = document.createElement('script');
@@ -79,18 +91,27 @@
 
         // Update logo based on theme
         updateLogo(theme);
+
+        // Update aria-pressed state
+        const themeToggle = document.getElementById('theme-toggle');
+        if (themeToggle) {
+          themeToggle.setAttribute('aria-pressed', theme === 'dark' ? 'true' : 'false');
+        }
       };
 
       // Function to update logo based on theme
       const updateLogo = (theme) => {
-        const logoImg = document.querySelector('.s-header__logo img');
-        if (logoImg) {
-          if (theme === 'dark') {
-            logoImg.src = '/assets/logos/Logo_Vatsal_Vector-white.png';
-          } else {
-            logoImg.src = '/assets/logos/Logo_Vatsal_Vector.png';
+        const logoImgs = document.querySelectorAll('.s-header__logo img');
+        logoImgs.forEach((logoImg) => {
+          // Only update the Vatsal logo, not the CoMPhy Lab logo
+          if (logoImg.alt === 'VatsalSy') {
+            if (theme === 'dark') {
+              logoImg.src = '/assets/logos/Logo_Vatsal_Vector-white.png';
+            } else {
+              logoImg.src = '/assets/logos/Logo_Vatsal_Vector.png';
+            }
           }
-        }
+        });
       };
 
       // Apply theme when page loads
@@ -134,7 +155,7 @@
         <a href="#0" class="s-header__nav-close-btn"><span>Close</span></a>
         <ul class="s-header__nav-list">
           <li class="nav-icon-item">
-            <div class="theme-toggle" id="theme-toggle" aria-label="Toggle dark/light theme">
+            <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark/light theme" aria-pressed="false">
               <svg class="theme-toggle-icon moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
               </svg>
@@ -149,7 +170,7 @@
                 <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
                 <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
               </svg>
-            </div>
+            </button>
           </li>
           <li style="background: none;"><a href="https://scholar.google.com/citations?user=tHb_qZoAAAAJ&hl=en" style="background: none; padding: 0;" aria-label="Google Scholar Profile"><i class="ai ai-google-scholar" style="font-size: 1.75em;"></i></a></li>
           <li style="background: none;"><a href="https://github.com/vatsalsy" style="background: none; padding: 0;" aria-label="GitHub Profile"><i class="fa-brands fa-github" style="font-size: 1.75em"></i></a></li>
