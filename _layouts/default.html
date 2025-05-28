@@ -23,6 +23,7 @@
   <!-- Site styles -->
   <link rel="stylesheet" href="/assets/css/vendor.css">
   <link rel="stylesheet" href="/assets/css/styles.css">
+  <link rel="stylesheet" href="/assets/css/command-palette.css">
 
   <script>
     document.documentElement.classList.remove('no-js');
@@ -240,10 +241,23 @@
     </div> <!-- end ss-go-top -->
   </footer>
 
+  <!-- Command Palette -->
+  <div id="simple-command-palette" class="simple-command-palette" role="dialog" aria-modal="true" aria-label="Command palette" aria-hidden="true">
+    <div class="simple-command-palette-backdrop"></div>
+    <div class="simple-command-palette-modal">
+      <input type="text" id="command-palette-input" placeholder="Type a command or search..." aria-label="Command palette input">
+      <div id="command-palette-results" class="command-palette-results" role="listbox" aria-label="Command palette results"></div>
+    </div>
+  </div>
+
   <!-- <script src="/assets/js/plugins.js"></script> -->
   <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/dompurify@3.0.6/dist/purify.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+  <script src="/assets/js/platform-utils.js"></script>
   <script src="/assets/js/main.js"></script>
+  <script src="/assets/js/command-data.js"></script>
+  <script src="/assets/js/command-palette.js"></script>
 
 </body>
 </html>

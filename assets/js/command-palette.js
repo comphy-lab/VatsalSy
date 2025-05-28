@@ -4,11 +4,29 @@
  */
 /* global Fuse */
 
+// Track previous focus for restoration
+let previousFocus = null;
+
+// Track current search request ID for race condition prevention
+let currentSearchRequestId = 0;
+
 // Make the command palette opening function globally available
 window.openCommandPalette = function () {
   const palette = document.getElementById("simple-command-palette");
   if (palette) {
+    // Store previous focus
+    previousFocus = document.activeElement;
+    
+    // Show palette with accessibility attributes
     palette.style.display = "block";
+    palette.setAttribute("aria-hidden", "false");
+    
+    // Hide main content from screen readers
+    const mainContent = document.getElementById("page");
+    if (mainContent) {
+      mainContent.setAttribute("aria-hidden", "true");
+    }
+    
     const input = document.getElementById("command-palette-input");
     if (input) {
       input.value = "";
@@ -17,8 +35,80 @@ window.openCommandPalette = function () {
         renderCommandResults("");
       }
     }
+    
+    // Set up focus trap
+    setupFocusTrap();
   }
 };
+
+// Close command palette function
+window.closeCommandPalette = function () {
+  const palette = document.getElementById("simple-command-palette");
+  if (palette) {
+    palette.style.display = "none";
+    palette.setAttribute("aria-hidden", "true");
+    
+    // Restore main content visibility to screen readers
+    const mainContent = document.getElementById("page");
+    if (mainContent) {
+      mainContent.removeAttribute("aria-hidden");
+    }
+    
+    // Restore previous focus
+    if (previousFocus && previousFocus.focus) {
+      previousFocus.focus();
+    }
+    
+    // Remove focus trap
+    removeFocusTrap();
+  }
+};
+
+// Focus trap functionality
+let focusTrapHandler = null;
+
+function setupFocusTrap() {
+  const palette = document.querySelector(".simple-command-palette-modal");
+  if (!palette) return;
+  
+  // Get all focusable elements within the palette
+  const focusableSelectors = 'input, button, [tabindex]:not([tabindex="-1"]), .command-palette-command';
+  
+  focusTrapHandler = function(e) {
+    if (e.key !== 'Tab') return;
+    
+    const focusableElements = palette.querySelectorAll(focusableSelectors);
+    const focusableArray = Array.from(focusableElements);
+    
+    if (focusableArray.length === 0) return;
+    
+    const firstElement = focusableArray[0];
+    const lastElement = focusableArray[focusableArray.length - 1];
+    
+    if (e.shiftKey) {
+      // Shift + Tab
+      if (document.activeElement === firstElement) {
+        e.preventDefault();
+        lastElement.focus();
+      }
+    } else {
+      // Tab
+      if (document.activeElement === lastElement) {
+        e.preventDefault();
+        firstElement.focus();
+      }
+    }
+  };
+  
+  document.addEventListener('keydown', focusTrapHandler);
+}
+
+function removeFocusTrap() {
+  if (focusTrapHandler) {
+    document.removeEventListener('keydown', focusTrapHandler);
+    focusTrapHandler = null;
+  }
+}
 
 /**
  * Renders the command palette results based on the provided search query.
@@ -62,10 +152,19 @@ function renderCommandResults(query) {
     query.length >= 3 &&
     typeof window.searchDatabaseForCommandPalette === "function"
   ) {
+    // Increment request ID for this search
+    const thisRequestId = ++currentSearchRequestId;
+    
     // We"ll use a promise to handle the async search
     window
       .searchDatabaseForCommandPalette(query)
       .then((searchResults) => {
+        // Check if this is still the current request
+        if (thisRequestId !== currentSearchRequestId) {
+          // This is an outdated request, ignore it
+          return;
+        }
+        
         if (searchResults && searchResults.length > 0) {
           // Add search results to sections
           sections["Search Results"] = searchResults;
@@ -147,8 +246,7 @@ function renderSections(sections, container) {
 
       cmdEl.addEventListener("click", function () {
         if (typeof cmd.handler === "function") {
-          document.getElementById("simple-command-palette").style.display =
-            "none";
+          window.closeCommandPalette();
           cmd.handler();
         }
       });
@@ -205,7 +303,7 @@ function initCommandPalette() {
   const backdrop = document.querySelector(".simple-command-palette-backdrop");
   if (backdrop) {
     backdrop.addEventListener("click", function () {
-      document.getElementById("simple-command-palette").style.display = "none";
+      window.closeCommandPalette();
     });
   }
 
@@ -218,8 +316,7 @@ function initCommandPalette() {
 
     input.addEventListener("keydown", function (e) {
       if (e.key === "Escape") {
-        document.getElementById("simple-command-palette").style.display =
-          "none";
+        window.closeCommandPalette();
       } else if (e.key === "Enter") {
         const selectedCommand = document.querySelector(
           ".command-palette-command.selected"
@@ -275,6 +372,15 @@ function initCommandPalette() {
   document.addEventListener("keydown", function (e) {
     if ((e.metaKey || e.ctrlKey) && e.key === "k") {
       e.preventDefault();
+      
+      // Don't open if user is typing in an input field
+      const activeElement = document.activeElement;
+      const tagName = activeElement.tagName.toUpperCase();
+      
+      if (tagName === "INPUT" || tagName === "TEXTAREA" || activeElement.isContentEditable) {
+        return;
+      }
+      
       window.openCommandPalette();
     }
   });

@@ -6,8 +6,8 @@
  */
 function isMacPlatform() {
   // First try modern User-Agent Client Hints API
-  if (navigator.userAgentData && navigator.userAgentData.platform) {
-    return navigator.userAgentData.platform.toLowerCase() === "macos";
+  if (navigator.userAgentData?.platform?.toLowerCase() === "macos") {
+    return true;
   }
   
   // Fallback to parsing userAgent string

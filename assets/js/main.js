@@ -5,6 +5,9 @@
 (function () {
   "use strict";
 
+  // Store global references for cleanup
+  let blueSkyObserver = null;
+
   /* Preloader
    * -------------------------------------------------- */
   const preloader = document.querySelector("#preloader");
@@ -31,8 +34,15 @@
         if (aboutContent) {
           // Sanitize HTML output from marked.parse() with DOMPurify before inserting into DOM
           const parsedHtml = marked.parse(text);
-          const sanitizedHtml = DOMPurify.sanitize(parsedHtml);
-          aboutContent.innerHTML = sanitizedHtml;
+          // Check if DOMPurify is loaded before using it
+          if (typeof DOMPurify !== 'undefined') {
+            const sanitizedHtml = DOMPurify.sanitize(parsedHtml);
+            aboutContent.innerHTML = sanitizedHtml;
+          } else {
+            // Fallback: insert without sanitization if DOMPurify failed to load
+            console.warn('DOMPurify not loaded, inserting content without sanitization');
+            aboutContent.innerHTML = parsedHtml;
+          }
         }
       } catch (error) {
         console.error("Error loading about content:", error);
@@ -41,14 +51,28 @@
   };
 
 
+  /* Handle Bluesky embed error
+   * -------------------------------------------------- */
+  window.handleBskyEmbedError = function() {
+    const bskyEmbed = document.querySelector('bsky-embed');
+    const bskyError = document.getElementById('bsky-error');
+    
+    if (bskyEmbed && bskyError) {
+      bskyEmbed.style.display = 'none';
+      bskyError.style.display = 'block';
+    }
+  };
+
   /* Match Bluesky embed height to About section
    * -------------------------------------------------- */
   const matchBlueSkyHeight = () => {
     const aboutLeft = document.querySelector('.s-about__left');
     const aboutSocial = document.querySelector('.s-about__social');
     const bskyEmbed = document.querySelector('bsky-embed');
+    const bskyError = document.getElementById('bsky-error');
+    const bskyContainer = document.getElementById('bluesky-embed-container');
     
-    if (aboutLeft && aboutSocial && bskyEmbed) {
+    if (aboutLeft && aboutSocial && (bskyEmbed || bskyError)) {
       // Check window width for responsive behavior
       const windowWidth = window.innerWidth;
       const isMobile = windowWidth < 768;
@@ -112,13 +136,13 @@
     });
     
     // Watch for content changes
-    const observer = new MutationObserver(() => {
+    blueSkyObserver = new MutationObserver(() => {
       setTimeout(matchBlueSkyHeight, 100);
     });
     
     const aboutContent = document.getElementById('about-content');
     if (aboutContent) {
-      observer.observe(aboutContent, { childList: true, subtree: true });
+      blueSkyObserver.observe(aboutContent, { childList: true, subtree: true });
     }
   };
 
@@ -338,4 +362,14 @@
         document.body.removeChild(textarea);
       });
   };
+
+  // Cleanup function for when page unloads
+  window.addEventListener('beforeunload', function() {
+    // Disconnect MutationObserver to prevent memory leak
+    if (blueSkyObserver) {
+      blueSkyObserver.disconnect();
+      blueSkyObserver = null;
+    }
+  });
+
 })(document.documentElement);

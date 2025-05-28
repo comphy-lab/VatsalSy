@@ -85,7 +85,7 @@
       id: "github",
       title: "Visit GitHub",
       handler: () => {
-        window.open("https://github.com/comphy-lab", "_blank");
+        window.open("https://github.com/comphy-lab", "_blank", "noopener,noreferrer");
       },
 
       section: "External Links",
@@ -97,7 +97,8 @@
       handler: () => {
         window.open(
           "https://scholar.google.com/citations?user=tHb_qZoAAAAJ&hl=en",
-          "_blank"
+          "_blank",
+          "noopener,noreferrer"
         );
       },
 
@@ -108,7 +109,7 @@
       id: "youtube",
       title: "Visit YouTube Channel",
       handler: () => {
-        window.open("https://www.youtube.com/@CoMPhyLab", "_blank");
+        window.open("https://www.youtube.com/@CoMPhyLab", "_blank", "noopener,noreferrer");
       },
 
       section: "External Links",
@@ -118,7 +119,7 @@
       id: "bluesky",
       title: "Visit Bluesky",
       handler: () => {
-        window.open("https://bsky.app/profile/comphy-lab.org", "_blank");
+        window.open("https://bsky.app/profile/comphy-lab.org", "_blank", "noopener,noreferrer");
       },
 
       section: "External Links",
@@ -156,7 +157,8 @@
       handler: () => {
         window.open(
           "https://github.com/comphy-lab/comphy-lab.github.io",
-          "_blank"
+          "_blank",
+          "noopener,noreferrer"
         );
       },
 
@@ -167,30 +169,28 @@
 
   // Command data loaded successfully
 
-  // Define the displayShortcutsHelp function globally
-  window.displayShortcutsHelp = function () {
-    // Create and display shortcut help modal
-    // Create a modal to show all available shortcuts
+  // Helper function to create modals with proper cleanup
+  function createModal(contentHTML, modalStyles = {}, contentStyles = {}) {
     const modal = document.createElement("div");
     modal.style.position = "fixed";
     modal.style.top = "0";
     modal.style.left = "0";
     modal.style.width = "100%";
     modal.style.height = "100%";
-    modal.style.backgroundColor = "rgba(0, 0, 0, 0.7)";
-    modal.style.zIndex = "2000";
+    modal.style.backgroundColor = modalStyles.backgroundColor || "rgba(0, 0, 0, 0.7)";
+    modal.style.zIndex = modalStyles.zIndex || "2000";
     modal.style.display = "flex";
     modal.style.justifyContent = "center";
     modal.style.alignItems = "center";
 
     const content = document.createElement("div");
-    content.style.backgroundColor = "white";
-    content.style.borderRadius = "8px";
-    content.style.padding = "20px";
-    content.style.maxWidth = "600px";
-    content.style.maxHeight = "80vh";
-    content.style.overflow = "auto";
-    content.style.boxShadow = "0 4px 20px rgba(0, 0, 0, 0.3)";
+    content.style.backgroundColor = contentStyles.backgroundColor || "white";
+    content.style.borderRadius = contentStyles.borderRadius || "8px";
+    content.style.padding = contentStyles.padding || "20px";
+    content.style.maxWidth = contentStyles.maxWidth || "600px";
+    content.style.maxHeight = contentStyles.maxHeight || "80vh";
+    content.style.overflow = contentStyles.overflow || "auto";
+    content.style.boxShadow = contentStyles.boxShadow || "0 4px 20px rgba(0, 0, 0, 0.3)";
 
     // Media query for dark mode
     if (
@@ -201,6 +201,35 @@
       content.style.color = "#fff";
     }
 
+    content.innerHTML = contentHTML;
+    modal.appendChild(content);
+
+    // Function to close modal and cleanup
+    const closeModal = () => {
+      // Remove event listeners before removing the modal
+      modal.removeEventListener("click", modalClickHandler);
+      if (content.keydownHandler) {
+        content.removeEventListener("keydown", content.keydownHandler);
+      }
+      document.body.removeChild(modal);
+    };
+
+    // Click outside to close handler
+    const modalClickHandler = (e) => {
+      if (e.target === modal) {
+        closeModal();
+      }
+    };
+    modal.addEventListener("click", modalClickHandler);
+
+    // Store closeModal function on the modal element for external access
+    modal.closeModal = closeModal;
+
+    return { modal, content, closeModal };
+  }
+
+  // Define the displayShortcutsHelp function globally
+  window.displayShortcutsHelp = function () {
     // Group commands by section
     const sections = {};
     window.commandData.forEach((command) => {
@@ -233,23 +262,14 @@
     html +=
       "<div style=\"text-align: center; margin-top: 20px;\"><button id=\"close-shortcuts-help\" style=\"padding: 8px 16px; background-color: #5b79a8; color: white; border: none; border-radius: 4px; cursor: pointer;\">Close</button></div>";
 
-    content.innerHTML = html;
-    modal.appendChild(content);
+    // Create modal using the helper function
+    const { modal, closeModal } = createModal(html);
     document.body.appendChild(modal);
 
-    // Add event listener to close
+    // Add event listener to close button
     document
       .getElementById("close-shortcuts-help")
-      .addEventListener("click", () => {
-        document.body.removeChild(modal);
-      });
-
-    // Close when clicking outside
-    modal.addEventListener("click", (e) => {
-      if (e.target === modal) {
-        document.body.removeChild(modal);
-      }
-    });
+      .addEventListener("click", closeModal);
   };
 
   // Search database integration
@@ -367,6 +387,11 @@
 
   // Add page-specific command function
   window.addContextCommands = function () {
+    // Check if context commands have already been added
+    if (window.contextCommandsAdded) {
+      return;
+    }
+    
     // Get the current path
     const currentPath = window.location.pathname;
     let contextCommands = [];
@@ -378,38 +403,6 @@
           id: "filter-research",
           title: "Filter Research by Tag",
           handler: () => {
-            // Create and display a modal showing all available tags
-            const modal = document.createElement("div");
-            modal.style.position = "fixed";
-            modal.style.top = "0";
-            modal.style.left = "0";
-            modal.style.width = "100%";
-            modal.style.height = "100%";
-            modal.style.backgroundColor = "rgba(0, 0, 0, 0.7)";
-            modal.style.zIndex = "2000";
-            modal.style.display = "flex";
-            modal.style.justifyContent = "center";
-            modal.style.alignItems = "center";
-
-            const content = document.createElement("div");
-            content.style.backgroundColor = "white";
-            content.style.borderRadius = "8px";
-            content.style.padding = "20px";
-            content.style.maxWidth = "600px";
-            content.style.maxHeight = "80vh";
-            content.style.overflow = "auto";
-            content.style.boxShadow = "0 4px 20px rgba(0, 0, 0, 0.3)";
-            content.setAttribute("tabindex", "-1"); // Make the content focusable for keyboard events
-
-            // Media query for dark mode
-            if (
-              window.matchMedia &&
-              window.matchMedia("(prefers-color-scheme: dark)").matches
-            ) {
-              content.style.backgroundColor = "#333";
-              content.style.color = "#fff";
-            }
-
             // Collect all unique tags from the page
             const tagElements = document.querySelectorAll("tags span");
             const tags = new Set();
@@ -439,8 +432,9 @@
             html +=
               "<div style=\"text-align: center; margin-top: 20px;\"><button id=\"close-tag-filter\" style=\"padding: 8px 16px; background-color: #333; color: white; border: none; border-radius: 4px; cursor: pointer;\">Close</button></div>";
 
-            content.innerHTML = html;
-            modal.appendChild(content);
+            // Create modal using the helper function
+            const { modal, content, closeModal } = createModal(html);
+            content.setAttribute("tabindex", "-1"); // Make the content focusable for keyboard events
             document.body.appendChild(modal);
 
             // Get all tag buttons
@@ -490,22 +484,21 @@
                 ).find((tag) => tag.textContent === tagText);
 
                 if (matchingTag) {
-                  // Remove the modal first
-                  document.body.removeChild(modal);
+                  // Close the modal using cleanup function
+                  closeModal();
                   // Then trigger the click
                   matchingTag.click();
                 }
               });
             });
 
-            // Add keyboard navigation
-            content.addEventListener("keydown", (e) => {
+            // Add keyboard navigation handler
+            const keydownHandler = (e) => {
               const buttonRows = 4; // Approximate number of buttons per row
               const numButtons = tagButtons.length;
 
               if (e.key === "Escape") {
-                // Close the modal
-                document.body.removeChild(modal);
+                closeModal();
               } else if (e.key === "Enter") {
                 // Click the selected button
                 if (tagButtons[selectedButtonIndex]) {
@@ -537,21 +530,16 @@
                 );
                 updateSelectedButton(selectedButtonIndex);
               }
-            });
+            };
+
+            // Store the keydown handler on content so it can be cleaned up
+            content.keydownHandler = keydownHandler;
+            content.addEventListener("keydown", keydownHandler);
 
             // Add event listener to close button
             document
               .getElementById("close-tag-filter")
-              .addEventListener("click", () => {
-                document.body.removeChild(modal);
-              });
-
-            // Close when clicking outside
-            modal.addEventListener("click", (e) => {
-              if (e.target === modal) {
-                document.body.removeChild(modal);
-              }
-            });
+              .addEventListener("click", closeModal);
 
             // Focus the content element to capture keyboard events
             content.focus();
@@ -595,8 +583,16 @@
 
     // Add context commands if there are any
     if (contextCommands.length > 0) {
-      // Combine context commands with global commands
-      window.commandData = [...contextCommands, ...window.commandData];
+      // Filter out any existing commands with the same IDs
+      const existingIds = new Set(window.commandData.map(cmd => cmd.id));
+      const newCommands = contextCommands.filter(cmd => !existingIds.has(cmd.id));
+      
+      // Combine new context commands with global commands
+      if (newCommands.length > 0) {
+        window.commandData = [...newCommands, ...window.commandData];
+        // Mark that context commands have been added
+        window.contextCommandsAdded = true;
+      }
     }
   };
 

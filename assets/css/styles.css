@@ -1208,6 +1208,19 @@ a:hover {
   text-decoration: none;
 }
 
+/* Intro icons container */
+.intro-icons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 10px;
+}
+
+/* Intro link styling */
+.intro-link {
+  text-decoration: none;
+}
+
 /* Intro icons styling */
 .intro-icon {
   font-size: 2.5em !important;
