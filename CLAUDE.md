@@ -30,12 +30,16 @@ This project uses Ruby ~> 3.2.0. Ensure you have the correct version installed.
 
 1. **index.html**: Main homepage that displays intro section and loads about content dynamically
 2. **aboutVatsal.md**: Contains the about section content that gets loaded via JavaScript into the homepage
-3. **assets/js/main.js**: Core JavaScript handling:
+3. **_includes/theme-init.html**: Theme initialization script that handles dark/light mode persistence across page loads
+4. **assets/js/main.js**: Core JavaScript handling:
    - Dynamic loading of aboutVatsal.md content using marked.js
    - Mobile menu functionality
    - Smooth scrolling
    - Email copy functionality
    - Back to top button
+5. **assets/js/command-palette.js**: Command palette functionality for keyboard navigation and quick actions
+6. **assets/js/command-data.js**: Command definitions and data for the command palette system
+7. **assets/js/platform-utils.js**: Platform detection utilities for OS-specific keyboard shortcuts and behaviors
 
 ### Redirect Pages
 

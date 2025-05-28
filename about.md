@@ -35,4 +35,4 @@ Hi, I am Vatsal Sanjay. I am a Fluid Dynamicist working in the field of multipha
 [![ResearchGate](https://img.shields.io/badge/-ResearchGate-00CCBB?style=flat&logo=researchgate&logoColor=white)](https://www.researchgate.net/profile/Vatsal-Sanjay-2)
 
 [![X](https://img.shields.io/badge/-@VatsalSanjay-000000?style=flat&logo=x&logoColor=white)](https://twitter.com/VatsalSanjay)
-[![Bluesky](https://img.shields.io/badge/-@comphy--lab.org-0285FF?style=flat&logo=bluesky&logoColor=white)](https://bsky.app/profile/comphy-lab.org) 
+[![Bluesky](https://img.shields.io/badge/-@comphy--lab.org-0285FF?style=flat&logo=bluesky&logoColor=white)](https://bsky.app/profile/comphy-lab.org)

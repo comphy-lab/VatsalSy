@@ -107,6 +107,11 @@ function renderSections(sections, container) {
   Object.keys(sections).forEach((section) => {
     const sectionEl = document.createElement("div");
     sectionEl.className = "command-palette-section";
+    
+    // Add special class for search results section
+    if (section === "Search Results") {
+      sectionEl.classList.add("search-results-section");
+    }
 
     const sectionTitle = document.createElement("div");
     sectionTitle.className = "command-palette-section-title";

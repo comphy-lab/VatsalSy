@@ -1,8 +1,8 @@
 /* Custom Command Palette styling */
 
 /* Command Palette Theme Variables */
-:root {
-  /* Command Palette Colors */
+[data-theme="dark"] :root {
+  /* Command Palette Colors - Dark Theme */
   --command-palette-bg: #2d1e30;
   --command-palette-text: #fff;
   --command-palette-input-bg: #3a2a3d;
@@ -15,6 +15,22 @@
   --command-palette-selected-bg: rgba(104, 35, 109, 0.25);
   --command-palette-kbd-bg: rgba(104, 35, 109, 0.25);
   --command-palette-kbd-border: rgba(104, 35, 109, 0.4);
+}
+
+[data-theme="light"] :root {
+  /* Command Palette Colors - Light Theme */
+  --command-palette-bg: #f9f5fb;
+  --command-palette-text: #333;
+  --command-palette-input-bg: #fff;
+  --command-palette-input-text: #333;
+  --command-palette-section-title: #68236d;
+  --command-palette-icon: #68236d;
+  --command-palette-excerpt: #666;
+  --command-palette-border: rgba(104, 35, 109, 0.2);
+  --command-palette-hover-bg: rgba(104, 35, 109, 0.1);
+  --command-palette-selected-bg: rgba(104, 35, 109, 0.15);
+  --command-palette-kbd-bg: rgba(104, 35, 109, 0.1);
+  --command-palette-kbd-border: rgba(104, 35, 109, 0.3);
 }
 
 .simple-command-palette {
@@ -156,7 +172,7 @@
 }
 
 /* Style for search results section */
-.command-palette-section:has(.command-palette-section-title:contains("Search Results")) {
+.search-results-section {
   border-top: 1px solid rgba(104, 35, 109, 0.2);
   margin-top: 10px;
   padding-top: 10px;

@@ -732,9 +732,17 @@
   }
 } 
 
+/* Enable smooth scrolling only for users who haven't requested reduced motion */
+@media (prefers-reduced-motion: no-preference) {
+    html {
+        scroll-behavior: smooth;
+        scroll-padding-top: 120px; /* Increased to account for fixed header */
+    }
+}
+
+/* Always apply scroll padding to account for fixed header */
 html {
-    scroll-behavior: smooth;
-    scroll-padding-top: 120px; /* Increased to account for fixed header */
+    scroll-padding-top: 120px;
 }
 
 /* Highlight the target container when navigated to via anchor */

@@ -28,7 +28,7 @@
       id: "research",
       title: "Go to Research Page",
       handler: () => {
-        window.location.href = "/research";
+        window.location.href = "/research/";
       },
       section: "Navigation",
       icon: "<i class=\"fa-solid fa-flask\"></i>",
@@ -37,7 +37,7 @@
       id: "teaching",
       title: "Go to Teaching Page",
       handler: () => {
-        window.location.href = "/teaching";
+        window.location.href = "/teaching/";
       },
       section: "Navigation",
       icon: "<i class=\"fa-solid fa-chalkboard-teacher\"></i>",
