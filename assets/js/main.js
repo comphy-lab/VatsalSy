@@ -35,12 +35,12 @@
           // Sanitize HTML output from marked.parse() with DOMPurify before inserting into DOM
           const parsedHtml = marked.parse(text);
           // Check if DOMPurify is loaded before using it
-          if (typeof DOMPurify !== 'undefined') {
+          if (typeof DOMPurify !== "undefined") {
             const sanitizedHtml = DOMPurify.sanitize(parsedHtml);
             aboutContent.innerHTML = sanitizedHtml;
           } else {
             // Fallback: insert without sanitization if DOMPurify failed to load
-            console.warn('DOMPurify not loaded, inserting content without sanitization');
+            console.warn("DOMPurify not loaded, inserting content without sanitization");
             aboutContent.innerHTML = parsedHtml;
           }
         }
@@ -54,23 +54,23 @@
   /* Handle Bluesky embed error
    * -------------------------------------------------- */
   window.handleBskyEmbedError = function() {
-    const bskyEmbed = document.querySelector('bsky-embed');
-    const bskyError = document.getElementById('bsky-error');
+    const bskyEmbed = document.querySelector("bsky-embed");
+    const bskyError = document.getElementById("bsky-error");
     
     if (bskyEmbed && bskyError) {
-      bskyEmbed.style.display = 'none';
-      bskyError.style.display = 'block';
+      bskyEmbed.style.display = "none";
+      bskyError.style.display = "block";
     }
   };
 
   /* Match Bluesky embed height to About section
    * -------------------------------------------------- */
   const matchBlueSkyHeight = () => {
-    const aboutLeft = document.querySelector('.s-about__left');
-    const aboutSocial = document.querySelector('.s-about__social');
-    const bskyEmbed = document.querySelector('bsky-embed');
-    const bskyError = document.getElementById('bsky-error');
-    const bskyContainer = document.getElementById('bluesky-embed-container');
+    const aboutLeft = document.querySelector(".s-about__left");
+    const aboutSocial = document.querySelector(".s-about__social");
+    const bskyEmbed = document.querySelector("bsky-embed");
+    const bskyError = document.getElementById("bsky-error");
+    const bskyContainer = document.getElementById("bluesky-embed-container");
     
     if (aboutLeft && aboutSocial && (bskyEmbed || bskyError)) {
       // Check window width for responsive behavior
@@ -79,47 +79,47 @@
       const isStacked = windowWidth <= 1400; // When layout switches to column
       
       // Get the active element (either bsky-embed or error container)
-      const activeElement = bskyEmbed && bskyEmbed.style.display !== 'none' ? bskyEmbed : bskyError;
+      const activeElement = bskyEmbed && bskyEmbed.style.display !== "none" ? bskyEmbed : bskyError;
       
       if (isMobile) {
         // On mobile, use fixed height
-        aboutSocial.style.height = '500px';
+        aboutSocial.style.height = "500px";
         if (activeElement) {
-          activeElement.style.maxHeight = 'calc(100% - 60px)';
+          activeElement.style.maxHeight = "calc(100% - 60px)";
         }
       } else if (isStacked) {
         // When stacked but not mobile, don't set height - let CSS handle it
-        aboutSocial.style.height = 'auto';
-        aboutSocial.style.minHeight = '400px';
+        aboutSocial.style.height = "auto";
+        aboutSocial.style.minHeight = "400px";
         if (activeElement) {
-          activeElement.style.maxHeight = '600px';
+          activeElement.style.maxHeight = "600px";
         }
       } else {
         // On desktop with side-by-side layout, match the about content height
         const aboutHeight = aboutLeft.offsetHeight;
         
         // Set the social container to match
-        aboutSocial.style.height = aboutHeight + 'px';
+        aboutSocial.style.height = aboutHeight + "px";
         
         // Calculate available height for content (subtract header height)
-        const header = aboutSocial.querySelector('.s-about__social-header');
+        const header = aboutSocial.querySelector(".s-about__social-header");
         const headerHeight = header ? header.offsetHeight : 0;
         const availableHeight = aboutHeight - headerHeight - 20; // 20px for padding
         
         // Set max-height on active element for scrolling
         if (activeElement) {
-          activeElement.style.maxHeight = availableHeight + 'px';
+          activeElement.style.maxHeight = availableHeight + "px";
         }
         
         // Set container height if needed
         if (bskyContainer) {
-          bskyContainer.style.maxHeight = availableHeight + 'px';
+          bskyContainer.style.maxHeight = availableHeight + "px";
         }
       }
       
       // Always ensure overflow is set on active element
       if (activeElement) {
-        activeElement.style.overflow = 'auto';
+        activeElement.style.overflow = "auto";
       }
     }
   };
@@ -131,8 +131,8 @@
     const maxChecks = 50; // 5 seconds maximum wait
     
     const waitForBskyEmbed = () => {
-      const bskyEmbed = document.querySelector('bsky-embed');
-      const bskyError = document.getElementById('bsky-error');
+      const bskyEmbed = document.querySelector("bsky-embed");
+      const bskyError = document.getElementById("bsky-error");
       
       embedCheckCount++;
       
@@ -143,7 +143,7 @@
         // Also run after a delay to ensure content is rendered
         setTimeout(matchBlueSkyHeight, 500);
         setTimeout(matchBlueSkyHeight, 1000);
-      } else if (bskyError && bskyError.style.display === 'block') {
+      } else if (bskyError && bskyError.style.display === "block") {
         // Error state is shown, apply height matching
         matchBlueSkyHeight();
       } else if (embedCheckCount < maxChecks) {
@@ -151,7 +151,7 @@
         setTimeout(waitForBskyEmbed, 100);
       } else {
         // Timeout - show error state
-        console.warn('Bluesky embed failed to load after 5 seconds');
+        console.warn("Bluesky embed failed to load after 5 seconds");
         window.handleBskyEmbedError();
         matchBlueSkyHeight();
       }
@@ -161,7 +161,7 @@
     
     // Match on window resize
     let resizeTimer;
-    window.addEventListener('resize', () => {
+    window.addEventListener("resize", () => {
       clearTimeout(resizeTimer);
       resizeTimer = setTimeout(matchBlueSkyHeight, 250);
     });
@@ -171,7 +171,7 @@
       setTimeout(matchBlueSkyHeight, 100);
     });
     
-    const aboutContent = document.getElementById('about-content');
+    const aboutContent = document.getElementById("about-content");
     if (aboutContent) {
       blueSkyObserver.observe(aboutContent, { childList: true, subtree: true });
     }
@@ -225,25 +225,25 @@
    * -------------------------------------------------- */
   const setupSmoothScrolling = () => {
     // Handle all smooth scroll links
-    document.querySelectorAll('a.smoothscroll, a[href^="#"], a[href^="/#"]').forEach((anchor) => {
+    document.querySelectorAll("a.smoothscroll, a[href^=\"#\"], a[href^=\"/#\"]").forEach((anchor) => {
       anchor.addEventListener("click", function (e) {
         const href = this.getAttribute("href");
         
         // Handle links with /#section format
-        if (href.startsWith('/#')) {
+        if (href.startsWith("/#")) {
           e.preventDefault();
           const targetId = href.substring(2); // Remove /#
           const target = document.getElementById(targetId);
           
           if (target) {
             // Calculate offset for header
-            const headerHeight = document.querySelector('.s-header').offsetHeight;
+            const headerHeight = document.querySelector(".s-header").offsetHeight;
             const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - headerHeight - 20;
             
             // Smooth scroll with custom duration
             window.scrollTo({
               top: targetPosition,
-              behavior: 'smooth'
+              behavior: "smooth"
             });
             
             // Update URL without jumping
@@ -251,17 +251,17 @@
           }
         } 
         // Handle regular #section links
-        else if (href.startsWith('#') && href !== '#' && href !== '#0') {
+        else if (href.startsWith("#") && href !== "#" && href !== "#0") {
           e.preventDefault();
           const target = document.querySelector(href);
           
           if (target) {
-            const headerHeight = document.querySelector('.s-header').offsetHeight;
+            const headerHeight = document.querySelector(".s-header").offsetHeight;
             const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - headerHeight - 20;
             
             window.scrollTo({
               top: targetPosition,
-              behavior: 'smooth'
+              behavior: "smooth"
             });
           }
         }
@@ -288,7 +288,7 @@
 
   document.addEventListener("DOMContentLoaded", function () {
     const images = document.querySelectorAll(
-      '.member-image img[loading="lazy"]',
+      ".member-image img[loading=\"lazy\"]",
     );
 
     images.forEach((img) => {
@@ -395,7 +395,7 @@
   };
 
   // Cleanup function for when page unloads
-  window.addEventListener('beforeunload', function() {
+  window.addEventListener("beforeunload", function() {
     // Disconnect MutationObserver to prevent memory leak
     if (blueSkyObserver) {
       blueSkyObserver.disconnect();

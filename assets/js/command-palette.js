@@ -72,10 +72,10 @@ function setupFocusTrap() {
   if (!palette) return;
   
   // Get all focusable elements within the palette
-  const focusableSelectors = 'input, button, [tabindex]:not([tabindex="-1"]), .command-palette-command';
+  const focusableSelectors = "input, button, [tabindex]:not([tabindex=\"-1\"]), .command-palette-command";
   
   focusTrapHandler = function(e) {
-    if (e.key !== 'Tab') return;
+    if (e.key !== "Tab") return;
     
     const focusableElements = palette.querySelectorAll(focusableSelectors);
     const focusableArray = Array.from(focusableElements);
@@ -100,12 +100,12 @@ function setupFocusTrap() {
     }
   };
   
-  document.addEventListener('keydown', focusTrapHandler);
+  document.addEventListener("keydown", focusTrapHandler);
 }
 
 function removeFocusTrap() {
   if (focusTrapHandler) {
-    document.removeEventListener('keydown', focusTrapHandler);
+    document.removeEventListener("keydown", focusTrapHandler);
     focusTrapHandler = null;
   }
 }
