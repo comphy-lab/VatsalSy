@@ -31,6 +31,23 @@
  * 1. VARIABLE DEFINITIONS
  *--------------------------------------------------------------*/
 
+/* Enable smooth scrolling for the entire page */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Add smooth transitions when sections come into view */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  /* Smooth scroll timing */
+  * {
+    scroll-behavior: smooth;
+  }
+}
+
 /* Light Theme Variables */
 :root {
   /* Color System - Primary Colors */

@@ -168,17 +168,54 @@
 
   /* Smooth Scrolling
    * -------------------------------------------------- */
-  document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-    anchor.addEventListener("click", function (e) {
-      e.preventDefault();
-      const target = document.querySelector(this.getAttribute("href"));
-      if (target) {
-        target.scrollIntoView({
-          behavior: "smooth",
-        });
-      }
+  const setupSmoothScrolling = () => {
+    // Handle all smooth scroll links
+    document.querySelectorAll('a.smoothscroll, a[href^="#"], a[href^="/#"]').forEach((anchor) => {
+      anchor.addEventListener("click", function (e) {
+        const href = this.getAttribute("href");
+        
+        // Handle links with /#section format
+        if (href.startsWith('/#')) {
+          e.preventDefault();
+          const targetId = href.substring(2); // Remove /#
+          const target = document.getElementById(targetId);
+          
+          if (target) {
+            // Calculate offset for header
+            const headerHeight = document.querySelector('.s-header').offsetHeight;
+            const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - headerHeight - 20;
+            
+            // Smooth scroll with custom duration
+            window.scrollTo({
+              top: targetPosition,
+              behavior: 'smooth'
+            });
+            
+            // Update URL without jumping
+            history.pushState(null, null, href);
+          }
+        } 
+        // Handle regular #section links
+        else if (href.startsWith('#') && href !== '#' && href !== '#0') {
+          e.preventDefault();
+          const target = document.querySelector(href);
+          
+          if (target) {
+            const headerHeight = document.querySelector('.s-header').offsetHeight;
+            const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - headerHeight - 20;
+            
+            window.scrollTo({
+              top: targetPosition,
+              behavior: 'smooth'
+            });
+          }
+        }
+      });
     });
-  });
+  };
+  
+  // Initialize smooth scrolling
+  setupSmoothScrolling();
 
   /* Back to Top
    * -------------------------------------------------- */
