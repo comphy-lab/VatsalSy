@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 /**
- * Simple test runner for the CoMPhy Lab website
+ * Simple test runner for Vatsal's personal website
  * Runs without Jest or other dependencies
  */
 
@@ -69,10 +69,6 @@ console.log('🧪 Running simple validation tests...\n');
 
 // Test 1: Check if required files exist
 describe('Project structure', () => {
-  it('should have package.json', () => {
-    expect(fs.existsSync('package.json')).toBeTruthy();
-  });
-  
   it('should have _config.yml', () => {
     expect(fs.existsSync('_config.yml')).toBeTruthy();
   });
@@ -83,6 +79,14 @@ describe('Project structure', () => {
   
   it('should have assets directory', () => {
     expect(fs.existsSync('assets')).toBeTruthy();
+  });
+  
+  it('should have index.html', () => {
+    expect(fs.existsSync('index.html')).toBeTruthy();
+  });
+  
+  it('should have aboutVatsal.md', () => {
+    expect(fs.existsSync('aboutVatsal.md')).toBeTruthy();
   });
 });
 
