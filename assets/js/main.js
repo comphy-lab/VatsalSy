@@ -78,15 +78,22 @@
       const isMobile = windowWidth < 768;
       const isStacked = windowWidth <= 1400; // When layout switches to column
       
+      // Get the active element (either bsky-embed or error container)
+      const activeElement = bskyEmbed && bskyEmbed.style.display !== 'none' ? bskyEmbed : bskyError;
+      
       if (isMobile) {
         // On mobile, use fixed height
         aboutSocial.style.height = '500px';
-        bskyEmbed.style.maxHeight = 'calc(100% - 60px)';
+        if (activeElement) {
+          activeElement.style.maxHeight = 'calc(100% - 60px)';
+        }
       } else if (isStacked) {
         // When stacked but not mobile, don't set height - let CSS handle it
         aboutSocial.style.height = 'auto';
         aboutSocial.style.minHeight = '400px';
-        bskyEmbed.style.maxHeight = '600px';
+        if (activeElement) {
+          activeElement.style.maxHeight = '600px';
+        }
       } else {
         // On desktop with side-by-side layout, match the about content height
         const aboutHeight = aboutLeft.offsetHeight;
@@ -94,35 +101,59 @@
         // Set the social container to match
         aboutSocial.style.height = aboutHeight + 'px';
         
-        // Calculate available height for bsky-embed (subtract header height)
+        // Calculate available height for content (subtract header height)
         const header = aboutSocial.querySelector('.s-about__social-header');
         const headerHeight = header ? header.offsetHeight : 0;
         const availableHeight = aboutHeight - headerHeight - 20; // 20px for padding
         
-        // Set max-height on bsky-embed for scrolling
-        bskyEmbed.style.maxHeight = availableHeight + 'px';
+        // Set max-height on active element for scrolling
+        if (activeElement) {
+          activeElement.style.maxHeight = availableHeight + 'px';
+        }
+        
+        // Set container height if needed
+        if (bskyContainer) {
+          bskyContainer.style.maxHeight = availableHeight + 'px';
+        }
       }
       
-      // Always ensure overflow is set
-      bskyEmbed.style.overflow = 'auto';
+      // Always ensure overflow is set on active element
+      if (activeElement) {
+        activeElement.style.overflow = 'auto';
+      }
     }
   };
 
   // Run height matching after content loads and on resize
   const setupHeightMatching = () => {
     // Wait for bsky-embed to load
+    let embedCheckCount = 0;
+    const maxChecks = 50; // 5 seconds maximum wait
+    
     const waitForBskyEmbed = () => {
       const bskyEmbed = document.querySelector('bsky-embed');
+      const bskyError = document.getElementById('bsky-error');
+      
+      embedCheckCount++;
+      
       if (bskyEmbed && bskyEmbed.shadowRoot) {
-        // Component is loaded, apply height matching
+        // Component is loaded successfully, apply height matching
         matchBlueSkyHeight();
         
         // Also run after a delay to ensure content is rendered
         setTimeout(matchBlueSkyHeight, 500);
         setTimeout(matchBlueSkyHeight, 1000);
-      } else {
+      } else if (bskyError && bskyError.style.display === 'block') {
+        // Error state is shown, apply height matching
+        matchBlueSkyHeight();
+      } else if (embedCheckCount < maxChecks) {
         // Try again in 100ms
         setTimeout(waitForBskyEmbed, 100);
+      } else {
+        // Timeout - show error state
+        console.warn('Bluesky embed failed to load after 5 seconds');
+        window.handleBskyEmbedError();
+        matchBlueSkyHeight();
       }
     };
     
