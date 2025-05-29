@@ -367,6 +367,7 @@ html {
   --icon-color-wikipedia: var(--color-white);
   --icon-color-github: var(--color-white);
   --icon-color-google-scholar: var(--color-white);
+  --icon-color-bluesky: var(--color-white);
   --icon-color-newspaper: #9a349f;
 
   /* Box Shadows */
@@ -1373,6 +1374,10 @@ a:hover {
 .s-about__social-header img {
   width: 24px;
   height: 24px;
+}
+
+[data-theme="dark"] .s-about__social-header img {
+  filter: brightness(0) invert(1);
 }
 
 .s-about__social-header h3 {
