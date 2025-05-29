@@ -2249,16 +2249,20 @@ section#featured::after,
   bottom: 30px;
   right: 30px;
   z-index: 100;
-  padding: 15px;
   background: var(--go-top-bg);
-  color: var(--go-top-text);
-  text-decoration: none;
   border-radius: 50%;
   transition: var(--transition-medium);
-  cursor: pointer;
   box-shadow: var(--go-top-shadow);
   backdrop-filter: blur(4px);
   border: 1px solid var(--go-top-border);
+}
+
+.ss-go-top a {
+  display: block;
+  padding: 15px;
+  color: var(--go-top-text);
+  text-decoration: none;
+  cursor: pointer;
 }
 
 .ss-go-top:hover {
@@ -2273,7 +2277,7 @@ section#featured::after,
   display: block;
 }
 
-.link-is-visible {
+.ss-go-top.link-is-visible {
   display: block;
 }
 
