@@ -30,19 +30,19 @@ Hi, I am Vatsal Sanjay. I am a Fluid Dynamicist working in the field of multipha
 [![Bluesky](https://img.shields.io/badge/-@comphy--lab.org-0285FF?style=flat&logo=bluesky&logoColor=white)](https://bsky.app/profile/comphy-lab.org)
 
 <div class="stats-grid">
-<a href="https://github.com/comphy-lab" target="_blank" rel="noopener noreferrer" aria-label="Vatsal's GitHub Stats">
-  <img class="card-stats-light" alt="Vatsal's GitHub Stats" src="https://cust-github-readme-stats.vercel.app/api?username=comphy-lab&show_icons=true&theme=github_light&hide_border=true&rank_icon=github&bg_color=FFFFFF" loading="lazy" width="495" height="195">
-  <img class="card-stats-dark" alt="Vatsal's GitHub Stats" src="https://cust-github-readme-stats.vercel.app/api?username=comphy-lab&show_icons=true&theme=github_dark&hide_border=true&rank_icon=github&bg_color=1A1A1A" loading="lazy" width="495" height="195">
+<a href="https://github.com/VatsalSy" target="_blank" rel="noopener noreferrer" aria-label="Vatsal's GitHub Stats">
+  <img class="card-stats-light" alt="Vatsal's GitHub Stats" src="https://cust-github-readme-stats.vercel.app/api?username=VatsalSy&show_icons=true&theme=github_light&hide_border=true&rank_icon=github&bg_color=FFFFFF" loading="lazy" width="495" height="195">
+  <img class="card-stats-dark" alt="Vatsal's GitHub Stats" src="https://cust-github-readme-stats.vercel.app/api?username=VatsalSy&show_icons=true&theme=github_dark&hide_border=true&rank_icon=github&bg_color=1A1A1A" loading="lazy" width="495" height="195">
 </a>
 
-<a href="https://github.com/comphy-lab" target="_blank" rel="noopener noreferrer" aria-label="Most Used Languages">
-  <img class="card-stats-light" alt="Most Used Languages" src="https://cust-github-readme-stats.vercel.app/api/top-langs/?username=comphy-lab&layout=compact&theme=github_light&hide_border=true&bg_color=FFFFFF" loading="lazy" width="300" height="195">
-  <img class="card-stats-dark" alt="Most Used Languages" src="https://cust-github-readme-stats.vercel.app/api/top-langs/?username=comphy-lab&layout=compact&theme=github_dark&hide_border=true&bg_color=1A1A1A" loading="lazy" width="300" height="195">
+<a href="https://github.com/VatsalSy" target="_blank" rel="noopener noreferrer" aria-label="Most Used Languages">
+  <img class="card-stats-light" alt="Most Used Languages" src="https://cust-github-readme-stats.vercel.app/api/top-langs/?username=VatsalSy&layout=compact&theme=github_light&hide_border=true&bg_color=FFFFFF" loading="lazy" width="300" height="195">
+  <img class="card-stats-dark" alt="Most Used Languages" src="https://cust-github-readme-stats.vercel.app/api/top-langs/?username=VatsalSy&layout=compact&theme=github_dark&hide_border=true&bg_color=1A1A1A" loading="lazy" width="300" height="195">
 </a>
 
-<a href="https://github.com/comphy-lab" target="_blank" rel="noopener noreferrer" aria-label="Vatsal's GitHub Streak">
-  <img class="card-stats-light" alt="Vatsal's GitHub Streak" src="https://github-readme-streak-stats-delta-lovat.vercel.app/?user=comphy-lab&theme=ayu-light&hide_border=true&background=FFFFFF" loading="lazy" width="495" height="195">
-  <img class="card-stats-dark" alt="Vatsal's GitHub Streak" src="https://github-readme-streak-stats-delta-lovat.vercel.app/?user=comphy-lab&theme=github-dark-blue&hide_border=true&background=1A1A1A" loading="lazy" width="495" height="195">
+<a href="https://github.com/VatsalSy" target="_blank" rel="noopener noreferrer" aria-label="Vatsal's GitHub Streak">
+  <img class="card-stats-light" alt="Vatsal's GitHub Streak" src="https://github-readme-streak-stats-delta-lovat.vercel.app/?user=VatsalSy&theme=ayu-light&hide_border=true&background=FFFFFF" loading="lazy" width="495" height="195">
+  <img class="card-stats-dark" alt="Vatsal's GitHub Streak" src="https://github-readme-streak-stats-delta-lovat.vercel.app/?user=VatsalSy&theme=github-dark-blue&hide_border=true&background=1A1A1A" loading="lazy" width="495" height="195">
 </a>
 
 <a href="https://www.youtube.com/@CoMPhyLab" target="_blank" rel="noopener noreferrer" aria-label="CoMPhy Lab YouTube Channel">
