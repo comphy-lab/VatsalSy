@@ -9,9 +9,23 @@ jobs:
   purge_cache:
     runs-on: ubuntu-latest
     steps:
-      - name: Purge Cloudflare Cache
+      - name: Purge Cloudflare Cache for vatsalsy.comphy-lab.org
         run: |
-          curl -X POST "https://api.cloudflare.com/client/v4/zones/${{ secrets.CLOUDFLARE_ZONE_ID }}/purge_cache" \
+          response=$(curl -s -X POST "https://api.cloudflare.com/client/v4/zones/${{ secrets.CLOUDFLARE_ZONE_ID }}/purge_cache" \
           -H "Authorization: Bearer ${{ secrets.CLOUDFLARE_API_TOKEN }}" \
           -H "Content-Type: application/json" \
-          --data '{"purge_everything":true}'
+          --data '{
+            "files": [
+              "https://vatsalsy.comphy-lab.org/",
+              "https://vatsalsy.comphy-lab.org/*"
+            ]
+          }')
+          
+          # Check if the purge was successful
+          if echo "$response" | grep -q '"success":true'; then
+            echo "✅ Cache purged successfully for vatsalsy.comphy-lab.org"
+          else
+            echo "❌ Cache purge failed"
+            echo "Response: $response"
+            exit 1
+          fi
