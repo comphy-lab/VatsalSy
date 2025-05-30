@@ -451,7 +451,7 @@ describe('⚙️ Jekyll Configuration', () => {
   
   it('CNAME should contain correct domain', () => {
     const content = fs.readFileSync('CNAME', 'utf8').trim();
-    expect(content).toBe('vatsal.comphy-lab.org');
+    expect(content).toBe('comphy-lab.org/vatsalsy');
   });
 });
 

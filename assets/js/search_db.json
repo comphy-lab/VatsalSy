@@ -29,7 +29,7 @@
   },
   {
     "title": "Our Team & Collaborators - Vatsal Sanjay (PI)",
-    "content": "[ ](https://github.com/VatsalSy) [ ](https://scholar.google.com/citations?user=tHb_qZoAAAAJ&hl=en) [ ](https://bsky.app/profile/comphy-lab.org) - [Postdoc, Phys. Fluids - Univ. Twente / 2022-25](https://pof.tnw.utwente.nl/people/profile/1330) - Ph.D., Phys. Fluids - Univ. Twente / 2018-22, **Thesis:** Viscous Free-Surface Flows - B.Tech + M.Tech, Two-Phase Flow & Instability Lab, IIT-Roorkee / 2013-18, **Thesis:** Understanding of mutual interactions between liquid jets: Entrainment and sheet formation - [Personal Website](https://vatsalsanjay.com), Photo: Florian Braakman. **Research Interest:** See [research page](https://comphy-lab.org/research) [Download CV](https://raw.githubusercontent.com/VatsalSy/Vatsal_CV/master/Vatsal_CV.pdf){: .cv-button}",
+    "content": "[ ](https://github.com/comphy-lab/VatsalSy) [ ](https://scholar.google.com/citations?user=tHb_qZoAAAAJ&hl=en) [ ](https://bsky.app/profile/comphy-lab.org) - [Postdoc, Phys. Fluids - Univ. Twente / 2022-25](https://pof.tnw.utwente.nl/people/profile/1330) - Ph.D., Phys. Fluids - Univ. Twente / 2018-22, **Thesis:** Viscous Free-Surface Flows - B.Tech + M.Tech, Two-Phase Flow & Instability Lab, IIT-Roorkee / 2013-18, **Thesis:** Understanding of mutual interactions between liquid jets: Entrainment and sheet formation - [Personal Website](https://vatsalsanjay.com), Photo: Florian Braakman. **Research Interest:** See [research page](https://comphy-lab.org/research) [Download CV](https://raw.githubusercontent.com/VatsalSy/Vatsal_CV/master/Vatsal_CV.pdf){: .cv-button}",
     "url": "https://comphy-lab.org/team/#vatsal-sanjay-pi",
     "type": "website_section",
     "priority": 1
@@ -71,7 +71,7 @@
   },
   {
     "title": "Our Team & Collaborators - We need you!",
-    "content": "See: [Join Us](https://github.com/VatsalSy/Project-ideas-for-prospective-students) for ongoing projects.",
+    "content": "See: [Join Us](https://github.com/comphy-lab/VatsalSy/Project-ideas-for-prospective-students) for ongoing projects.",
     "url": "https://comphy-lab.org/team/#we-need-you",
     "type": "website_section",
     "priority": 1
@@ -761,7 +761,7 @@
   },
   {
     "title": "0_readme - Connect With Us",
-    "content": "- \ud83c\udf10 Website: [comphy-lab.org](http://www.comphy-lab.org) - \ud83d\udce7 Email: [vatsalsy@comphy-lab.org](mailto:vatsalsy@comphy-lab.org) - \ud83d\udc26 Twitter: [@VatsalSanjay](https://twitter.com/VatsalSanjay) - \ud83d\udcbb GitHub: [github.com/VatsalSy](https://github.com/VatsalSy)",
+    "content": "- \ud83c\udf10 Website: [comphy-lab.org](http://www.comphy-lab.org) - \ud83d\udce7 Email: [vatsalsy@comphy-lab.org](mailto:vatsalsy@comphy-lab.org) - \ud83d\udc26 Twitter: [@VatsalSanjay](https://twitter.com/VatsalSanjay) - \ud83d\udcbb GitHub: [github.com/comphy-lab/VatsalSy](https://github.com/comphy-lab/VatsalSy)",
     "url": "https://blogs.comphy-lab.org/0_README/#connect-with-us",
     "type": "blog_section",
     "priority": 3
@@ -2266,7 +2266,7 @@
   },
   {
     "title": "Herschel\u2013bulkley formulation - Calculate the equivalent viscosity",
-    "content": "Factorizing with $2 \\mathcal{D}_{ij}$ to obtain an equivalent viscosity $$\\eta_{\\text{eff}} = \\frac{\\mathcal{J}}{2\\|\\boldsymbol{\\tilde{\\mathcal{D}}}\\|+\\varepsilon}\\,\\boldsymbol{\\mathcal{I}} + Oh_K\\,\\bigl(2\\|\\boldsymbol{\\tilde{\\mathcal{D}}}\\|+\\epsilon\\bigr)^{n-1} $$ In this formulation, $\\varepsilon$ is a small number to ensure numerical stability. The term $$\\frac{\\tau_y}{\\varepsilon} + ...$$is equivalent to the $\\mu_{max}$ of the previous (v1.0, see: [GitHub](https://github.com/VatsalSy/Bursting-Bubble-In-a-Viscoplastic-Medium)) formulation [2]. **Note:** The fluid flows always, it is not a solid, but a very viscous fluid. Reproduced from: [P.-Y. Lagr\u00e9e's Sandbox](http://basilisk.fr/sandbox/M1EMN/Exemples/bingham_simple.c). Here, we use a face implementation of the regularisation method, described [here](http://basilisk.fr/sandbox/vatsal/GenaralizedNewtonian/Couette_NonNewtonian.c). ---",
+    "content": "Factorizing with $2 \\mathcal{D}_{ij}$ to obtain an equivalent viscosity $$\\eta_{\\text{eff}} = \\frac{\\mathcal{J}}{2\\|\\boldsymbol{\\tilde{\\mathcal{D}}}\\|+\\varepsilon}\\,\\boldsymbol{\\mathcal{I}} + Oh_K\\,\\bigl(2\\|\\boldsymbol{\\tilde{\\mathcal{D}}}\\|+\\epsilon\\bigr)^{n-1} $$ In this formulation, $\\varepsilon$ is a small number to ensure numerical stability. The term $$\\frac{\\tau_y}{\\varepsilon} + ...$$is equivalent to the $\\mu_{max}$ of the previous (v1.0, see: [GitHub](https://github.com/comphy-lab/VatsalSy/Bursting-Bubble-In-a-Viscoplastic-Medium)) formulation [2]. **Note:** The fluid flows always, it is not a solid, but a very viscous fluid. Reproduced from: [P.-Y. Lagr\u00e9e's Sandbox](http://basilisk.fr/sandbox/M1EMN/Exemples/bingham_simple.c). Here, we use a face implementation of the regularisation method, described [here](http://basilisk.fr/sandbox/vatsal/GenaralizedNewtonian/Couette_NonNewtonian.c). ---",
     "url": "https://blogs.comphy-lab.org/Code-Documentations/Herschel\u2013Bulkley formulation/#calculate-the-equivalent-viscosity",
     "type": "blog_section",
     "priority": 3
@@ -2553,7 +2553,7 @@
   },
   {
     "title": "Features of capillary waves during asymmetric bubble coalescence - More resources: Context",
-    "content": "| [GitHub](https://github.com/VatsalSy/Asymmetries-in-coalescence) | [License](https://github.com/VatsalSy/Asymmetries-in-coalescence/blob/main/LICENSE) | [Latest Changes](https://github.com/VatsalSy/Asymmetries-in-coalescence/commits/main) | [[Features-of-capillary-waves-during-asymmetric-bubble-coalescence.pdf\\|pdf]] | | :--------------------------------------------------------------: | :---------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------: | ----------------------------------------------------------------------------- | [1] V. Sanjay, D. Lohse, and M. Jalaal, \u201cBursting bubble in a viscoplastic medium,\u201d _J. Fluid Mech._, vol. 922, p. A2, 2021. [2] J. M. Gordillo and J. Rodr\u00edguez-Rodr\u00edguez, \u201cCapillary waves control the ejection of bubble bursting jets,\u201d _J.",
+    "content": "| [GitHub](https://github.com/comphy-lab/VatsalSy/Asymmetries-in-coalescence) | [License](https://github.com/comphy-lab/VatsalSy/Asymmetries-in-coalescence/blob/main/LICENSE) | [Latest Changes](https://github.com/comphy-lab/VatsalSy/Asymmetries-in-coalescence/commits/main) | [[Features-of-capillary-waves-during-asymmetric-bubble-coalescence.pdf\\|pdf]] | | :--------------------------------------------------------------: | :---------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------: | ----------------------------------------------------------------------------- | [1] V. Sanjay, D. Lohse, and M. Jalaal, \u201cBursting bubble in a viscoplastic medium,\u201d _J. Fluid Mech._, vol. 922, p. A2, 2021. [2] J. M. Gordillo and J. Rodr\u00edguez-Rodr\u00edguez, \u201cCapillary waves control the ejection of bubble bursting jets,\u201d _J.",
     "url": "https://blogs.comphy-lab.org/Blog/Features-of-capillary-waves-during-asymmetric-bubble-coalescence/#more-resources",
     "type": "blog_section",
     "priority": 3

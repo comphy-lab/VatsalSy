@@ -14,7 +14,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/VatsalSy/VatsalSy.github.io.git"
+    "url": "git+https://github.com/comphy-lab/VatsalSy/VatsalSy.github.io.git"
   },
   "keywords": [
     "jekyll",
@@ -25,9 +25,9 @@
   "author": "Vatsal Sanjay",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/VatsalSy/VatsalSy.github.io/issues"
+    "url": "https://github.com/comphy-lab/VatsalSy/VatsalSy.github.io/issues"
   },
-  "homepage": "https://vatsal.comphy-lab.org",
+  "homepage": "https://comphy-lab.org/vatsalsy",
   "devDependencies": {
     "eslint": "^8.56.0",
     "husky": "^8.0.3",
