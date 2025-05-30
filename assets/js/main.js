@@ -23,12 +23,13 @@
    * -------------------------------------------------- */
   const loadAboutContent = async () => {
     // Only load aboutCoMPhy.md if we"re on the main page
+    const baseurl = window.SITE_BASEURL || "";
     if (
-      window.location.pathname === "/" ||
-      window.location.pathname === "/index.html"
+      window.location.pathname === baseurl + "/" ||
+      window.location.pathname === baseurl + "/index.html"
     ) {
       try {
-        const response = await fetch("/aboutVatsal.md");
+        const response = await fetch((window.SITE_BASEURL || "") + "/aboutVatsal.md");
         const text = await response.text();
         const aboutContent = document.getElementById("about-content");
         if (aboutContent) {
@@ -230,14 +231,16 @@
    * -------------------------------------------------- */
   const setupSmoothScrolling = () => {
     // Handle all smooth scroll links
-    document.querySelectorAll("a.smoothscroll, a[href^=\"#\"], a[href^=\"/#\"]").forEach((anchor) => {
+    const baseurl = window.SITE_BASEURL || "";
+    document.querySelectorAll("a.smoothscroll, a[href^=\"#\"], a[href^=\"" + baseurl + "/#\"]").forEach((anchor) => {
       anchor.addEventListener("click", function (e) {
         const href = this.getAttribute("href");
         
         // Handle links with /#section format
-        if (href.startsWith("/#")) {
+        const baseurl = window.SITE_BASEURL || "";
+        if (href.startsWith(baseurl + "/#")) {
           e.preventDefault();
-          const targetId = href.substring(2); // Remove /#
+          const targetId = href.substring(baseurl.length + 2); // Remove baseurl/#
           const target = document.getElementById(targetId);
           
           if (target) {

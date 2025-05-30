@@ -308,7 +308,7 @@
       } else if (!window.searchFuse) {
         // Try to fetch search database if it doesn"t exist yet
         try {
-          const response = await fetch("/assets/js/search_db.json");
+          const response = await fetch((window.SITE_BASEURL || "") + "/assets/js/search_db.json");
           if (response.ok) {
             try {
               const searchData = await response.json();
