@@ -2,6 +2,7 @@
 layout: default
 title: "Contact"
 permalink: /contact/
+redirect_to: https://comphy-lab.org/join
 ---
 
 <script>

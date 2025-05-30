@@ -1,3 +1,4 @@
+"use strict";
 
 /**
  * Determines whether the user"s platform is macOS.

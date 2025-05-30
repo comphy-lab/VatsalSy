@@ -2,6 +2,7 @@
 layout: default
 title: "Research Interests"
 permalink: /research-interests/
+redirect_to: https://comphy-lab.org/research
 ---
 
 <script>

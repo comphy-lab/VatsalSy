@@ -2,6 +2,7 @@
 layout: default
 title: "Talks"
 permalink: /talks/
+redirect_to: https://comphy-lab.org/research
 ---
 
 <script>

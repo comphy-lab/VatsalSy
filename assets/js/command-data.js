@@ -1,10 +1,15 @@
+"use strict";
+
 // Command data for website command palette
 /* global Fuse, sortCoursesByDate */
 (function () {
   // Initialize command data
 
-  // Define the command data
-  window.commandData = [
+  // Define constants
+  const RECENT_COMMANDS_KEY = "recentCommands";
+  
+  // Define the command data (using COMMANDS as expected by tests)
+  const COMMANDS = window.commandData = [
     // Navigation commands
     {
       id: "home",

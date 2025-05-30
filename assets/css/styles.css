@@ -58,6 +58,7 @@ html {
   --color-heading-h3: #333333; /* Dark gray for h3 */
   --color-text: #333333;
   --color-background: #ffffff;
+  --color-bg: #ffffff; /* Alias for background */
   --color-link: #0056b3;
   --color-link-hover: #004494;
 

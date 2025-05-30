@@ -1,3 +1,5 @@
+"use strict";
+
 /**
  * Command Palette functionality for CoMPhy Lab website
  * This file contains all the functionality for the command palette
@@ -9,6 +11,16 @@ let previousFocus = null;
 
 // Track current search request ID for race condition prevention
 let currentSearchRequestId = 0;
+
+// Toggle command palette function
+const togglePalette = () => {
+  const palette = document.getElementById("simple-command-palette");
+  if (palette && palette.style.display === "block") {
+    window.closeCommandPalette();
+  } else {
+    window.openCommandPalette();
+  }
+};
 
 // Make the command palette opening function globally available
 window.openCommandPalette = function () {
@@ -368,8 +380,8 @@ function initCommandPalette() {
     });
   }
 
-  // Register command palette keyboard shortcut
-  document.addEventListener("keydown", function (e) {
+  // Keyboard event handler
+  const handleKeyDown = function (e) {
     if ((e.metaKey || e.ctrlKey) && e.key === "k") {
       e.preventDefault();
       
@@ -383,7 +395,10 @@ function initCommandPalette() {
       
       window.openCommandPalette();
     }
-  });
+  };
+  
+  // Register command palette keyboard shortcut
+  document.addEventListener("keydown", handleKeyDown);
 
   // Make command palette button work
   const commandPaletteBtn = document.getElementById("command-palette-btn");

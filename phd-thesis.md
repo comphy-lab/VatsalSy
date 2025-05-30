@@ -2,6 +2,7 @@
 layout: default
 title: "PhD Thesis"
 permalink: /phd-thesis/
+redirect_to: https://comphy-lab.org/research#thesis
 ---
 
 <script>
