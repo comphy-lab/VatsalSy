@@ -15,7 +15,7 @@
       id: "home",
       title: "Go to Home",
       handler: () => {
-        window.location.href = "/";
+        window.location.href = (window.SITE_BASEURL || "") + "/";
       },
       section: "Navigation",
       icon: "<i class=\"fa-solid fa-home\"></i>",
@@ -24,7 +24,7 @@
       id: "team",
       title: "Go to Team Page",
       handler: () => {
-        window.location.href = "/team/";
+        window.location.href = "https://comphy-lab.org/team/";
       },
       section: "Navigation",
       icon: "<i class=\"fa-solid fa-users\"></i>",
@@ -33,7 +33,7 @@
       id: "research",
       title: "Go to Research Page",
       handler: () => {
-        window.location.href = "/research/";
+        window.location.href = "https://comphy-lab.org/research/";
       },
       section: "Navigation",
       icon: "<i class=\"fa-solid fa-flask\"></i>",
@@ -42,7 +42,7 @@
       id: "teaching",
       title: "Go to Teaching Page",
       handler: () => {
-        window.location.href = "/teaching/";
+        window.location.href = "https://comphy-lab.org/teaching/";
       },
       section: "Navigation",
       icon: "<i class=\"fa-solid fa-chalkboard-teacher\"></i>",
@@ -51,7 +51,7 @@
       id: "join",
       title: "Go to Join Us Page",
       handler: () => {
-        window.location.href = "/join";
+        window.location.href = "https://comphy-lab.org/join";
       },
       section: "Navigation",
       icon: "<i class=\"fa-solid fa-handshake\"></i>",
@@ -399,6 +399,7 @@
     
     // Get the current path
     const currentPath = window.location.pathname;
+    const baseurl = window.SITE_BASEURL || "";
     let contextCommands = [];
 
     // Research page specific commands
@@ -561,7 +562,7 @@
           id: "contact-team",
           title: "Contact Team",
           handler: () => {
-            window.location.href = "/join";
+            window.location.href = (window.SITE_BASEURL || "") + "/join";
           },
           section: "Page Actions",
           icon: "<i class=\"fa-solid fa-envelope\"></i>",

@@ -451,7 +451,7 @@ describe('⚙️ Jekyll Configuration', () => {
   
   it('CNAME should contain correct domain', () => {
     const content = fs.readFileSync('CNAME', 'utf8').trim();
-    expect(content).toBe('comphy-lab.org/vatsalsy');
+    expect(content).toBe('comphy-lab.org');
   });
 });
 
@@ -540,7 +540,7 @@ describe('🔀 Redirect Pages', () => {
     const content = fs.readFileSync('about.md', 'utf8');
     
     // Check for JavaScript redirect
-    expect(content).toContain('window.location.replace("/#about")');
+    expect(content).toContain('window.location.replace("{{ site.baseurl }}/#about")');
     expect(content).toContain('Fallback content');
   });
 });

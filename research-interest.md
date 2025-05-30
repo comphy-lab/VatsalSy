@@ -6,7 +6,7 @@ permalink: /research-interest/
 
 <script>
   // Immediately redirect to comphy-lab.org/research without adding to browser history
-  window.location.replace("/research");
+  window.location.replace("https://comphy-lab.org/research");
 </script>
 
 <!-- Fallback content in case JavaScript is disabled -->
@@ -24,7 +24,7 @@ permalink: /research-interest/
           <p style="margin-bottom: 15px; font-size: 1.5em;">
             If you are not redirected automatically, please click:
             <br>
-            <a href="/research" style="display: inline-block; padding: 10px 20px; background-color: #0366d6; color: white; text-decoration: none; border-radius: 5px; margin: 20px 0;">
+            <a href="https://comphy-lab.org/research" style="display: inline-block; padding: 10px 20px; background-color: #0366d6; color: white; text-decoration: none; border-radius: 5px; margin: 20px 0;">
               CoMPhy Lab Research Page
             </a>
           </p>
