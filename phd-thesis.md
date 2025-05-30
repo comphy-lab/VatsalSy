@@ -2,12 +2,12 @@
 layout: default
 title: "PhD Thesis"
 permalink: /phd-thesis/
-redirect_to: https://comphy-lab.org/research#thesis
+redirect_to: /research#thesis
 ---
 
 <script>
   // Immediately redirect to comphy-lab.org/research#thesis without adding to browser history
-  window.location.replace("https://comphy-lab.org/research#thesis");
+  window.location.replace("/research#thesis");
 </script>
 
 <!-- Fallback content in case JavaScript is disabled -->
@@ -25,7 +25,7 @@ redirect_to: https://comphy-lab.org/research#thesis
           <p style="margin-bottom: 15px; font-size: 1.5em;">
             If you are not redirected automatically, please click:
             <br>
-            <a href="https://comphy-lab.org/research#thesis" style="display: inline-block; padding: 10px 20px; background-color: #0366d6; color: white; text-decoration: none; border-radius: 5px; margin: 20px 0;">
+            <a href="/research#thesis" style="display: inline-block; padding: 10px 20px; background-color: #0366d6; color: white; text-decoration: none; border-radius: 5px; margin: 20px 0;">
               View PhD Thesis
             </a>
           </p>
