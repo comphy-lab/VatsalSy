@@ -1,7 +1,7 @@
 title: Vatsal Sanjay
 description: Personal Website
-baseurl: ""
-url: "https://vatsal.comphy-lab.org"
+baseurl: "/vatsalsy"
+url: "https://comphy-lab.org"
 
 # Build settings
 markdown: kramdown

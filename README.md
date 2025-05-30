@@ -1,14 +1,14 @@
 # Vatsal Sanjay's Personal Website
 
-[![Website Status](https://img.shields.io/website?url=https%3A%2F%2Fvatsal.comphy-lab.org&style=flat-square&logo=github&label=Website)](https://vatsal.comphy-lab.org)
-[![Pages Build](https://img.shields.io/github/actions/workflow/status/VatsalSy/VatsalSy.github.io/pages/pages-build-deployment?style=flat-square&logo=github&label=Pages)](https://github.com/VatsalSy/VatsalSy.github.io/actions/workflows/pages/pages-build-deployment)
-[![Issues](https://img.shields.io/github/issues/VatsalSy/VatsalSy.github.io?style=flat-square&logo=github)](https://github.com/VatsalSy/VatsalSy.github.io/issues)
-[![PRs](https://img.shields.io/github/issues-pr/VatsalSy/VatsalSy.github.io?style=flat-square&logo=github)](https://github.com/VatsalSy/VatsalSy.github.io/pulls)
-[![License](https://img.shields.io/github/license/VatsalSy/VatsalSy.github.io?style=flat-square)](LICENSE)
-[![Last Commit](https://img.shields.io/github/last-commit/VatsalSy/VatsalSy.github.io?style=flat-square&logo=github)](https://github.com/VatsalSy/VatsalSy.github.io/commits/main)
+[![Website Status](https://img.shields.io/website?url=https%3A%2F%2Fcomphy-lab.org%2Fvatsalsy&style=flat-square&logo=github&label=Website)](https://comphy-lab.org/vatsalsy)
+[![Pages Build](https://img.shields.io/github/actions/workflow/status/comphy-lab/VatsalSy/VatsalSy.github.io/pages/pages-build-deployment?style=flat-square&logo=github&label=Pages)](https://github.com/comphy-lab/VatsalSy/VatsalSy.github.io/actions/workflows/pages/pages-build-deployment)
+[![Issues](https://img.shields.io/github/issues/comphy-lab/VatsalSy/VatsalSy.github.io?style=flat-square&logo=github)](https://github.com/comphy-lab/VatsalSy/VatsalSy.github.io/issues)
+[![PRs](https://img.shields.io/github/issues-pr/comphy-lab/VatsalSy/VatsalSy.github.io?style=flat-square&logo=github)](https://github.com/comphy-lab/VatsalSy/VatsalSy.github.io/pulls)
+[![License](https://img.shields.io/github/license/comphy-lab/VatsalSy/VatsalSy.github.io?style=flat-square)](LICENSE)
+[![Last Commit](https://img.shields.io/github/last-commit/comphy-lab/VatsalSy/VatsalSy.github.io?style=flat-square&logo=github)](https://github.com/comphy-lab/VatsalSy/VatsalSy.github.io/commits/main)
 [![Jekyll](https://img.shields.io/badge/Jekyll-4.3.2-%23CC0000?style=flat-square&logo=jekyll)](https://jekyllrb.com/)
 
-The personal website for Vatsal Sanjay, hosted at [vatsal.comphy-lab.org](https://vatsal.comphy-lab.org), built with Jekyll. If you are looking for the website of the Computational Multiphase Physics Lab, check out [comphy-lab.org](https://comphy-lab.org) or [github](https://github.com/comphy-lab).
+The personal website for Vatsal Sanjay, hosted at [comphy-lab.org/vatsalsy](https://comphy-lab.org/vatsalsy), built with Jekyll. If you are looking for the website of the Computational Multiphase Physics Lab, check out [comphy-lab.org](https://comphy-lab.org) or [github](https://github.com/comphy-lab).
 
 ## Directory Structure
 
@@ -121,9 +121,9 @@ See: [comphy-lab.org/research](https://comphy-lab.org/research) and to edit, see
 ### Issue Templates
 The repository includes several issue templates to streamline the process of reporting problems or requesting changes:
 
-1. **[Bug Report](https://github.com/VatsalSy/VatsalSy.github.io/issues/new?template=bug_report.yml)**: Use this template to report website issues, broken links, or display problems
-2. **[Add Team Member](https://github.com/VatsalSy/VatsalSy.github.io/issues/new?template=add_team_member.yml)**: Template for requesting addition of new lab members with their details
-3. **[Add Publication](https://github.com/VatsalSy/VatsalSy.github.io/issues/new?template=add_publication.yml)**: Template for adding new research publications with metadata
+1. **[Bug Report](https://github.com/comphy-lab/VatsalSy/VatsalSy.github.io/issues/new?template=bug_report.yml)**: Use this template to report website issues, broken links, or display problems
+2. **[Add Team Member](https://github.com/comphy-lab/VatsalSy/VatsalSy.github.io/issues/new?template=add_team_member.yml)**: Template for requesting addition of new lab members with their details
+3. **[Add Publication](https://github.com/comphy-lab/VatsalSy/VatsalSy.github.io/issues/new?template=add_publication.yml)**: Template for adding new research publications with metadata
 
 To create a new issue:
 1. Click one of the template links above, or

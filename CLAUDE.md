@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Overview
 
-This is Vatsal Sanjay's personal website built with Jekyll and hosted on GitHub Pages at https://vatsal.comphy-lab.org. The site serves as a redirect hub to the CoMPhy Lab website (https://comphy-lab.org) for research content, team information, and contact details.
+This is Vatsal Sanjay's personal website built with Jekyll and hosted on GitHub Pages at https://comphy-lab.org/vatsalsy. The site serves as a redirect hub to the CoMPhy Lab website (https://comphy-lab.org) for research content, team information, and contact details.
 
 ## Development Commands
 
@@ -58,7 +58,7 @@ The following pages redirect to the CoMPhy Lab website:
 
 ### Content Management
 
-- Team information and research papers are managed at the CoMPhy Lab repository
+- Team information and research papers are managed at the CoMPhy Lab organization repository
 - This site primarily serves as a personal landing page with redirects
 - About content is loaded dynamically from aboutVatsal.md
 
@@ -74,6 +74,6 @@ The following pages redirect to the CoMPhy Lab website:
 ## Important Notes
 
 - This is a redirect-focused site - most content lives at https://comphy-lab.org
-- Changes to team or research content should be made in the CoMPhy Lab repository
+- Changes to team or research content should be made in the CoMPhy Lab organization repository
 - The site uses GitHub Pages for automatic deployment on push to main branch
 - Local testing is recommended before committing changes
