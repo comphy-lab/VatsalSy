@@ -1,43 +1,137 @@
 <!DOCTYPE html>
 <html lang="en" class="no-js">
 <head>
+  {% include theme-init.html %}
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  
+
   <!-- Favicon -->
-  <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon/favicon-16x16.png">
-  <link rel="manifest" href="/assets/favicon/site.webmanifest">
-  <link rel="mask-icon" href="/assets/favicon/safari-pinned-tab.svg" color="#5bbad5">
-  <link rel="shortcut icon" href="/assets/favicon/favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="{{ site.baseurl }}/assets/favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="{{ site.baseurl }}/assets/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="{{ site.baseurl }}/assets/favicon/favicon-16x16.png">
+  <link rel="manifest" href="{{ site.baseurl }}/assets/favicon/site.webmanifest">
+  <link rel="mask-icon" href="{{ site.baseurl }}/assets/favicon/safari-pinned-tab.svg" color="#5bbad5">
+  <link rel="shortcut icon" href="{{ site.baseurl }}/assets/favicon/favicon.ico">
   <meta name="msapplication-TileColor" content="#da532c">
-  <meta name="msapplication-config" content="/assets/favicon/browserconfig.xml">
   <meta name="theme-color" content="#ffffff">
 
   <!-- Font dependencies -->
-  <link rel="stylesheet" href="/assets/css/fontello/css/fontello.css">
-  <link rel="stylesheet" href="/assets/css/academicons-1.7.0/css/academicons.min.css">
+  <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/fontello/css/fontello.css">
+  <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/academicons-1.7.0/css/academicons.min.css">
 
   <!-- Site styles -->
-  <link rel="stylesheet" href="/assets/css/vendor.css">
-  <link rel="stylesheet" href="/assets/css/styles.css">
+  <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/vendor.css">
+  <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/styles.css">
+  <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/command-palette.css">
 
   <script>
     document.documentElement.classList.remove('no-js');
     document.documentElement.classList.add('js');
+    // Make Jekyll's baseurl available to JavaScript
+    window.SITE_BASEURL = '{{ site.baseurl }}';
   </script>
     <script>
+      // Function to load stylesheets asynchronously with SRI
+      const loadStylesheet = (href, integrity) => {
+        const link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.href = href;
+        link.crossOrigin = 'anonymous';
+        if (integrity) {
+          link.integrity = integrity;
+        }
+        document.head.appendChild(link);
+      };
+
       // Check if we're on localhost
       if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
-        // Use official Font Awesome CDN for local development with version 6.7.2
-        document.write('<link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.7.2/css/all.css" crossorigin="anonymous">');
+        // Use official Font Awesome CDN for local development
+        const FA_VERSION = '6.7.2';
+        loadStylesheet(
+          `https://use.fontawesome.com/releases/v${FA_VERSION}/css/brands.css`,
+          'sha384-CNhPUG5cpX8UuKLY0BCb+gzedmWkhHPKATz919jTKgOXajXjkEY99Qr51B5V2wOQ'
+        );
+        loadStylesheet(
+          `https://use.fontawesome.com/releases/v${FA_VERSION}/css/fontawesome.css`,
+          'sha384-AGSGRaBRodcsy1n0F2zMm+LfXuZry/ZJ6nfio36UgMuNBs/AOC8ciJ7py4SgkpoY'
+        );
+        loadStylesheet(
+          `https://use.fontawesome.com/releases/v${FA_VERSION}/css/solid.css`,
+          'sha384-H/BU8KfYKZ0VK4RJyclToSd6x8TmMY4/Rym2YtHXnGQOUZAoLIYIaOxkIfyTAuVh'
+        );
       } else {
         // Use Kit for production
-        document.write('<script src="https://kit.fontawesome.com/b1cfd9ca75.js" crossorigin="anonymous"><\/script>');
+        const script = document.createElement('script');
+        script.src = 'https://kit.fontawesome.com/b1cfd9ca75.js';
+        script.crossOrigin = 'anonymous';
+        document.head.appendChild(script);
       }
     </script>
 
+    <!-- Theme toggle functionality -->
+    <script>
+    (function() {
+      // Check for saved theme preference or use OS preference
+      const getThemePreference = () => {
+        // Check if user has already selected a theme
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme) {
+          return savedTheme;
+        }
+        // If not, check OS preference
+        return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      };
+
+      // Set theme on document
+      const setTheme = (theme) => {
+        document.documentElement.setAttribute('data-theme', theme);
+        localStorage.setItem('theme', theme);
+
+        // Dispatch a custom event when theme changes
+        const event = new CustomEvent('themeChange', { detail: { theme: theme } });
+        document.dispatchEvent(event);
+
+        // Update logo based on theme
+        updateLogo(theme);
+
+        // Update aria-pressed state
+        const themeToggle = document.getElementById('theme-toggle');
+        if (themeToggle) {
+          themeToggle.setAttribute('aria-pressed', theme === 'dark' ? 'true' : 'false');
+        }
+      };
+
+      // Function to update logo based on theme
+      const updateLogo = (theme) => {
+        const logoImgs = document.querySelectorAll('.s-header__logo img');
+        logoImgs.forEach((logoImg) => {
+          // Only update the Vatsal logo, not the CoMPhy Lab logo
+          if (logoImg.alt === 'VatsalSy') {
+            if (theme === 'dark') {
+              logoImg.src = '{{ site.baseurl }}/assets/logos/Logo_Vatsal_Vector-white.png';
+            } else {
+              logoImg.src = '{{ site.baseurl }}/assets/logos/Logo_Vatsal_Vector.png';
+            }
+          }
+        });
+      };
+
+      // Apply theme when page loads
+      document.addEventListener('DOMContentLoaded', () => {
+        setTheme(getThemePreference());
+
+        // Add click event listener to theme toggle
+        const themeToggle = document.getElementById('theme-toggle');
+        if (themeToggle) {
+          themeToggle.addEventListener('click', () => {
+            const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+            setTheme(newTheme);
+          });
+        }
+      });
+    })();
+    </script>
 </head>
 <body id="top">
 
@@ -49,7 +143,10 @@
     <header class="s-header">
       <div class="s-header__logo">
         <a class="logo" href="/">
-          <img src="/assets/logos/Logo_Vatsal_Vector.png" alt="VatsalSy">
+          <img src="{{ site.baseurl }}/assets/logos/CoMPhy-Lab-no-name.png" alt="CoMPhy Lab">
+        </a>
+        <a class="logo" href="{{ site.baseurl }}/">
+          <img src="{{ site.baseurl }}/assets/logos/Logo_Vatsal_Vector.png" alt="VatsalSy">
         </a>
       </div>
       <a class="s-header__menu-toggle" href="#0">
@@ -59,12 +156,41 @@
       <nav class="s-header__nav">
         <a href="#0" class="s-header__nav-close-btn"><span>Close</span></a>
         <ul class="s-header__nav-list">
-          <li style="background: none;"><a href="https://github.com/vatsalsy" style="background: none; padding: 0;"><i class="fa-brands fa-github" style="font-size: 1.75em; color: black;"></i></a></li>
-          <li><a href="#about" class="smoothscroll">About</a></li>
-          <li><a href="https://comphy-lab.org/">CoMPhy Lab <i class="fa-solid fa-arrow-up-right-from-square" style="font-size: 0.8em;"></i></a></li>
-          <li><a href="https://blogs-comphy-lab.org/" target="_blank">Blog <i class="fa-solid fa-arrow-up-right-from-square" style="font-size: 0.8em;"></i></a></li>
-          <li><a href="https://raw.githubusercontent.com/VatsalSy/Vatsal_CV/master/Vatsal_CV.pdf" target="_blank" download>CV <i class="fa-solid fa-download" style="font-size: 0.8em;"></i></a></li>
-          <li style="background: none;"><a href="https://bsky.app/profile/comphy-lab.org" style="background: none; padding: 0;"><i class="fa-brands fa-bluesky" style="font-size: 1.75em; color: #0085ff;"></i></a></li>
+          <li style="background: none;">
+            <div class="theme-toggle" id="theme-toggle" aria-label="Toggle dark/light theme">
+              <svg class="theme-toggle-icon moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+              </svg>
+              <svg class="theme-toggle-icon sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="5"></circle>
+                <line x1="12" y1="1" x2="12" y2="3"></line>
+                <line x1="12" y1="21" x2="12" y2="23"></line>
+                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                <line x1="1" y1="12" x2="3" y2="12"></line>
+                <line x1="21" y1="12" x2="23" y2="12"></line>
+                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+              </svg>
+            </div>
+          </li>
+          <li style="background: none;"><a href="https://scholar.google.com/citations?user=tHb_qZoAAAAJ&hl=en" style="background: none; padding: 0;" aria-label="Google Scholar Profile"><i class="ai ai-google-scholar" style="font-size: 1.75em;"></i></a></li>
+          <li style="background: none;"><a href="https://github.com/comphy-lab/VatsalSy" style="background: none; padding: 0;" aria-label="GitHub Profile"><i class="fa-brands fa-github" style="font-size: 1.75em"></i></a></li>
+          <li><a href="{{ site.baseurl }}/#about" class="smoothscroll">About</a></li>
+          <li><a href="/research">Research</a></li>
+          <li><a href="https://raw.githubusercontent.com/VatsalSy/Vatsal_CV/master/Vatsal_CV.pdf" target="_blank" download>CV <i class="fa-solid fa-download nav-external-icon"></i></a></li>
+          <li><a href="https://blogs-comphy-lab.org/" target="_blank">Blog</a></li>
+          <li style="background: none;"><a href="https://bsky.app/profile/comphy-lab.org" style="background: none; padding: 0;" aria-label="Bluesky Profile"><i class="fa-brands fa-bluesky" style="font-size: 1.75em;"></i></a></li>
+          <!-- Command Palette Button (Styled like search) -->
+          <li class="command-palette-button">
+            <div class="command-wrapper">
+              <button class="command-k-style-btn" id="command-palette-btn" aria-label="Open command palette">
+                <span class="default-theme-text">ctrl K</span>
+                <span class="mac-theme-text">⌘ K</span>
+                <i class="fa-solid fa-magnifying-glass search-icon"></i>
+              </button>
+            </div>
+          </li>
         </ul>
       </nav>
     </header>
@@ -73,17 +199,17 @@
 
   <footer class="site-footer">
     <div class="footer-left">
-      <a href="http://basilisk.fr/sandbox/vatsal/" target="_blank">
-        <img src="/assets/logos/logoBasilisk_TransparentBackground.png" alt="Basilisk C" class="footer-logo">
+      <a href="http://basilisk.fr/sandbox/vatsal/" target="_blank" rel="noopener noreferrer">
+        <img src="{{ site.baseurl }}/assets/logos/logoBasilisk_TransparentBackground.png" alt="Basilisk C" class="footer-logo">
       </a>
-      <a href="https://pof.tnw.utwente.nl/" target="_blank">
-        <img src="/assets/logos/LogoPof_transparent_white.png" alt="Physics of Fluids" class="footer-logo pof-logo">
+      <a href="https://pof.tnw.utwente.nl/" target="_blank" rel="noopener noreferrer">
+        <img src="{{ site.baseurl }}/assets/logos/LogoPof_transparent_white.png" alt="Physics of Fluids" class="footer-logo pof-logo">
       </a>
-      <a href="https://www.utwente.nl/" target="_blank">
-        <img src="/assets/logos/UT_Logo_2400_Sta_White_EN.png" alt="University of Twente" class="footer-logo">
+      <a href="https://www.vatsalsanjay.com/" target="_blank" rel="noopener noreferrer">
+        <img src="{{ site.baseurl }}/assets/logos/CoMPhy-Lab-no-name.png" alt="Vatsal Sanjay" class="footer-logo">
       </a>
-      <a href="https://comphy-lab.org/research" target="_blank">
-        <img src="/assets/logos/CoMPhy-Lab-outline.png" alt="CoMPhy Lab" class="footer-logo comphy-logo">
+      <a href="https://www.durham.ac.uk/" target="_blank" rel="noopener noreferrer">
+        <img src="{{ site.baseurl }}/assets/logos/Durham-University-white.png" alt="Durham University" class="footer-logo">
       </a>
     </div>
     <div class="footer-center">
@@ -93,32 +219,51 @@
       </p>
     </div>
     <div class="footer-right">
-      <a href="https://scholar.google.com/citations?user=tHb_qZoAAAAJ&hl=nl&oi=ao" target="_blank">
+      <a href="https://scholar.google.com/citations?user=tHb_qZoAAAAJ&hl=en" target="_blank" rel="noopener noreferrer" aria-label="Google Scholar Profile">
         <i class="ai ai-google-scholar" style="font-size: 2.5em; color: white;"></i>
       </a>
-      <a href="https://github.com/vatsalsy" target="_blank">
+      <a href="https://github.com/comphy-lab/VatsalSy" target="_blank" rel="noopener noreferrer" aria-label="GitHub Organization">
         <i class="fa-brands fa-github" style="font-size: 2.5em; color: white;"></i>
       </a>
-      <a href="https://www.youtube.com/@CoMPhyLab" target="_blank">
+      <a href="https://www.youtube.com/@CoMPhyLab" target="_blank" rel="noopener noreferrer" aria-label="YouTube Channel">
         <i class="fa-brands fa-youtube" style="font-size: 2.5em; color: white;"></i>
       </a>
-      <a href="https://bsky.app/profile/comphy-lab.org" target="_blank">
+      <a href="https://x.com/VatsalSanjay" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter) Profile">
+        <i class="fa-brands fa-x-twitter" style="font-size: 2.5em; color: white;"></i>
+      </a>
+      <a href="https://bsky.app/profile/comphy-lab.org" target="_blank" rel="noopener noreferrer" aria-label="Bluesky Profile">
         <i class="fa-brands fa-bluesky" style="font-size: 2.5em; color: white;"></i>
       </a>
-      <a href="https://github.com/vatsalsy/vatsalsy.github.io" class="edit-link">
+      <a href="https://github.com/comphy-lab/VatsalSy/VatsalSy.github.io" class="edit-link" aria-label="Edit this page on GitHub">
         <i class="fa-brands fa-github"></i> Edit this page
       </a>
     </div>
-    <div class="ss-go-top">
-      <a class="smoothscroll" title="Back to Top" href="#top">
-          <i class="fa-solid fa-arrow-up"></i>
-       </a>
-    </div> <!-- end ss-go-top -->
   </footer>
 
-  <!-- <script src="/assets/js/plugins.js"></script> -->
+  <!-- Back to Top Button -->
+  <div class="ss-go-top">
+    <a class="smoothscroll" title="Back to Top" href="#top" aria-label="Back to top of page">
+        <i class="fa-solid fa-arrow-up"></i>
+     </a>
+  </div> <!-- end ss-go-top -->
+
+  <!-- Command Palette -->
+  <div id="simple-command-palette" class="simple-command-palette" role="dialog" aria-modal="true" aria-label="Command palette" aria-hidden="true">
+    <div class="simple-command-palette-backdrop"></div>
+    <div class="simple-command-palette-modal">
+      <input type="text" id="command-palette-input" placeholder="Type a command or search..." aria-label="Command palette input">
+      <div id="command-palette-results" class="command-palette-results" role="listbox" aria-label="Command palette results"></div>
+    </div>
+  </div>
+
+  <!-- <script src="{{ site.baseurl }}/assets/js/plugins.js"></script> -->
   <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-  <script src="/assets/js/main.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/dompurify@3.0.6/dist/purify.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+  <script src="{{ site.baseurl }}/assets/js/platform-utils.js"></script>
+  <script src="{{ site.baseurl }}/assets/js/main.js"></script>
+  <script src="{{ site.baseurl }}/assets/js/command-palette.js"></script>
+  <script src="{{ site.baseurl }}/assets/js/command-data.js"></script>
 
 </body>
 </html>
