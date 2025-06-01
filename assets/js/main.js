@@ -127,6 +127,11 @@
 
   // Run height matching after content loads and on resize
   const setupHeightMatching = () => {
+    // Add a small delay to ensure content is rendered in production
+    setTimeout(() => {
+      matchBlueSkyHeight();
+    }, 300);
+    
     // Wait for bsky-embed to load
     let embedCheckCount = 0;
     const maxChecks = 50; // 5 seconds maximum wait
@@ -172,9 +177,9 @@
       setTimeout(matchBlueSkyHeight, 100);
     });
     
-    const aboutContent = document.getElementById("about-content");
-    if (aboutContent) {
-      blueSkyObserver.observe(aboutContent, { childList: true, subtree: true });
+    const aboutContentElement = document.getElementById("about-content");
+    if (aboutContentElement) {
+      blueSkyObserver.observe(aboutContentElement, { childList: true, subtree: true });
     }
   };
 
