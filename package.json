@@ -1,6 +1,11 @@
 {
   "name": "vatsal-personal-website",
   "version": "1.0.0",
+  "packageManager": "npm@10.9.2",
+  "engines": {
+    "node": ">=22.16.0",
+    "npm": ">=10.9.2"
+  },
   "description": "Vatsal Sanjay's Personal Website - A Jekyll-based static site",
   "main": "index.js",
   "scripts": {
@@ -28,6 +33,9 @@
     "url": "https://github.com/comphy-lab/VatsalSy/VatsalSy.github.io/issues"
   },
   "homepage": "https://comphy-lab.org/vatsalsy",
+  "overrides": {
+    "form-data": "4.0.4"
+  },
   "devDependencies": {
     "eslint": "^8.56.0",
     "husky": "^8.0.3",
