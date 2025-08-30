@@ -1,13 +1,40 @@
 # About Me
 
-Hi, I am Vatsal Sanjay. I am a Fluid Dynamicist working in the field of multiphase flows. I will join the [Durham University](https://durham.ac.uk) as Assistant Professor, where I will lead the [**Computational Multiphase Physics (CoMPhy) Lab**](https://comphy-lab.org).
+I’m Vatsal Sanjay, a fluid dynamicist working on multiphase and interfacial flows. I lead the [**Computational Multiphase Physics (CoMPhy) Lab**](https://comphy-lab.org) at [Durham University](https://durham.ac.uk/), where we study droplets, bubbles, and complex free‑surface phenomena using high‑fidelity simulations, scaling theory, and open science.
 
-- Assistant Professor, Department of Physics, Durham University / since 2025
-- [Postdoc, Phys. Fluids - Univ. Twente / 2022-25](https://pof.tnw.utwente.nl/people/profile/1330)
-- [Ph.D., Phys. Fluids - Univ. Twente / 2018-22](https://doi.org/10.3990/1.9789036554077)
-- [B.Tech + M.Tech, Two-Phase Flow & Instability Lab, IIT-Roorkee / 2013-18](http://dx.doi.org/10.13140/RG.2.2.22294.04166)
+For current research, team, and resources, visit [CoMPhy Lab](https://comphy-lab.org).
 
-- [<i class="fa-solid fa-download"></i> Download CV](https://raw.githubusercontent.com/VatsalSy/Vatsal_CV/master/Vatsal_CV.pdf) [<i class="fa-solid fa-book"></i> Research Interest](https://comphy-lab.org/research)
+## Snapshot
+- Assistant Professor, Department of Physics, Durham University (since 2025)
+- [Postdoc, Physics of Fluids — Univ. Twente (2022–25)](https://pof.tnw.utwente.nl/people/profile/1330)
+- [Ph.D., Physics of Fluids — Univ. Twente (2018–22)](https://doi.org/10.3990/1.9789036554077)
+- [B.Tech + M.Tech, IIT Roorkee (2013–18)](http://dx.doi.org/10.13140/RG.2.2.22294.04166)
+
+- [<i class="fa-solid fa-download"></i> Download CV](https://raw.githubusercontent.com/VatsalSy/Vatsal_CV/master/Vatsal_CV.pdf) [<i class="fa-solid fa-book"></i> Research](https://comphy-lab.org/research)
+
+## Prospective Students
+We’re building a computationally focused group at Durham. If you’re excited by multiphase physics, HPC, and open‑source science:
+
+- <i class="fa-solid fa-user-plus"></i> [Join/Contact](https://comphy-lab.org/join)
+- <i class="fa-brands fa-github"></i> [Project ideas](https://github.com/comphy-lab/project-ideas)
+
+## Research Themes
+- Drop impact, impact forces, and inertio–capillary dynamics
+- Bubble bursting, Worthington jets, aerosol generation
+- Surfactants, contact lines, and soft wetting
+- Viscoelastic/viscoplastic interfacial flows and rheology–singularity interplay
+- High‑fidelity DNS with AMR (e.g., Basilisk C), validation, and scaling laws
+
+## Open‑Source & Resources
+- <i class="fa-solid fa-code-branch"></i> [MultiRheoFlow](https://comphy-lab.org/MultiRheoFlow): Open‑source framework for interfacial flows with arbitrary rheology
+- <i class="fa-solid fa-graduation-cap"></i> [Basilisk 101 (nano/short course)](https://github.com/comphy-lab/Basilisk-101nano)
+- <i class="fa-brands fa-github"></i> [CoMPhy Lab GitHub](https://github.com/comphy-lab)
+- <i class="fa-brands fa-github"></i> [Personal GitHub](https://github.com/VatsalSy)
+
+## Selected Recent Papers
+- Dixit, A., Oratis, A., Zinelis, K., Lohse, D., & Sanjay, V. Viscoelastic Worthington Jets and Droplets Produced by Bursting Bubbles. J. Fluid Mech., 1010, A2 (2025). DOI: [10.1017/jfm.2025.237](https://doi.org/10.1017/jfm.2025.237) — <i class="fa-solid fa-lock-open"></i> Open access
+- Sanjay, V., & Lohse, D. Unifying theory of scaling in drop impact: Forces & maximum spreading diameter. Phys. Rev. Lett., 134, 104003 (2025). DOI: [10.1103/PhysRevLett.134.104003](https://doi.org/10.1103/PhysRevLett.134.104003) — <i class="fa-solid fa-lock-open"></i> Open access
+- Sanjay, V., Zhang, B., Lv, C., & Lohse, D. The role of viscosity on drop impact forces on non-wetting surfaces. J. Fluid Mech., 1004, A6 (2025). DOI: [10.1017/jfm.2024.982](https://doi.org/10.1017/jfm.2024.982) — <i class="fa-solid fa-lock-open"></i> Open access
 
 ### Find me
 [![Location](https://img.shields.io/badge/-Physics%20of%20Fluids-4285F4?style=flat&logo=googlemaps&logoColor=white)](https://maps.app.goo.gl/jSTCYnfcndF1uZPV8)
