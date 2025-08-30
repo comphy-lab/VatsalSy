@@ -32,9 +32,9 @@ We’re building a computationally focused group at Durham. If you’re excited 
 - <i class="fa-brands fa-github"></i> [Personal GitHub](https://github.com/VatsalSy)
 
 ## Selected Recent Papers
-- Dixit, A., Oratis, A., Zinelis, K., Lohse, D., & Sanjay, V. Viscoelastic Worthington Jets and Droplets Produced by Bursting Bubbles. J. Fluid Mech., 1010, A2 (2025). DOI: [10.1017/jfm.2025.237](https://doi.org/10.1017/jfm.2025.237) — <i class="fa-solid fa-lock-open"></i> Open access
-- Sanjay, V., & Lohse, D. Unifying theory of scaling in drop impact: Forces & maximum spreading diameter. Phys. Rev. Lett., 134, 104003 (2025). DOI: [10.1103/PhysRevLett.134.104003](https://doi.org/10.1103/PhysRevLett.134.104003) — <i class="fa-solid fa-lock-open"></i> Open access
-- Sanjay, V., Zhang, B., Lv, C., & Lohse, D. The role of viscosity on drop impact forces on non-wetting surfaces. J. Fluid Mech., 1004, A6 (2025). DOI: [10.1017/jfm.2024.982](https://doi.org/10.1017/jfm.2024.982) — <i class="fa-solid fa-lock-open"></i> Open access
+- Dixit, A., Oratis, A., Zinelis, K., Lohse, D., & Sanjay, V. Viscoelastic Worthington Jets and Droplets Produced by Bursting Bubbles. J. Fluid Mech., 1010, A2 (2025). DOI: [10.1017/jfm.2025.237](https://doi.org/10.1017/jfm.2025.237) [![Open Access](https://img.shields.io/badge/Open%20Access-Open-orange?logo=openaccess&logoColor=white&style=flat)](https://doi.org/10.1017/jfm.2025.237)
+- Sanjay, V., & Lohse, D. Unifying theory of scaling in drop impact: Forces & maximum spreading diameter. Phys. Rev. Lett., 134, 104003 (2025). DOI: [10.1103/PhysRevLett.134.104003](https://doi.org/10.1103/PhysRevLett.134.104003) [![Open Access](https://img.shields.io/badge/Open%20Access-Open-orange?logo=openaccess&logoColor=white&style=flat)](https://doi.org/10.1103/PhysRevLett.134.104003)
+- Sanjay, V., Zhang, B., Lv, C., & Lohse, D. The role of viscosity on drop impact forces on non-wetting surfaces. J. Fluid Mech., 1004, A6 (2025). DOI: [10.1017/jfm.2024.982](https://doi.org/10.1017/jfm.2024.982) [![Open Access](https://img.shields.io/badge/Open%20Access-Open-orange?logo=openaccess&logoColor=white&style=flat)](https://doi.org/10.1017/jfm.2024.982)
 
 ### Find me
 [![Location](https://img.shields.io/badge/-Physics%20of%20Fluids-4285F4?style=flat&logo=googlemaps&logoColor=white)](https://maps.app.goo.gl/jSTCYnfcndF1uZPV8)
