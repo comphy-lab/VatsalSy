@@ -1689,20 +1689,40 @@ bsky-embed::-webkit-scrollbar-thumb:hover {
   user-select: all;
 }
 
+.email-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.4em;
+}
+
+.email-actions .email-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--copyable-text);
+  padding: 0.35em;
+  border-radius: 4px;
+  transition: var(--transition-fast);
+}
+
+.email-actions .email-link:hover {
+  background: var(--copy-btn-hover-bg);
+}
+
 .copy-btn {
   background: transparent;
   border: none;
   color: var(--copyable-text);
   cursor: pointer;
-  padding: 0.6em;
+  padding: 0.35em;
   border-radius: 4px;
   transition: var(--transition-fast);
   opacity: 0.7;
-  font-size: 1.1em;
+  font-size: 1em;
   display: flex;
   align-items: center;
   justify-content: center;
-  min-width: 36px;
+  min-width: 30px;
 }
 
 .copy-btn:hover {
@@ -1722,6 +1742,11 @@ bsky-embed::-webkit-scrollbar-thumb:hover {
 
 .copy-btn i {
   pointer-events: none;
+}
+
+/* Reduce icon size specifically inside email actions */
+.email-actions i {
+  font-size: 1.1em !important;
 }
 
 /*--------------------------------------------------------------

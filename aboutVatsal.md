@@ -47,7 +47,7 @@ We’re building a computationally focused group at Durham. If you’re excited 
     <a class="email-link" href="mailto:vatsal.sanjay@comphy-lab.org" aria-label="Email vatsal.sanjay@comphy-lab.org">
       <i class="fa-solid fa-envelope"></i>
     </a>
-    <button class="copy-btn" data-clipboard-text="vatsal.sanjay@comphy-lab.org" onclick="copyEmail(this)" aria-label="Copy email address vatsal.sanjay@comphy-lab.org">
+    <button class="copy-btn" data-text="vatsal.sanjay@comphy-lab.org" data-clipboard-text="vatsal.sanjay@comphy-lab.org" onclick="copyEmail(this)" aria-label="Copy email address vatsal.sanjay@comphy-lab.org">
       <i class="fa-solid fa-copy"></i>
     </button>
   </div>
@@ -59,7 +59,7 @@ We’re building a computationally focused group at Durham. If you’re excited 
     <a class="email-link" href="mailto:vatsal.sanjay@durham.ac.uk" aria-label="Email vatsal.sanjay@durham.ac.uk">
       <i class="fa-solid fa-envelope"></i>
     </a>
-    <button class="copy-btn" data-clipboard-text="vatsal.sanjay@durham.ac.uk" onclick="copyEmail(this)" aria-label="Copy email address vatsal.sanjay@durham.ac.uk">
+    <button class="copy-btn" data-text="vatsal.sanjay@durham.ac.uk" data-clipboard-text="vatsal.sanjay@durham.ac.uk" onclick="copyEmail(this)" aria-label="Copy email address vatsal.sanjay@durham.ac.uk">
       <i class="fa-solid fa-copy"></i>
     </button>
   </div>

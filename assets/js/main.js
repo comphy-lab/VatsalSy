@@ -323,7 +323,9 @@
     const copyButtons = document.querySelectorAll(".copy-btn");
     copyButtons.forEach((button) => {
       button.addEventListener("click", function () {
-        const textToCopy = this.getAttribute("data-clipboard-text");
+        const textToCopy =
+          this.getAttribute("data-text") ||
+          this.getAttribute("data-clipboard-text");
         const textarea = document.createElement("textarea");
         textarea.value = textToCopy;
         textarea.style.position = "fixed";
@@ -370,46 +372,56 @@
     const text =
       button.getAttribute("data-text") ||
       button.getAttribute("data-clipboard-text");
-    navigator.clipboard
-      .writeText(text)
-      .then(() => {
-        const icon = button.querySelector("i");
-        button.classList.add("copied");
+
+    const markCopied = () => {
+      const icon = button.querySelector("i");
+      button.classList.add("copied");
+      if (icon) {
         icon.classList.remove("fa-copy");
         icon.classList.add("fa-check");
-
-        setTimeout(() => {
-          button.classList.remove("copied");
+      }
+      setTimeout(() => {
+        button.classList.remove("copied");
+        if (icon) {
           icon.classList.remove("fa-check");
           icon.classList.add("fa-copy");
-        }, 2000);
-      })
-      .catch((err) => {
-        console.error("Copy failed:", err);
-        // Fallback for older browsers
-        const textarea = document.createElement("textarea");
-        textarea.value = text;
-        textarea.style.position = "fixed";
-        textarea.style.opacity = "0";
-        document.body.appendChild(textarea);
-        textarea.select();
-        try {
-          document.execCommand("copy");
-          button.classList.add("copied");
-          const icon = button.querySelector("i");
-          icon.classList.remove("fa-copy");
-          icon.classList.add("fa-check");
-
-          setTimeout(() => {
-            button.classList.remove("copied");
-            icon.classList.remove("fa-check");
-            icon.classList.add("fa-copy");
-          }, 2000);
-        } catch (err) {
-          console.error("Fallback failed:", err);
         }
-        document.body.removeChild(textarea);
-      });
+      }, 2000);
+    };
+
+    const fallbackCopy = () => {
+      const textarea = document.createElement("textarea");
+      textarea.value = text;
+      textarea.style.position = "fixed";
+      textarea.style.opacity = "0";
+      document.body.appendChild(textarea);
+      textarea.select();
+      try {
+        document.execCommand("copy");
+        markCopied();
+      } catch (err) {
+        console.error("Fallback failed:", err);
+      }
+      document.body.removeChild(textarea);
+    };
+
+    try {
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard
+          .writeText(text)
+          .then(markCopied)
+          .catch((err) => {
+            console.warn("Clipboard API failed, using fallback:", err);
+            fallbackCopy();
+          });
+      } else {
+        // Clipboard API not available
+        fallbackCopy();
+      }
+    } catch (e) {
+      // Any unexpected error -> fallback
+      fallbackCopy();
+    }
   };
 
   // Cleanup function for when page unloads
