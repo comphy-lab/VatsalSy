@@ -22,7 +22,7 @@
   /* Load About Content - Only on main page
    * -------------------------------------------------- */
   const loadAboutContent = async () => {
-    // Only load aboutCoMPhy.md if we"re on the main page
+    // Only load aboutVatsal.md if we"re on the main page
     const baseurl = window.SITE_BASEURL || "";
     if (
       window.location.pathname === baseurl + "/" ||
@@ -44,6 +44,9 @@
             console.warn("DOMPurify not loaded, inserting content without sanitization");
             aboutContent.innerHTML = parsedHtml;
           }
+          
+          // Re-setup copy buttons for dynamically loaded content
+          setupCopyButtons();
         }
       } catch (error) {
         console.error("Error loading about content:", error);
@@ -304,6 +307,96 @@
   // Initialize back to top
   ssBackToTop();
 
+  /* Copy Email Functionality Setup
+   * -------------------------------------------------- */
+  const setupCopyButtons = () => {
+    const copyButtons = document.querySelectorAll(".copy-btn");
+    
+    copyButtons.forEach((button) => {
+      // Remove any existing event listeners to prevent duplicates
+      button.removeEventListener("click", handleCopyClick);
+      
+      // Add new click event listener
+      button.addEventListener("click", handleCopyClick);
+      
+      // Set up accessibility attributes
+      const emailText = button.getAttribute("data-text") || button.getAttribute("data-clipboard-text");
+      if (!button.hasAttribute("aria-label") && emailText) {
+        button.setAttribute("aria-label", `Copy email address ${emailText}`);
+      }
+    });
+  };
+
+  const handleCopyClick = async (event) => {
+    const button = event.target.closest('.copy-btn');
+    if (!button) return;
+    
+    const text = button.getAttribute("data-text") || button.getAttribute("data-clipboard-text");
+    
+    if (!text) {
+      console.error("No text to copy");
+      return;
+    }
+
+    try {
+      // Try modern clipboard API first
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        await navigator.clipboard.writeText(text);
+        showCopyFeedback(button);
+      } else {
+        // Fallback to execCommand
+        fallbackCopy(text, button);
+      }
+    } catch (err) {
+      console.warn("Clipboard API failed, trying fallback:", err);
+      fallbackCopy(text, button);
+    }
+  };
+
+  const fallbackCopy = (text, button) => {
+    const textarea = document.createElement("textarea");
+    textarea.value = text;
+    textarea.style.position = "fixed";
+    textarea.style.left = "-9999px";
+    textarea.style.opacity = "0";
+    document.body.appendChild(textarea);
+    
+    try {
+      textarea.focus();
+      textarea.select();
+      textarea.setSelectionRange(0, text.length);
+      
+      const successful = document.execCommand('copy');
+      if (successful) {
+        showCopyFeedback(button);
+      } else {
+        console.error("Copy command failed");
+      }
+    } catch (err) {
+      console.error("Fallback copy failed:", err);
+    } finally {
+      document.body.removeChild(textarea);
+    }
+  };
+
+  const showCopyFeedback = (button) => {
+    const icon = button.querySelector("i");
+    button.classList.add("copied");
+    
+    if (icon) {
+      icon.classList.remove("fa-copy");
+      icon.classList.add("fa-check");
+    }
+    
+    setTimeout(() => {
+      button.classList.remove("copied");
+      if (icon) {
+        icon.classList.remove("fa-check");
+        icon.classList.add("fa-copy");
+      }
+    }, 2000);
+  };
+
   document.addEventListener("DOMContentLoaded", function () {
     const images = document.querySelectorAll(
       ".member-image img[loading=\"lazy\"]",
@@ -319,110 +412,12 @@
       }
     });
 
-    // Email copy functionality
-    const copyButtons = document.querySelectorAll(".copy-btn");
-    copyButtons.forEach((button) => {
-      button.addEventListener("click", function () {
-        const textToCopy =
-          this.getAttribute("data-text") ||
-          this.getAttribute("data-clipboard-text");
-        const textarea = document.createElement("textarea");
-        textarea.value = textToCopy;
-        textarea.style.position = "fixed";
-        textarea.style.left = "-9999px";
-        document.body.appendChild(textarea);
-
-        try {
-          textarea.select();
-          document.execCommand("copy");
-          this.classList.add("copied");
-          const icon = this.querySelector("i");
-          icon.classList.remove("fa-copy");
-          icon.classList.add("fa-check");
-
-          setTimeout(() => {
-            this.classList.remove("copied");
-            icon.classList.remove("fa-check");
-            icon.classList.add("fa-copy");
-          }, 2000);
-        } catch (err) {
-          console.error("Copy failed:", err);
-        } finally {
-          document.body.removeChild(textarea);
-        }
-      });
-    });
-
-    // Add accessible names to all copy buttons on document load
-    copyButtons.forEach((button) => {
-      // Get the email text from data-text or data-clipboard-text attribute
-      const emailText =
-        button.getAttribute("data-text") ||
-        button.getAttribute("data-clipboard-text");
-      // Add aria-label if it doesn"t exist
-      if (!button.hasAttribute("aria-label") && emailText) {
-        button.setAttribute("aria-label", `Copy email address ${emailText}`);
-      }
-    });
+    // Set up copy buttons for static content
+    setupCopyButtons();
   });
 
-  /* Copy Email Functionality
-   * -------------------------------------------------- */
-  window.copyEmail = function (button) {
-    const text =
-      button.getAttribute("data-text") ||
-      button.getAttribute("data-clipboard-text");
-
-    const markCopied = () => {
-      const icon = button.querySelector("i");
-      button.classList.add("copied");
-      if (icon) {
-        icon.classList.remove("fa-copy");
-        icon.classList.add("fa-check");
-      }
-      setTimeout(() => {
-        button.classList.remove("copied");
-        if (icon) {
-          icon.classList.remove("fa-check");
-          icon.classList.add("fa-copy");
-        }
-      }, 2000);
-    };
-
-    const fallbackCopy = () => {
-      const textarea = document.createElement("textarea");
-      textarea.value = text;
-      textarea.style.position = "fixed";
-      textarea.style.opacity = "0";
-      document.body.appendChild(textarea);
-      textarea.select();
-      try {
-        document.execCommand("copy");
-        markCopied();
-      } catch (err) {
-        console.error("Fallback failed:", err);
-      }
-      document.body.removeChild(textarea);
-    };
-
-    try {
-      if (navigator.clipboard && navigator.clipboard.writeText) {
-        navigator.clipboard
-          .writeText(text)
-          .then(markCopied)
-          .catch((err) => {
-            console.warn("Clipboard API failed, using fallback:", err);
-            fallbackCopy();
-          });
-      } else {
-        // Clipboard API not available
-        fallbackCopy();
-      }
-    } catch (e) {
-      // Any unexpected error -> fallback
-      fallbackCopy();
-    }
-  };
+  // Keep backwards compatibility
+  window.copyEmail = handleCopyClick;
 
   // Cleanup function for when page unloads
   window.addEventListener("beforeunload", function() {
