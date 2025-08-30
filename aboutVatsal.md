@@ -32,20 +32,37 @@ We’re building a computationally focused group at Durham. If you’re excited 
 - <i class="fa-brands fa-github"></i> [Personal GitHub](https://github.com/VatsalSy)
 
 ## Selected Recent Papers
-- Dixit, A., Oratis, A., Zinelis, K., Lohse, D., & Sanjay, V. Viscoelastic Worthington Jets and Droplets Produced by Bursting Bubbles. J. Fluid Mech., 1010, A2 (2025). DOI: [10.1017/jfm.2025.237](https://doi.org/10.1017/jfm.2025.237) [![Open Access](https://img.shields.io/badge/Open%20Access-Open-orange?logo=openaccess&logoColor=white&style=flat)](https://doi.org/10.1017/jfm.2025.237)
-- Sanjay, V., & Lohse, D. Unifying theory of scaling in drop impact: Forces & maximum spreading diameter. Phys. Rev. Lett., 134, 104003 (2025). DOI: [10.1103/PhysRevLett.134.104003](https://doi.org/10.1103/PhysRevLett.134.104003) [![Open Access](https://img.shields.io/badge/Open%20Access-Open-orange?logo=openaccess&logoColor=white&style=flat)](https://doi.org/10.1103/PhysRevLett.134.104003)
-- Sanjay, V., Zhang, B., Lv, C., & Lohse, D. The role of viscosity on drop impact forces on non-wetting surfaces. J. Fluid Mech., 1004, A6 (2025). DOI: [10.1017/jfm.2024.982](https://doi.org/10.1017/jfm.2024.982) [![Open Access](https://img.shields.io/badge/Open%20Access-Open-orange?logo=openaccess&logoColor=white&style=flat)](https://doi.org/10.1017/jfm.2024.982)
+- Dixit, A., Oratis, A., Zinelis, K., Lohse, D., & Sanjay, V. Viscoelastic Worthington Jets and Droplets Produced by Bursting Bubbles. J. Fluid Mech., 1010, A2 (2025). [![Open Access](https://img.shields.io/badge/Open%20Access-Open-orange?logo=openaccess&logoColor=white&style=flat)](https://doi.org/10.1017/jfm.2025.237)
+- Sanjay, V., & Lohse, D. Unifying theory of scaling in drop impact: Forces & maximum spreading diameter. Phys. Rev. Lett., 134, 104003 (2025). [![Open Access](https://img.shields.io/badge/Open%20Access-Open-orange?logo=openaccess&logoColor=white&style=flat)](https://doi.org/10.1103/PhysRevLett.134.104003)
+- Sanjay, V., Zhang, B., Lv, C., & Lohse, D. The role of viscosity on drop impact forces on non-wetting surfaces. J. Fluid Mech., 1004, A6 (2025). [![Open Access](https://img.shields.io/badge/Open%20Access-Open-orange?logo=openaccess&logoColor=white&style=flat)](https://doi.org/10.1017/jfm.2024.982)
 
 ### Find me
 [![Location](https://img.shields.io/badge/-Physics%20of%20Fluids-4285F4?style=flat&logo=googlemaps&logoColor=white)](https://maps.app.goo.gl/jSTCYnfcndF1uZPV8)
 [![Website](https://img.shields.io/badge/-comphy--lab.org-4285F4?style=flat&logo=googlechrome&logoColor=white)](https://comphy-lab.org)
-[![Email](https://img.shields.io/badge/-mailto:vatsalsy@comphy--lab.org-EA4335?style=flat&logo=gmail&logoColor=white)](mailto:vatsalsy@comphy-lab.org)
+[![Email](https://img.shields.io/badge/-mailto:vatsal.sanjay@comphy--lab.org-EA4335?style=flat&logo=gmail&logoColor=white)](mailto:vatsal.sanjay@comphy-lab.org)
 
 <div class="email-container">
-    <span class="email-text">vatsalsy@comphy-lab.org</span>
-    <button class="copy-btn" onclick="copyEmail(this)" data-text="vatsalsy@comphy-lab.org">
-        <i class="fas fa-copy"></i>
+  <span class="email-text">vatsal.sanjay@comphy-lab.org</span>
+  <div class="email-actions">
+    <a class="email-link" href="mailto:vatsal.sanjay@comphy-lab.org" aria-label="Email vatsal.sanjay@comphy-lab.org">
+      <i class="fa-solid fa-envelope"></i>
+    </a>
+    <button class="copy-btn" data-clipboard-text="vatsal.sanjay@comphy-lab.org" onclick="copyEmail(this)" aria-label="Copy email address vatsal.sanjay@comphy-lab.org">
+      <i class="fa-solid fa-copy"></i>
     </button>
+  </div>
+</div>
+
+<div class="email-container">
+  <span class="email-text">vatsal.sanjay@durham.ac.uk</span>
+  <div class="email-actions">
+    <a class="email-link" href="mailto:vatsal.sanjay@durham.ac.uk" aria-label="Email vatsal.sanjay@durham.ac.uk">
+      <i class="fa-solid fa-envelope"></i>
+    </a>
+    <button class="copy-btn" data-clipboard-text="vatsal.sanjay@durham.ac.uk" onclick="copyEmail(this)" aria-label="Copy email address vatsal.sanjay@durham.ac.uk">
+      <i class="fa-solid fa-copy"></i>
+    </button>
+  </div>
 </div>
 
 [![Google Scholar](https://img.shields.io/badge/-Google%20Scholar-4285F4?style=flat&logo=googlescholar&logoColor=white)](https://scholar.google.com/citations?user=tHb_qZoAAAAJ&hl=nl&oi=ao)
