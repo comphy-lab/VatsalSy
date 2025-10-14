@@ -19,9 +19,9 @@ END_PORT=4999
 # Function to check if a port is available
 is_port_available() {
     local port=$1
-    # Check if port is in use using lsof
-    if lsof -i :$port >/dev/null 2>&1; then
-        return 1  # Port is in use
+    # Check if port has a TCP LISTEN socket (not ephemeral client connections)
+    if lsof -iTCP:"$port" -sTCP:LISTEN >/dev/null 2>&1; then
+        return 1  # Port is in use (listening)
     else
         return 0  # Port is available
     fi
