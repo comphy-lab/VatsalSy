@@ -1,11 +1,13 @@
+const globals = require("globals");
+
 module.exports = [
   {
     languageOptions: {
-      ecmaVersion: 12,
+      ecmaVersion: 2021,
       sourceType: "module",
       globals: {
-        browser: true,
-        es2021: true,
+        ...globals.browser,
+        ...globals.es2021,
         marked: "readonly",
         DOMPurify: "readonly"
       }
