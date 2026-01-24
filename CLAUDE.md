@@ -41,13 +41,21 @@ This project uses Ruby ~> 3.2.0. Ensure you have the correct version installed.
 6. **assets/js/command-data.js**: Command definitions and data for the command palette system
 7. **assets/js/platform-utils.js**: Platform detection utilities for OS-specific keyboard shortcuts and behaviors
 
+### Content Pages
+
+- **phd-thesis.md**: Full content page for PhD thesis "Viscous Free-Surface Flows" with:
+  - Hero section with thesis title and download badges
+  - Part I: Drop Impact section
+  - Part II: Retraction & Bursting section
+  - Thesis information with DOI, ISBN, and LaTeX source link
+  - Note: This page is NOT in the navigation menu but accessible via direct URL
+
 ### Redirect Pages
 
 The following pages redirect to the CoMPhy Lab website:
 - about.md → /#about (homepage section)
 - contact.md → https://comphy-lab.org/join
 - research-interests.md, research-interest.md → https://comphy-lab.org/research
-- phd-thesis.md → https://comphy-lab.org/research#thesis
 - talks.md → https://comphy-lab.org/research
 
 ### Jekyll Configuration

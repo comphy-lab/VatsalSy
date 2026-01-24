@@ -26,6 +26,18 @@
   <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/command-palette.css">
 
   <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['\\(', '\\)'], ['$', '$']]
+      },
+      svg: {
+        fontCache: 'global'
+      }
+    };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+
+  <script>
     document.documentElement.classList.remove('no-js');
     document.documentElement.classList.add('js');
     // Make Jekyll's baseurl available to JavaScript
