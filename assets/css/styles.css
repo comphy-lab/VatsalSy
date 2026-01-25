@@ -1360,6 +1360,13 @@ a:hover {
   align-items: flex-start;
 }
 
+.thesis-section {
+  padding: 6rem 2rem 4rem;
+  background-color: var(--color-background);
+  position: relative;
+  z-index: 0;
+}
+
 .s-about__content {
   width: 100%;
   max-width: 1540px; /* Increased by 1.1x from 1400px */

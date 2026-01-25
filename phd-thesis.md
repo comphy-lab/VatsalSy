@@ -29,16 +29,48 @@ permalink: /phd-thesis/
           <a href="https://github.com/VatsalSy/Vatsal-Thesis" target="_blank" rel="noopener noreferrer" style="display: inline-block;">
             <img src="https://img.shields.io/badge/LaTeX%20Source-GitHub-181717?style=for-the-badge&logo=github&logoColor=white" alt="LaTeX Source on GitHub">
           </a>
+          <a href="https://www.youtube.com/watch?v=X1vrRSHLlWI" target="_blank" rel="noopener noreferrer" style="display: inline-block;">
+            <img src="https://img.shields.io/badge/Watch-Defense%20Stream-FF0000?style=for-the-badge&logo=youtube&logoColor=white" alt="Watch Defense Stream on YouTube">
+          </a>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<section id="thesis-project-summary" class="s-about target-section" style="padding-top: 60px;">
+<section id="thesis-stream" class="thesis-section target-section">
   <div class="row s-about__content">
     <div class="column">
-      <h2 style="text-align: center; margin-bottom: 30px;">Project Summary</h2>
+      <h2 style="text-align: center; margin-bottom: 30px;">PhD defense stream</h2>
+      <div class="thesis-summary-grid">
+        <div class="thesis-summary-video">
+          <div class="thesis-summary-frame">
+            <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/X1vrRSHLlWI?si=QZC3Mn_L-D1fCIf-" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+          </div>
+        </div>
+        <div class="thesis-summary-text s-about__desc">
+          <h3>Defense details</h3>
+          <p><strong>Date &amp; time:</strong> Friday 15 July 2022, 12:30 - 13:30</p>
+          <p><strong>Thesis committee:</strong></p>
+          <ul>
+            <li><a href="https://pof.tnw.utwente.nl/people/profile/20" target="_blank" rel="noopener noreferrer">Devaraj van der Meer</a> (chairperson, University of Twente)</li>
+            <li><a href="https://pof.tnw.utwente.nl/people/profile/3" target="_blank" rel="noopener noreferrer">Detlef Lohse</a> (promotor, University of Twente)</li>
+            <li><a href="https://scholar.google.com/citations?user=W8F13JwAAAAJ&hl=fr" target="_blank" rel="noopener noreferrer">David Quere</a> (ESPCI &amp; LadHyX)</li>
+            <li><a href="https://scholar.google.com/citations?user=M_ynoMAAAAAJ&hl=nl" target="_blank" rel="noopener noreferrer">E. Harald van Brummelen</a> (Eindhoven University of Technology)</li>
+            <li><a href="https://scholar.google.com/citations?user=H6fftaEAAAAJ&hl=de" target="_blank" rel="noopener noreferrer">Wilko Rohlfs</a> (University of Twente)</li>
+            <li><a href="https://pof.tnw.utwente.nl/index.php" target="_blank" rel="noopener noreferrer">Marjolein van der Linden</a> (University of Twente)</li>
+            <li><a href="https://scholar.google.com/citations?user=FE8TQeUAAAAJ&hl=en" target="_blank" rel="noopener noreferrer">Maziyar Jalaal</a> (University of Amsterdam)</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="thesis-project-summary" class="thesis-section target-section">
+  <div class="row s-about__content">
+    <div class="column">
+      <h2 style="text-align: center; margin-bottom: 30px;">Thesis Summary</h2>
       <div class="s-about__desc">
         <p><strong>Motivation:</strong> Many modern technologies depend on how liquids behave at their surface, where they meet air. A droplet bouncing off a water-repellent coating, a thin film tearing as a bubble bursts, or a spray droplet landing on a wet layer are familiar examples. These rapid events sit at the heart of precision printing and coating, agricultural spraying, spray-based cooling of high-power equipment, and responses to environmental hazards such as oil contamination.</p>
         <p><strong>Challenge:</strong> Yet these processes are still difficult to predict and control. Small changes in a liquid's viscosity (how "thick" it is), the properties of the surrounding fluid, or the presence of a pre-existing film can switch an outcome from bouncing to sticking, from gentle spreading to unexpectedly large forces, or from a quiet bubble to the release of fine airborne droplets. Because the key mechanisms happen in milliseconds and at tiny length scales, many current design rules still rely on trial and error.</p>
@@ -51,7 +83,7 @@ permalink: /phd-thesis/
   </div>
 </section>
 
-<section id="thesis-summary" class="s-about target-section" style="padding-top: 60px;">
+<section id="thesis-summary" class="thesis-section target-section">
   <div class="row s-about__content">
     <div class="column">
       <h2 style="text-align: center; margin-bottom: 30px;">Thesis Video Summary</h2>
