@@ -7,3 +7,4 @@ _site/
 vendor/
 # Ignore ai rules
 .DS_Store
+CLAUDE.md

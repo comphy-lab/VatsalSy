@@ -1,6 +1,6 @@
-# CLAUDE.md
+# Agent Instructions
 
-This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+This file provides guidance to Claude Code and OpenCode/Codex when working with code in this repository.
 
 ## Overview
 
@@ -48,7 +48,7 @@ This project uses Ruby ~> 3.2.0. Ensure you have the correct version installed.
   - Part I: Drop Impact section
   - Part II: Retraction & Bursting section
   - Thesis information with DOI, ISBN, and LaTeX source link
-  - Note: This page is NOT in the navigation menu but accessible via direct URL
+  - Note: This page is included in the main navigation menu and is also accessible via direct URL
 
 ### Redirect Pages
 
