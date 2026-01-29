@@ -6,6 +6,5 @@ _site/
 .bundle/
 vendor/
 # Ignore ai rules
-.windsurfrules
-.cursorrules
 .DS_Store
+CLAUDE.md

@@ -328,7 +328,7 @@
   };
 
   const handleCopyClick = async (event) => {
-    const button = event.target.closest('.copy-btn');
+    const button = event.target.closest(".copy-btn");
     if (!button) return;
     
     const text = button.getAttribute("data-text") || button.getAttribute("data-clipboard-text");
@@ -366,7 +366,7 @@
       textarea.select();
       textarea.setSelectionRange(0, text.length);
       
-      const successful = document.execCommand('copy');
+      const successful = document.execCommand("copy");
       if (successful) {
         showCopyFeedback(button);
       } else {

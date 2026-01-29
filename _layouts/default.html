@@ -26,6 +26,18 @@
   <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/command-palette.css">
 
   <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['\\(', '\\)'], ['$', '$']]
+      },
+      svg: {
+        fontCache: 'global'
+      }
+    };
+  </script>
+  <script defer src="{{ site.baseurl }}/assets/js/mathjax/tex-svg.js"></script>
+
+  <script>
     document.documentElement.classList.remove('no-js');
     document.documentElement.classList.add('js');
     // Make Jekyll's baseurl available to JavaScript
@@ -179,6 +191,7 @@
           <li style="background: none;"><a href="https://github.com/VatsalSy" style="background: none; padding: 0;" aria-label="GitHub Profile"><i class="fa-brands fa-github" style="font-size: 1.75em"></i></a></li>
           <li><a href="{{ site.baseurl }}/#about" class="smoothscroll">About</a></li>
           <li><a href="https://comphy-lab.org/research">Research</a></li>
+          <li><a href="{{ site.baseurl }}/phd-thesis/">PhD Thesis</a></li>
           <li><a href="https://raw.githubusercontent.com/VatsalSy/Vatsal_CV/master/Vatsal_CV.pdf" target="_blank" download>CV <i class="fa-solid fa-download nav-external-icon"></i></a></li>
           <li><a href="https://blogs-comphy-lab.org/" target="_blank">Blog</a></li>
           <li style="background: none;"><a href="https://bsky.app/profile/comphy-lab.org" style="background: none; padding: 0;" aria-label="Bluesky Profile"><i class="fa-brands fa-bluesky" style="font-size: 1.75em;"></i></a></li>
