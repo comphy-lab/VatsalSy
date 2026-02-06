@@ -1,6 +1,6 @@
 # Vatsal Sanjay's Personal Website
 
-[![Website Status](https://img.shields.io/website?url=https%3A%2F%2Fcomphy-lab.org%2Fvatsalsy&style=flat-square&logo=github&label=Website)](https://comphy-lab.org/vatsalsy)
+[![Website Status](https://img.shields.io/website?url=https%3A%2F%2Fcomphy-lab.org%2FVatsalSy&style=flat-square&logo=github&label=Website)](https://comphy-lab.org/VatsalSy)
 [![Pages Build](https://img.shields.io/github/actions/workflow/status/VatsalSy/VatsalSy.github.io/pages/pages-build-deployment?style=flat-square&logo=github&label=Pages)](https://github.com/VatsalSy/VatsalSy.github.io/actions/workflows/pages/pages-build-deployment)
 [![Issues](https://img.shields.io/github/issues/VatsalSy/VatsalSy.github.io?style=flat-square&logo=github)](https://github.com/VatsalSy/VatsalSy.github.io/issues)
 [![PRs](https://img.shields.io/github/issues-pr/VatsalSy/VatsalSy.github.io?style=flat-square&logo=github)](https://github.com/VatsalSy/VatsalSy.github.io/pulls)
