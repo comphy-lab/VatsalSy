@@ -16,6 +16,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
+
+    - name: Verify thesis navigation docs stay in sync
+      run: |
+        chmod +x scripts/check-phd-thesis-nav-docs.sh
+        ./scripts/check-phd-thesis-nav-docs.sh
     
     - name: Set up Ruby
       uses: ruby/setup-ruby@v1
