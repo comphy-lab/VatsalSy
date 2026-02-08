@@ -82,10 +82,11 @@ The following pages redirect to the CoMPhy Lab website:
 - **\_layouts/default.html**: Base template for all pages
 - **Gemfile**: Ruby dependencies including Jekyll 4.3.2 and various
   plugins
-- **MathJax**: Loaded from local vendored asset first
-  (`/assets/js/mathjax/tex-svg.js`) with a pinned jsDelivr fallback
+- **MathJax**: Loaded from the local vendored asset first
+  (`/assets/js/mathjax/tex-svg.js`) for offline and archival reproducibility,
+  with a pinned jsDelivr fallback
   (`https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-svg.js`, with SRI)
-  for runtime resilience.
+  for consistent behavior when online (requires CDN availability).
 
 ### Math Authoring Policy
 
