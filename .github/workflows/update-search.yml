@@ -35,6 +35,7 @@ jobs:
           fetch-depth: 0 # Fetch all history for proper git operations
 
       - name: Clone comphy-search repository
+        id: clone-search-repo
         run: |
           GITHUB_ORG="${GITHUB_REPOSITORY%%/*}"
           SEARCH_REPO="${SEARCH_REPO:-comphy-search}"
@@ -42,8 +43,10 @@ jobs:
 
           if git clone "https://github.com/${GITHUB_ORG}/${SEARCH_REPO}.git"; then
             mkdir -p assets/js
+            echo "clone_ok=true" >> "${GITHUB_OUTPUT}"
             echo "Search database repository cloned successfully"
           else
+            echo "clone_ok=false" >> "${GITHUB_OUTPUT}"
             echo "Warning: Could not clone ${GITHUB_ORG}/${SEARCH_REPO}"
             echo "Search functionality may be limited. This is expected if the search repository does not exist."
             echo "::warning title=Search DB clone failed::Could not clone ${GITHUB_ORG}/${SEARCH_REPO}. Search update will be skipped."
@@ -56,6 +59,7 @@ jobs:
 
       - name: Copy search database
         id: copy-search-db
+        if: steps.clone-search-repo.outputs.clone_ok == 'true'
         run: |
           SEARCH_REPO="${SEARCH_REPO:-comphy-search}"
           echo "search_db_available=false" >> "${GITHUB_OUTPUT}"
