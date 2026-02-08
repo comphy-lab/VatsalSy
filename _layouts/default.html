@@ -28,6 +28,7 @@
   <script>
     window.MathJax = {
       tex: {
+        // Keep $...$ support for existing content; escape literal currency as \$.
         inlineMath: [['\\(', '\\)'], ['$', '$']]
       },
       svg: {
@@ -35,7 +36,11 @@
       }
     };
   </script>
-  <script defer src="{{ site.baseurl }}/assets/js/mathjax/tex-svg.js"></script>
+  <script
+    defer
+    src="{{ site.baseurl }}/assets/js/mathjax/tex-svg.js"
+    onerror="this.onerror=null;this.crossOrigin='anonymous';this.integrity='sha384-KKWa9jJ1MZvssLeOoXG6FiOAZfAgmzsIIfw8BXwI9+kYm0lPCbC6yTQPBC00F1/L';this.src='https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-svg.js';"
+  ></script>
 
   <script>
     document.documentElement.classList.remove('no-js');

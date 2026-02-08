@@ -55,7 +55,7 @@ The personal website for Vatsal Sanjay, hosted at [comphy-lab.org/vatsalsy](http
    ```bash
    bundle exec jekyll serve
    ```
-   - Visit http://localhost:4000 in the browser
+   - Visit <http://localhost:4000> in the browser
    - Changes in source files trigger automatic rebuilds
 
 4. **Deployment**
