@@ -61,7 +61,17 @@ tmp_about_diff="$(mktemp "${TMPDIR:-/tmp}/about_diff.XXXXXX")"
 trap 'rm -f "${tmp_about_source}" "${tmp_about_fallback}" "${tmp_about_diff}"' EXIT
 
 cp "${ABOUT_SOURCE_FILE}" "${tmp_about_source}"
-sed -n "/^${ABOUT_HEADING}\$/,\$p" "${ABOUT_FALLBACK_FILE}" > "${tmp_about_fallback}"
+awk -v about_heading="${ABOUT_HEADING}" '
+  $0 == about_heading {
+    in_section = 1
+  }
+  in_section && $0 ~ /^# / && $0 != about_heading {
+    exit
+  }
+  in_section {
+    print
+  }
+' "${ABOUT_FALLBACK_FILE}" > "${tmp_about_fallback}"
 
 if [[ ! -s "${tmp_about_fallback}" ]]; then
   echo "Could not find fallback heading '${ABOUT_HEADING}' in ${ABOUT_FALLBACK_FILE}."
