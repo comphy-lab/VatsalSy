@@ -5,9 +5,12 @@ set -euo pipefail
 REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 LAYOUT_FILE="${REPO_ROOT}/_layouts/default.html"
 DOC_FILE="${REPO_ROOT}/AGENTS.md"
+ABOUT_SOURCE_FILE="${REPO_ROOT}/aboutVatsal.md"
+ABOUT_FALLBACK_FILE="${REPO_ROOT}/about.md"
 
 NAV_LINK='href="{{ site.baseurl }}/phd-thesis/"'
 DOC_PHRASE="This page is included in the main navigation menu"
+ABOUT_HEADING="# About Me"
 
 if [[ ! -f "${LAYOUT_FILE}" ]]; then
   echo "Missing layout file: ${LAYOUT_FILE}"
@@ -16,6 +19,16 @@ fi
 
 if [[ ! -f "${DOC_FILE}" ]]; then
   echo "Missing docs file: ${DOC_FILE}"
+  exit 1
+fi
+
+if [[ ! -f "${ABOUT_SOURCE_FILE}" ]]; then
+  echo "Missing source about content file: ${ABOUT_SOURCE_FILE}"
+  exit 1
+fi
+
+if [[ ! -f "${ABOUT_FALLBACK_FILE}" ]]; then
+  echo "Missing fallback about content file: ${ABOUT_FALLBACK_FILE}"
   exit 1
 fi
 
@@ -42,4 +55,25 @@ if [[ ${nav_present} -eq 0 && ${doc_phrase_present} -eq 1 ]]; then
   exit 1
 fi
 
-echo "PhD thesis nav/docs check passed."
+tmp_about_source="$(mktemp)"
+tmp_about_fallback="$(mktemp)"
+tmp_about_diff="$(mktemp)"
+trap 'rm -f "${tmp_about_source}" "${tmp_about_fallback}" "${tmp_about_diff}"' EXIT
+
+cp "${ABOUT_SOURCE_FILE}" "${tmp_about_source}"
+sed -n "/^${ABOUT_HEADING}\$/,\$p" "${ABOUT_FALLBACK_FILE}" > "${tmp_about_fallback}"
+
+if [[ ! -s "${tmp_about_fallback}" ]]; then
+  echo "Could not find fallback heading '${ABOUT_HEADING}' in ${ABOUT_FALLBACK_FILE}."
+  exit 1
+fi
+
+if ! diff -u "${tmp_about_source}" "${tmp_about_fallback}" > "${tmp_about_diff}"; then
+  echo "About content drift detected between aboutVatsal.md and fallback content in about.md."
+  echo "Update ${ABOUT_FALLBACK_FILE} fallback section to match ${ABOUT_SOURCE_FILE}."
+  echo "Diff:"
+  cat "${tmp_about_diff}"
+  exit 1
+fi
+
+echo "PhD thesis nav/docs and about fallback sync checks passed."

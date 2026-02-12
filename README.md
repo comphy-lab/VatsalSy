@@ -62,6 +62,14 @@ The personal website for Vatsal Sanjay, hosted at [comphy-lab.org/vatsalsy](http
    - Typically managed via GitHub Pages when merged/pushed to the main branch
    - Local testing is recommended before committing changes
 
+### Commit Guardrails
+
+- Run `./scripts/check-node-modules.sh` before commits if you touch dependencies.
+- If `node_modules/` changes were accidental, clean them with:
+  - `git restore --staged --worktree -- node_modules`
+  - `git clean -fdX`
+- Install hooks with `npm install` so `.husky/pre-commit` blocks staged `node_modules/` changes automatically.
+
 ### Content Management
 
 #### About Page & Content
