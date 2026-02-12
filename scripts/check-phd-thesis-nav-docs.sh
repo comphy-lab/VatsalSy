@@ -55,9 +55,9 @@ if [[ ${nav_present} -eq 0 && ${doc_phrase_present} -eq 1 ]]; then
   exit 1
 fi
 
-tmp_about_source="$(mktemp)"
-tmp_about_fallback="$(mktemp)"
-tmp_about_diff="$(mktemp)"
+tmp_about_source="$(mktemp "${TMPDIR:-/tmp}/about_source.XXXXXX")"
+tmp_about_fallback="$(mktemp "${TMPDIR:-/tmp}/about_fallback.XXXXXX")"
+tmp_about_diff="$(mktemp "${TMPDIR:-/tmp}/about_diff.XXXXXX")"
 trap 'rm -f "${tmp_about_source}" "${tmp_about_fallback}" "${tmp_about_diff}"' EXIT
 
 cp "${ABOUT_SOURCE_FILE}" "${tmp_about_source}"

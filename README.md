@@ -47,14 +47,17 @@ The personal website for Vatsal Sanjay, hosted at [comphy-lab.org/vatsalsy](http
    - Bundler (`gem install bundler`)
 
 2. **Install Dependencies**
+
    ```bash
    bundle install
    ```
 
 3. **Run Local Server**
+
    ```bash
    bundle exec jekyll serve
    ```
+
    - Visit <http://localhost:4000> in the browser
    - Changes in source files trigger automatic rebuilds
 
@@ -67,12 +70,13 @@ The personal website for Vatsal Sanjay, hosted at [comphy-lab.org/vatsalsy](http
 - Run `./scripts/check-node-modules.sh` before commits if you touch dependencies.
 - If `node_modules/` changes were accidental, clean them with:
   - `git restore --staged --worktree -- node_modules`
-  - `git clean -fdX`
+  - `git clean -fdX -- node_modules/`
 - Install hooks with `npm install` so `.husky/pre-commit` blocks staged `node_modules/` changes automatically.
 
 ### Content Management
 
 #### About Page & Content
+
 - `about.md`: Redirects to the About section on the homepage (/#about)
 - `aboutVatsal.md`: Contains the About section content loaded via JavaScript on the homepage
 - The main.js file fetches and renders aboutVatsal.md in the #about-content element
@@ -80,15 +84,17 @@ The personal website for Vatsal Sanjay, hosted at [comphy-lab.org/vatsalsy](http
 **IMPORTANT**: When updating `aboutVatsal.md`, you must also update the fallback content in `about.md` (lines 15-37) to keep them synchronized. The fallback content is displayed when JavaScript is disabled.
 
 #### Research Pages
+
 - `research-interests.md`: Redirects to comphy-lab.org/research
 - `research-interest.md`: Redirects to comphy-lab.org/research
 - `phd-thesis.md`: Redirects to comphy-lab.org/research#thesis
 - `talks.md`: Redirects to comphy-lab.org/research
 
 #### Contact Page
+
 - `contact.md`: Redirects to comphy-lab.org/join
 
-#### Adding or Editing Team 
+#### Adding or Editing Team
 
 See: [comphy-lab.org/team](https://comphy-lab.org/team) and to edit, see: [github](https://github.com/comphy-lab/comphy-lab.github.io)
 
@@ -99,12 +105,14 @@ See: [comphy-lab.org/research](https://comphy-lab.org/research) and to edit, see
 ## Part B: Back-End Documentation
 
 ### Configuration and Layouts
+
 - `_config.yml`: Site-wide settings, collections, build options
 - Layout Templates in `_layouts/`
 - Partial Includes in `_includes/`
 - Assets in `assets/`
 
 ### Design Elements
+
 - **Color Scheme**
   - Gradient text (Red to Blue) for lab name
   - Warm orange tint + blur for header
@@ -117,16 +125,17 @@ See: [comphy-lab.org/research](https://comphy-lab.org/research) and to edit, see
   - Generated from CoMPhy Lab logo
 
 ### Fonts and Icons Attribution
+
 - [Academicons 1.7.0 (SIL OFL 1.1, MIT)](https://jpswalsh.github.io/academicons/)
 - [Font Awesome](https://fontawesome.com/)
 - Fontello (Various licenses)
 - Libre Baskerville (SIL Open Font License)
 - Open Sans (Apache License 2.0)
 
-
 ## Contributing Guidelines
 
 ### Issue Templates
+
 The repository includes several issue templates to streamline the process of reporting problems or requesting changes:
 
 1. **[Bug Report](https://github.com/VatsalSy/VatsalSy.github.io/issues/new?template=bug_report.yml)**: Use this template to report website issues, broken links, or display problems
@@ -134,6 +143,7 @@ The repository includes several issue templates to streamline the process of rep
 3. **[Add Publication](https://github.com/VatsalSy/VatsalSy.github.io/issues/new?template=add_publication.yml)**: Template for adding new research publications with metadata
 
 To create a new issue:
+
 1. Click one of the template links above, or
 2. Go to the Issues tab in GitHub
 3. Click "New Issue"
@@ -142,7 +152,9 @@ To create a new issue:
 6. Submit the issue
 
 ### Pull Request Template
+
 When submitting changes, use the provided PR template which includes:
+
 - Description of changes
 - Type of change (bug fix, feature, content update, etc.)
 - Testing checklist
@@ -150,6 +162,7 @@ When submitting changes, use the provided PR template which includes:
 - Screenshots (if applicable)
 
 To submit a PR:
+
 1. Fork the repository
 2. Create a new branch for your changes
 3. Make and test your changes locally

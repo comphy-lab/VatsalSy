@@ -16,7 +16,7 @@ if [[ -n "${STAGED_NODE_MODULES}" ]]; then
   echo
   echo "Quick cleanup options:"
   echo "  git restore --staged --worktree -- node_modules"
-  echo "  git clean -fdX"
+  echo "  git clean -fdX -- node_modules/"
   exit 1
 fi
 
