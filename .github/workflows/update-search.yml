@@ -39,22 +39,29 @@ jobs:
         run: |
           GITHUB_ORG="${GITHUB_REPOSITORY%%/*}"
           SEARCH_REPO="${SEARCH_REPO:-comphy-search}"
-          echo "Attempting to clone search database from ${GITHUB_ORG}/${SEARCH_REPO}..."
+          SEARCH_BRANCH="${SEARCH_BRANCH:-main}"
+          CLONE_URL="https://github.com/${GITHUB_ORG}/${SEARCH_REPO}.git"
+          CLONE_LOG="$(mktemp)"
 
-          if git clone "https://github.com/${GITHUB_ORG}/${SEARCH_REPO}.git"; then
+          echo "Attempting to clone search database from ${GITHUB_ORG}/${SEARCH_REPO} (${SEARCH_BRANCH})..."
+
+          if git clone --single-branch --branch "${SEARCH_BRANCH}" "${CLONE_URL}" 2>"${CLONE_LOG}"; then
             mkdir -p assets/js
             echo "clone_ok=true" >> "${GITHUB_OUTPUT}"
             echo "Search database repository cloned successfully"
           else
             echo "clone_ok=false" >> "${GITHUB_OUTPUT}"
-            echo "Warning: Could not clone ${GITHUB_ORG}/${SEARCH_REPO}"
-            echo "Search functionality may be limited. This is expected if the search repository does not exist."
-            echo "::warning title=Search DB clone failed::Could not clone ${GITHUB_ORG}/${SEARCH_REPO}. Search update will be skipped."
+            CLONE_ERROR="$(tr '\n' ' ' < "${CLONE_LOG}" | sed 's/[[:space:]]\+/ /g; s/^ //; s/ $//')"
+            echo "::error title=Search DB clone failed::Could not clone ${GITHUB_ORG}/${SEARCH_REPO} (${SEARCH_BRANCH})."
             {
-              echo "### Search DB update skipped"
-              echo "- Clone failed for \`${GITHUB_ORG}/${SEARCH_REPO}\`."
+              echo "### Search DB clone failed"
+              echo "- Repository: \`${GITHUB_ORG}/${SEARCH_REPO}\`"
+              echo "- Branch: \`${SEARCH_BRANCH}\`"
+              echo "- URL: \`${CLONE_URL}\`"
+              echo "- Error: \`${CLONE_ERROR}\`"
             } >> "${GITHUB_STEP_SUMMARY}"
-            exit 0
+            cat "${CLONE_LOG}" >&2
+            exit 1
           fi
 
       - name: Copy search database

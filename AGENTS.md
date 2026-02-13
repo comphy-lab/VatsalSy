@@ -94,6 +94,12 @@ The following pages redirect to the CoMPhy Lab website:
 - Escape literal dollar signs in content as `\$` to prevent accidental math
   parsing.
 
+### MathJax Update Checklist
+
+- Refresh vendored MathJax at `assets/js/mathjax/tex-svg.js`.
+- Update pinned fallback URL and SRI hash in `_layouts/default.html`.
+- Re-run `scripts/check-phd-thesis-nav-docs.sh` and `npm run lint:md`.
+
 ### Content Management
 
 - Team information and research papers are managed at the CoMPhy Lab
