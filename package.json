@@ -9,7 +9,7 @@
   "description": "Vatsal Sanjay's Personal Website - A Jekyll-based static site",
   "main": "index.js",
   "scripts": {
-    "lint:js": "eslint assets/js/**/*.js",
+    "lint:js": "eslint assets/js/**/*.js --ignore-pattern 'assets/js/mathjax/**' --no-warn-ignored",
     "lint:css": "stylelint 'assets/css/**/*.css'",
     "lint:md": "markdownlint-cli2 '**/*.md' --ignore node_modules",
     "lint:md:fix": "markdownlint-cli2 --fix '**/*.md' --ignore node_modules",
