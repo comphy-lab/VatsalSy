@@ -36,13 +36,13 @@
   },
   "homepage": "https://comphy-lab.org/vatsalsy",
   "overrides": {
-    "brace-expansion": "1.1.15",
+    "brace-expansion": "1.1.16",
     "form-data": "4.0.4",
     "js-yaml": "4.3.0",
     "markdown-it": "14.2.0"
   },
   "devDependencies": {
-    "eslint": "^9.39.2",
+    "eslint": "^10.7.0",
     "globals": "^16.2.0",
     "husky": "^9.1.7",
     "jest": "^30.2.0",
