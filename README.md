@@ -8,7 +8,7 @@
 [![Last Commit](https://img.shields.io/github/last-commit/VatsalSy/VatsalSy.github.io?style=flat-square&logo=github)](https://github.com/VatsalSy/VatsalSy.github.io/commits/main)
 [![Jekyll](https://img.shields.io/badge/Jekyll-4.3.2-%23CC0000?style=flat-square&logo=jekyll)](https://jekyllrb.com/)
 
-The personal website for Vatsal Sanjay, hosted at [comphy-lab.org/vatsalsy](https://comphy-lab.org/vatsalsy), built with Jekyll. If you are looking for the website of the Computational Multiphase Physics Lab, check out [comphy-lab.org](https://comphy-lab.org) or [github](https://github.com/comphy-lab).
+The personal website for Vatsal Sanjay, hosted at [comphy-lab.org/VatsalSy](https://comphy-lab.org/VatsalSy), built with Jekyll. If you are looking for the website of the Computational Multiphase Physics Lab, check out [comphy-lab.org](https://comphy-lab.org) or [github](https://github.com/comphy-lab).
 
 ## Directory Structure
 

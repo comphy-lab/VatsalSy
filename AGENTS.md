@@ -6,7 +6,7 @@ with code in this repository.
 ## Overview
 
 This is Vatsal Sanjay's personal website built with Jekyll and hosted on
-GitHub Pages at <https://comphy-lab.org/vatsalsy>. The site serves as a
+GitHub Pages at <https://comphy-lab.org/VatsalSy>. The site serves as a
 redirect hub to the [CoMPhy Lab website](https://comphy-lab.org) for research
 content, team information, and contact details.
 
