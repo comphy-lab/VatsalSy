@@ -32,6 +32,7 @@ We’re building a computationally focused group at Durham. If you’re excited 
 - <i class="fa-brands fa-github"></i> [Personal GitHub](https://github.com/VatsalSy)
 
 ## Selected Recent Papers
+- Sanjay, V. Singularities in Soft Matter Systems. Contemporary Physics (2026). [![DOI](https://img.shields.io/badge/DOI-10.1080%2F00107514.2026.2721118-orange?style=flat)](https://doi.org/10.1080/00107514.2026.2721118)
 - Dixit, A., Oratis, A., Zinelis, K., Lohse, D., & Sanjay, V. Viscoelastic Worthington Jets and Droplets Produced by Bursting Bubbles. J. Fluid Mech., 1010, A2 (2025). [![Open Access](https://img.shields.io/badge/Open%20Access-Open-orange?logo=openaccess&logoColor=white&style=flat)](https://doi.org/10.1017/jfm.2025.237)
 - Sanjay, V., & Lohse, D. Unifying theory of scaling in drop impact: Forces & maximum spreading diameter. Phys. Rev. Lett., 134, 104003 (2025). [![Open Access](https://img.shields.io/badge/Open%20Access-Open-orange?logo=openaccess&logoColor=white&style=flat)](https://doi.org/10.1103/PhysRevLett.134.104003)
 - Sanjay, V., Zhang, B., Lv, C., & Lohse, D. The role of viscosity on drop impact forces on non-wetting surfaces. J. Fluid Mech., 1004, A6 (2025). [![Open Access](https://img.shields.io/badge/Open%20Access-Open-orange?logo=openaccess&logoColor=white&style=flat)](https://doi.org/10.1017/jfm.2024.982)
