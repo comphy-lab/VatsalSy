@@ -40,7 +40,7 @@ We’re building a computationally focused group at Durham. If you’re excited 
 - Sanjay, V., Zhang, B., Lv, C., & Lohse, D. The role of viscosity on drop impact forces on non-wetting surfaces. J. Fluid Mech., 1004, A6 (2025). [![Open Access](https://img.shields.io/badge/Open%20Access-Open-orange?logo=openaccess&logoColor=white&style=flat)](https://doi.org/10.1017/jfm.2024.982)
 
 ## Recent Talks
-- Sanjay, V. [Singularities in Soft Matter Systems](https://comphy-lab.org/talks/singular-bursting-bubbles/#5a0b53ad). SES 2026 Annual Technical Meeting, Purdue University, West Lafayette, IN, USA (12 Oct 2026).
+- Sanjay, V. [Singularities in Soft Matter Systems](https://comphy-lab.org/talks/singular-bursting-bubbles/#5a0b53ad). Invited talk, SES 2026 Annual Technical Meeting, Purdue University, West Lafayette, IN, USA (12 Oct 2026).
 - Sanjay, V. [Singularities in Soft Matter Systems](https://comphy-lab.org/talks/singular-bursting-bubbles/#5a0b53ad). Invited talk, University of Illinois Urbana-Champaign, Urbana, IL, USA (8 Oct 2026).
 
 ### Find me
