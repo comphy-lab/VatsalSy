@@ -7,8 +7,8 @@ For current research, team, and resources, visit [CoMPhy Lab](https://comphy-lab
 ## Snapshot
 - Assistant Professor, Department of Physics, Durham University (since 2025)
 - [Postdoc, Physics of Fluids — Univ. Twente (2022–25)](https://pof.tnw.utwente.nl/people/profile/1330)
-- [Ph.D., Physics of Fluids — Univ. Twente (2018–22)](https://doi.org/10.3990/1.9789036554077)
-- [B.Tech + M.Tech, IIT Roorkee (2013–18)](http://dx.doi.org/10.13140/RG.2.2.22294.04166)
+- [Ph.D., Physics of Fluids — Univ. Twente (2018–22)](https://research.utwente.nl/en/publications/viscous-free-surface-flows/)
+- [B.Tech + M.Tech, IIT Roorkee (2013–18)](https://doi.org/10.13140/RG.2.2.22294.04166)
 
 - [<i class="fa-solid fa-download"></i> Download CV](https://raw.githubusercontent.com/VatsalSy/Vatsal_CV/master/Vatsal_CV.pdf) [<i class="fa-solid fa-book"></i> Research](https://comphy-lab.org/research)
 
@@ -32,7 +32,9 @@ We’re building a computationally focused group at Durham. If you’re excited 
 - <i class="fa-brands fa-github"></i> [Personal GitHub](https://github.com/VatsalSy)
 
 ## Selected Recent Papers
+- Gordillo, J. M., Rodríguez-Rodríguez, J., & Sanjay, V. Self-similar Worthington jets. arXiv preprint arXiv:2607.08972 (2026). [![arXiv](https://img.shields.io/badge/arXiv-2607.08972-b31b1b?style=flat)](https://arxiv.org/abs/2607.08972)
 - Sanjay, V. Singularities in Soft Matter Systems. Contemporary Physics (2026). [![DOI](https://img.shields.io/badge/DOI-10.1080%2F00107514.2026.2721118-orange?style=flat)](https://doi.org/10.1080/00107514.2026.2721118)
+- Verschuur, C. I., Oratis, A. T., Sanjay, V., & Snoeijer, J. H. How elasticity affects bubble pinch-off. Phys. Rev. Fluids, 11, 073302 (2026). [![DOI](https://img.shields.io/badge/DOI-10.1103%2F5sp3--k5l2-orange?style=flat)](https://doi.org/10.1103/5sp3-k5l2)
 - Dixit, A., Oratis, A., Zinelis, K., Lohse, D., & Sanjay, V. Viscoelastic Worthington Jets and Droplets Produced by Bursting Bubbles. J. Fluid Mech., 1010, A2 (2025). [![Open Access](https://img.shields.io/badge/Open%20Access-Open-orange?logo=openaccess&logoColor=white&style=flat)](https://doi.org/10.1017/jfm.2025.237)
 - Sanjay, V., & Lohse, D. Unifying theory of scaling in drop impact: Forces & maximum spreading diameter. Phys. Rev. Lett., 134, 104003 (2025). [![Open Access](https://img.shields.io/badge/Open%20Access-Open-orange?logo=openaccess&logoColor=white&style=flat)](https://doi.org/10.1103/PhysRevLett.134.104003)
 - Sanjay, V., Zhang, B., Lv, C., & Lohse, D. The role of viscosity on drop impact forces on non-wetting surfaces. J. Fluid Mech., 1004, A6 (2025). [![Open Access](https://img.shields.io/badge/Open%20Access-Open-orange?logo=openaccess&logoColor=white&style=flat)](https://doi.org/10.1017/jfm.2024.982)

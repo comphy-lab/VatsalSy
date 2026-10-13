@@ -23,8 +23,8 @@ permalink: /phd-thesis/
           <a href="https://qrco.de/bd9SHU" target="_blank" rel="noopener noreferrer" style="display: inline-block;">
             <img src="https://img.shields.io/badge/Download-PhD%20Thesis-blue?style=for-the-badge&logo=adobeacrobatreader&logoColor=white" alt="Download PhD Thesis">
           </a>
-          <a href="https://doi.org/10.3990/1.9789036554077" target="_blank" rel="noopener noreferrer" style="display: inline-block;">
-            <img src="https://img.shields.io/badge/DOI-10.3990%2F1.9789036554077-orange?style=for-the-badge&logo=doi&logoColor=white" alt="DOI">
+          <a href="https://research.utwente.nl/en/publications/viscous-free-surface-flows/" target="_blank" rel="noopener noreferrer" style="display: inline-block;" title="DOI 10.3990/1.9789036554077">
+            <img src="https://img.shields.io/badge/DOI-10.3990%2F1.9789036554077-orange?style=for-the-badge&logo=doi&logoColor=white" alt="DOI 10.3990/1.9789036554077">
           </a>
           <a href="https://github.com/VatsalSy/Vatsal-Thesis" target="_blank" rel="noopener noreferrer" style="display: inline-block;">
             <img src="https://img.shields.io/badge/LaTeX%20Source-GitHub-181717?style=for-the-badge&logo=github&logoColor=white" alt="LaTeX Source on GitHub">

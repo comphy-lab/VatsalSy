@@ -30,7 +30,7 @@ The personal website for Vatsal Sanjay, hosted at [comphy-lab.org/VatsalSy](http
 ├── aboutVatsal.md         # Content for the About section (loaded via JavaScript)
 ├── contact.md             # Contact page (redirects to comphy-lab.org/join)
 ├── index.html             # Homepage
-├── phd-thesis.md          # PhD Thesis page (redirects to comphy-lab.org/research#thesis)
+├── phd-thesis.md          # PhD Thesis page (Viscous Free-Surface Flows)
 ├── research-interests.md  # Research interests page (redirects to comphy-lab.org/research)
 ├── research-interest.md   # Redirect to comphy-lab.org/research
 ├── talks.md               # Talks page (redirects to comphy-lab.org/research)
@@ -87,7 +87,7 @@ The personal website for Vatsal Sanjay, hosted at [comphy-lab.org/VatsalSy](http
 
 - `research-interests.md`: Redirects to comphy-lab.org/research
 - `research-interest.md`: Redirects to comphy-lab.org/research
-- `phd-thesis.md`: Redirects to comphy-lab.org/research#thesis
+- `phd-thesis.md`: Full content page for the PhD thesis "Viscous Free-Surface Flows"
 - `talks.md`: Redirects to comphy-lab.org/research
 
 #### Contact Page
