@@ -37,13 +37,13 @@
   "homepage": "https://comphy-lab.org/vatsalsy",
   "overrides": {
     "brace-expansion": "1.1.21",
-    "fast-uri": "4.2.1",
+    "fast-uri": "4.2.3",
     "form-data": "4.0.4",
     "js-yaml": "4.3.2",
     "json": ">=2.21.2",
     "katex": "0.19.0",
     "linkify-it": ">=5.0.2",
-    "markdown-it": "14.3.2",
+    "markdown-it": "14.3.3",
     "postcss": ">=8.5.23"
   },
   "devDependencies": {
